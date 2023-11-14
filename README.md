@@ -69,20 +69,25 @@ Calender Tracker:
 
 Provide visuals of your app's screens. You can use tools like Figma or pictures of hand-drawn sketches.
 
+![Alt text](homepage.jpg)
+![Alt text](journal.jpg)
+![Alt text](mood-tracker.jpg)
+
 ### Data
 
 Describe your data and the relationships between them. You can show this visually using diagrams, or write it out.
 
 - Being able to store user's moods on a database so they can see the evolution/timeline.
 - Being able to store user's jounral content, title and the timestamp in a database.
+- API for inspirational quotes.
 
 ### Endpoints
 
 List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
 
-- GET.
-- POST.
-- PUT.
+- GET : need to get the information for the moods in the database, and from the journal for calender.
+- POST : so that users can post into their journal.
+- PUT : so that users can edit their journal.
 
 ### Auth
 
