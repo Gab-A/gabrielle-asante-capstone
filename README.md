@@ -1,6 +1,6 @@
 # Project Title
 
-Evolve
+VibeScribe
 
 ## Overview
 
@@ -69,9 +69,9 @@ Calender Tracker:
 
 Provide visuals of your app's screens. You can use tools like Figma or pictures of hand-drawn sketches.
 
-![Alt text](homepage.jpg)
-![Alt text](journal.jpg)
-![Alt text](mood-tracker.jpg)
+![Alt text](src/assets/images/homepage.jpg)
+![Alt text](src/assets/images/journal.jpg)
+![Alt text](src/assets/images/mood-tracker.jpg)
 
 ### Data
 
