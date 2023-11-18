@@ -1,3 +1,32 @@
-body {
-  background-color: #f7f7f7;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.vibe-scribe {
+  &__container {
+    @include flexCenter(row);
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__logo {
+    padding-left: 6.8rem;
+
+    @include tablet {
+      padding-left: 0rem;
+    }
+  }
+
+  &__fadeout {
+    animation: fadeOut 3s ease-out forwards;
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.8;
+    }
+  }
 }
