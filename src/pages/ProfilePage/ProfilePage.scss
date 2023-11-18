@@ -1,0 +1,15 @@
+.profile {
+  padding-left: 1rem;
+  &__container {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__title {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  &__image {
+    width: 2rem;
+  }
+}
