@@ -5,16 +5,13 @@
   padding-top: 1.5rem;
   &__wrapper {
     max-width: $wrapper-max-width;
-
-    @include tablet {
-      @include flexCenter(column);
-    }
+    @include flexCenter(column);
   }
 
   &__heading {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
-    font-weight: 600;
+    font-weight: 500;
     padding-left: 0.65rem;
 
     @include tablet {

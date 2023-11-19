@@ -2,9 +2,12 @@ import CardList from "../../components/CardList/CardList";
 import "./ProfilePage.scss";
 import profileImage from "../../assets/icons/profile.svg";
 import { useState, useEffect } from "react";
+import getAllQuotes from "../../scripts/utils/get-all-quotes";
+import Carousel from "../../components/Carousel/Carousel";
 
 export default function ProfilePage() {
   const [greeting, setGreeting] = useState("");
+  const [quotes, setQuotes] = useState(null);
 
   useEffect(() => {
     const time = new Date().getHours();
@@ -18,17 +21,48 @@ export default function ProfilePage() {
     }
   }, []);
 
+  useEffect(() => {
+    const fetchQuotes = async () => {
+      try {
+        const response = await getAllQuotes();
+        const quotesData = response;
+        console.log(response);
+        setQuotes(quotesData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchQuotes();
+  }, []);
+
+  if (!quotes) {
+    return <p>Loading</p>;
+  }
+
+  console.log(quotes);
+
   return (
     <section className="profile">
-      <div className="profile__container">
-        <img
-          src={profileImage}
-          alt="profile placeholder"
-          className="profile__image"
-        ></img>
-        <h4 className="profile__title">{greeting}, Mia</h4>
+      <div className="profile__wrapper">
+        <div className="profile__container">
+          <img
+            src={profileImage}
+            alt="profile placeholder"
+            className="profile__image"
+          ></img>
+          <h4 className="profile__title">{greeting}, Mia</h4>
+        </div>
+        <p className="profile__title-quotes">Your Daily Motivational Quotes:</p>
+        <Carousel quotes={quotes} />
       </div>
-      <CardList />;
+      <CardList />
+      <h4 className="profile__journal-title">Jounraling</h4>
+      <div className="profile__journal-card">
+        <p className="profile__journal__text">
+          You can be yourself here. Select a mood, and you can express more
+          about how are feeling...
+        </p>
+      </div>
     </section>
   );
 }

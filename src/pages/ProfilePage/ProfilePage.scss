@@ -1,7 +1,8 @@
 .profile {
-  padding-left: 1rem;
+  &__wrapper {
+    padding: 0rem 0.5rem 0rem 0.5rem;
+  }
   &__container {
-    display: flex;
     gap: 0.5rem;
     padding-left: 0.5rem;
   }
@@ -12,5 +13,21 @@
   }
   &__image {
     width: 2rem;
+  }
+
+  &__title-quotes {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0rem 0rem 1rem 1rem;
+  }
+
+  &__journal-card {
+    background-color: #ebe3d5;
+    opacity: 70%;
+    width: 90%;
+    border-radius: 0.25rem;
+    padding: 1.25rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
   }
 }

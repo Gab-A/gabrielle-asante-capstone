@@ -23,6 +23,9 @@
     @include tablet {
       width: 8rem;
     }
+    @include desktop {
+      width: 7rem;
+    }
   }
 
   &__card-wrapper {
