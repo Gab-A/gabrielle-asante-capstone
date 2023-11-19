@@ -16,14 +16,14 @@ export default function ProfilePage() {
     } else {
       setGreeting("Good Evening");
     }
-  });
+  }, []);
 
   return (
     <section className="profile">
       <div className="profile__container">
         <img
           src={profileImage}
-          alt="profile image"
+          alt="profile placeholder"
           className="profile__image"
         ></img>
         <h4 className="profile__title">{greeting}, Mia</h4>

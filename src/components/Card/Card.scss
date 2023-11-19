@@ -20,6 +20,9 @@
     &--active {
       background-color: purple;
     }
+    @include tablet {
+      width: 8rem;
+    }
   }
 
   &__card-wrapper {

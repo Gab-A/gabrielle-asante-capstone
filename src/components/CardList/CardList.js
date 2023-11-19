@@ -1,46 +1,74 @@
 import Card from "../Card/Card";
 import "./CardList.scss";
 import "../../assets/icons/smile.svg";
-import happyImage from "../../assets/icons/smile.svg";
-import sadImage from "../../assets/icons/sad.svg";
-import anxiousImage from "../../assets/icons/anxious.svg";
-import tiredImage from "../../assets/icons/tired.svg";
+import happyEmoji from "../../assets/icons/smile.svg";
+import sadEmoji from "../../assets/icons/sad.svg";
+import anxiousEmoji from "../../assets/icons/anxious.svg";
+import tiredEmoji from "../../assets/icons/tired.svg";
+import stressedEmoji from "../../assets/icons/stressed.svg";
+import gratefulEmoji from "../../assets/icons/grateful.svg";
+import unsureEmoji from "../../assets/icons/unsure.svg";
+import calmEmoji from "../../assets/icons/calm.svg";
+import angryEmoji from "../../assets/icons/angry.svg";
 
 export default function CardList() {
   const cardsArray = [
     {
       id: "267858",
       title: "Happy",
-      image: happyImage,
+      image: happyEmoji,
     },
     {
       id: "246810",
       title: "Sad",
-      image: sadImage,
+      image: sadEmoji,
     },
     {
-      id: "578932",
-      title: "Anxious",
-      image: anxiousImage,
+      id: "434845",
+      title: "Angry",
+      image: angryEmoji,
+    },
+    {
+      id: "789569",
+      title: "Grateful",
+      image: gratefulEmoji,
+    },
+    {
+      id: "435858",
+      title: "Calm",
+      image: calmEmoji,
+    },
+    {
+      id: "434323",
+      title: "Unusre",
+      image: unsureEmoji,
+    },
+    {
+      id: "623589",
+      title: "Stressed",
+      image: stressedEmoji,
     },
     {
       id: "984456",
       title: "Tired",
-      image: tiredImage,
+      image: tiredEmoji,
     },
     {
-      id: "789569",
-      title: "Calm",
+      id: "4655859",
+      title: "Anxious",
+      image: anxiousEmoji,
     },
-    {
-      id: "134586",
-      title: "Unsure",
-    },
+
+    // {
+    //   id: "423451",
+    //   title: "Angry",
+    //   image: angryEmoji,
+    // },
   ];
   return (
     <section className="mood">
       <div className="mood__wrapper">
-        <h1 className="mood__title">How are you feeling today?</h1>
+        <h1 className="mood__heading">How are you feeling today?</h1>
         <div className="mood__container">
           {cardsArray.map((card) => (
             <Card key={card.id} title={card.title} image={card.image} />

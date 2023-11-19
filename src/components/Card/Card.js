@@ -17,7 +17,7 @@ export default function Card({ image, title }) {
         <div className="mood__card-wrapper">
           <img
             src={image}
-            alt="card mood image"
+            alt="card mood emoji"
             className="mood__card-image"
           ></img>
           <p className="mood__card-title">{title}</p>
