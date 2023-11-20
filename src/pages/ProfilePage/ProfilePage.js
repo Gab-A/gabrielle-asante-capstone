@@ -3,7 +3,7 @@ import "./ProfilePage.scss";
 import profileImage from "../../assets/icons/profile.svg";
 import { useState, useEffect } from "react";
 import getAllQuotes from "../../scripts/utils/get-all-quotes";
-import Carousel from "../../components/Carousel/Carousel";
+import QuotesCarousel from "../../components/QuotesCarousel/QuotesCarousel";
 
 export default function ProfilePage() {
   const [greeting, setGreeting] = useState("");
@@ -53,7 +53,7 @@ export default function ProfilePage() {
           <h4 className="profile__title">{greeting}, Mia</h4>
         </div>
         <p className="profile__title-quotes">Your Daily Motivational Quotes:</p>
-        <Carousel quotes={quotes} />
+        <QuotesCarousel quotes={quotes} />
       </div>
       <CardList />
       <h4 className="profile__journal-title">Jounraling</h4>

@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 // import { useState, useEffect } from "react";
-import "./Carousel.scss";
+import "./QuotesCarousel.scss";
 
 // Import Swiper styles
 import "swiper/css";
@@ -10,9 +10,9 @@ import "swiper/css/navigation";
 // import "./styles.css";
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
-export default function QuotesSlider({ quotes }) {
+export default function QuotesCarousel({ quotes }) {
   const quotesSlides = quotes.map((quote) => (
     <SwiperSlide key={quote.id}>
       <p className="carousel__text">
@@ -28,9 +28,6 @@ export default function QuotesSlider({ quotes }) {
         autoplay={{
           delay: 4500,
           disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
         }}
         navigation={false}
         modules={[Autoplay, Navigation]}
