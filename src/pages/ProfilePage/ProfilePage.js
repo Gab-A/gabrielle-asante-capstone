@@ -59,7 +59,6 @@ export default function ProfilePage() {
           <p>You can also monitor your mood.</p>
         </div>
         <QuotesCarousel quotes={quotes} />
-        <div className="profile__info-cards"></div>
       </div>
     </section>
   );
