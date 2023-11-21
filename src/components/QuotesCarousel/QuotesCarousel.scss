@@ -36,15 +36,13 @@
   &__blockquote p:before {
     content: open-quote;
     font-weight: bold;
-    font-size: 50px;
-    color: #ffff;
+    font-size: 3.125rem;
+    color: $air-blue;
   }
 
   &__blockquote p:after {
     content: close-quote;
     font-weight: bold;
-    color: #ffff;
-    // font-size: 100px;
-    // color: #889c0b;
+    color: $air-blue;
   }
 }
