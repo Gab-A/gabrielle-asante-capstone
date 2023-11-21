@@ -1,14 +1,72 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .journal {
   &__form-group {
     display: flex;
     flex-direction: column;
   }
 
+  &__form {
+    background-color: $columbia-blue;
+    // background-color: #fefae0;
+    border-radius: 0.5rem;
+    height: 60vh;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding-left: 1.5rem;
+    padding-top: 0.2rem;
+  }
+  &__form-title {
+    margin-top: 2rem;
+  }
+
+  &__form-content {
+    margin-top: 2rem;
+  }
+
   &__input {
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
+    width: 95%;
     font-family: "Quicksand";
+    padding: 0.5rem;
     &--content {
       resize: none;
+      height: 8rem;
     }
+  }
+
+  &__form-label {
+    color: $dark-grey;
+  }
+
+  &__button-container {
+    @include flexCenter(row);
+    margin-top: 2rem;
+    margin: 2rem auto;
+  }
+
+  &__button {
+    color: $primary-white;
+    background-color: $dark-blue;
+    width: 80%;
+    font-weight: 500;
+    font-family: "Quicksand";
+    font-size: 1rem;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.95rem 1rem;
+    margin-right: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 0px;
+    cursor: pointer;
+
+    &:active {
+      box-shadow: none;
+      transform: translateY(0.375rem);
+    }
+  }
+
+  &__form-error {
+    margin-top: 1rem;
   }
 }

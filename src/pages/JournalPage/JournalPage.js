@@ -31,7 +31,7 @@ export default function JournalPage() {
       description: event.target.content.value,
     };
     try {
-      await axios.post("/journal", newJournal);
+      await axios.post("http://localhost:8000/journal", newJournal);
       setIsError(false);
     } catch (error) {
       setIsError(true);
@@ -45,13 +45,12 @@ export default function JournalPage() {
 
     if (!title) {
       formIsValid = false;
-      errors["title"] = "Hey, you forgot to enter a title for your journal";
+      errors["title"] = "Hey, please add a title for your journal!";
     }
 
     if (!content) {
       formIsValid = false;
-      errors["content"] =
-        "Hey, you forgot to add some content for your journal";
+      errors["content"] = "Hey, please add some content for your journal!";
     }
 
     if (!formIsValid) {
@@ -61,9 +60,11 @@ export default function JournalPage() {
     if (!formIsValid) {
       setMessage(false);
     } else {
-      setMessage("Journal entry uploaded. Redirecting to you the ");
+      setMessage(
+        "Journal entry uploaded. Redirecting to your journal entries page "
+      );
       setTimeout(() => {
-        // navigate("/");
+        navigate("/journal-entries");
       }, 1500);
       event.target.reset();
     }
@@ -72,17 +73,19 @@ export default function JournalPage() {
   return (
     <section className="journal">
       <div className="journal__wrapper">
-        <p>This is the journal page.</p>
+        <h2>This is the journal page.</h2>
         <form className="journal__form" onSubmit={handleSubmit}>
-          <div className="journal__form-group">
-            <label htmlFor="title">Title</label>
+          <div className="journal__form-group journal__form-title">
+            <label htmlFor="title" className="journal__form-label">
+              Title
+            </label>
             <input
               type="text"
               name="title"
               id="title"
               value={title}
               onChange={handleChangeTitle}
-              className={`journal__input ${
+              className={`journal__input journal__input--title${
                 submit && title === "" ? "journal__input--invalid" : ""
               }`}
             />
@@ -90,8 +93,10 @@ export default function JournalPage() {
               <p className="journal__form-error">{errors.title}</p>
             )}
           </div>
-          <div className="journal__form-group">
-            <label htmlFor="content">Content</label>
+          <div className="journal__form-group journal__form-content">
+            <label htmlFor="content" className="journal__form-label">
+              Content
+            </label>
             <textarea
               name="content"
               id="content"
@@ -105,7 +110,7 @@ export default function JournalPage() {
               <p className="journal__form-error">{errors.content}</p>
             )}
           </div>
-          <div className="journal__button-group">
+          <div className="journal__button-container">
             <button className="journal__button">Save</button>
           </div>
         </form>

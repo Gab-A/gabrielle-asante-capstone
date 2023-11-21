@@ -3,6 +3,7 @@ import getAllJournals from "../../scripts/utils/get-all-journals";
 
 export default function JournalEntriesPage() {
   const [journals, setJournals] = useState(null);
+  const [expand, setExpanded] = useState(false);
 
   useEffect(() => {
     const fetchJournals = async () => {
@@ -19,17 +20,30 @@ export default function JournalEntriesPage() {
   if (!journals) {
     return <p>Loading</p>;
   }
+
+  const handleExpand = (journal) => {
+    setExpanded((selectedJournal) =>
+      selectedJournal === journal ? null : journal
+    );
+  };
   return (
-    <section>
-      <div>
-        <article>
-          {journals.map((journal) => (
-            <div key={journal.id}>
-              <p>{journal.title}</p>
-            </div>
-          ))}
-        </article>
+    <article className="journal__entries">
+      <div className="journal__entries-wrapper">
+        {journals.map((journal, index) => (
+          <div key={index}>
+            {" "}
+            <h4>{journal.title}</h4>
+            {!expand || expand !== journal ? (
+              <button onClick={() => handleExpand(journal)}>Read More</button>
+            ) : (
+              <div>
+                <p>{journal.content}</p>
+                <button onClick={() => handleExpand(journal)}>Read Less</button>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
-    </section>
+    </article>
   );
 }

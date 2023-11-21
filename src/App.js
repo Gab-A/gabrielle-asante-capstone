@@ -18,7 +18,7 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/journal" element={<JournalPage />} />
-          <Route path="/journalEntries" element={<JournalEntriesPage />} />
+          <Route path="/journal-entries" element={<JournalEntriesPage />} />
           <Route path="/tracker" element={<TrackerPage />} />
         </Routes>
       </BrowserRouter>
