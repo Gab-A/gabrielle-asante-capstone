@@ -2,7 +2,13 @@ import "./Card.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export default function Card({ image, title }) {
+export default function Card({
+  image,
+  title,
+  isSelected,
+  isClickable,
+  onClick,
+}) {
   // const [selectedCard, setSelectedCard] = useState(null);
   // const [showThoughtsDiv, setShowThoughtsDiv] = useState(false);
 
@@ -19,7 +25,8 @@ export default function Card({ image, title }) {
       <article
         // className="mood__card "
         // onClick={handleCardClick}
-        className="mood__card"
+        className={`mood__card ${isSelected ? "selected" : ""}`}
+        onClick={isClickable ? onClick : null}
       >
         <div className="mood__card-wrapper">
           <img

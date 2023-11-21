@@ -61,13 +61,16 @@ export default function CardList() {
     },
   ];
 
-  const [selectedCard, setSelectedCard] = useState(null);
+  const [selectedCardIndex, setSelectedCardIndex] = useState(null);
   const [showThoughtsDiv, setShowThoughtsDiv] = useState(false);
 
-  const handleCardClick = (cardId) => {
-    if (!selectedCard) {
-      setSelectedCard(cardId);
+  const handleCardClick = (cardIndex) => {
+    if (selectedCardIndex === null || selectedCardIndex !== cardIndex) {
+      setSelectedCardIndex(cardIndex);
       setShowThoughtsDiv(true);
+    } else {
+      setShowThoughtsDiv(false);
+      setSelectedCardIndex(null);
     }
   };
 
@@ -77,15 +80,14 @@ export default function CardList() {
       <div className="mood__wrapper">
         {/* <h1 className="mood__heading">How are you feeling today?</h1> */}
         <div className="mood__image-container">
-          {cardsArray.map((card) => (
+          {cardsArray.map((card, index) => (
             <Card
               key={card.id}
               title={card.title}
               image={card.image}
-              className={`mood__card ${
-                selectedCard === card.id ? "mood__selected" : ""
-              }`}
-              onClick={() => handleCardClick(card.id)}
+              isSelected={selectedCardIndex === index}
+              isClickable={selectedCardIndex === null}
+              onClick={() => handleCardClick(index)}
             />
           ))}
           {showThoughtsDiv && (
