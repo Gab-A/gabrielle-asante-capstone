@@ -12,6 +12,7 @@ import unsureEmoji from "../../assets/icons/unsure.svg";
 import calmEmoji from "../../assets/icons/calm.svg";
 import angryEmoji from "../../assets/icons/angry.svg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function CardList() {
   const cardsArray = [
@@ -100,11 +101,13 @@ export default function CardList() {
                   className="mood__journal-image"
                 ></img>
               </div>
-              <div className="mood__journal-button-container">
-                <button className="mood__journal-button">
-                  Express your thoughts here
-                </button>
-              </div>
+              <Link to="/journal" className="mood__journal-button-link">
+                <div className="mood__journal-button-container">
+                  <button className="mood__journal-button">
+                    Express your thoughts here
+                  </button>
+                </div>
+              </Link>
             </div>
           )}
         </div>

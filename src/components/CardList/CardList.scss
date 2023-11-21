@@ -73,11 +73,16 @@
     margin-bottom: 0.5rem;
   }
 
+  &__journal-button-link {
+    text-decoration: none;
+  }
+
   &__journal-button {
     cursor: pointer;
     background-color: $dark-yellow;
     padding: 1rem 3rem;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    font-weight: 600;
     width: 100%;
     border-radius: 0.65rem;
     border: 1px solid $dark-yellow;
