@@ -25,8 +25,8 @@ export default function Card({
       <article
         // className="mood__card "
         // onClick={handleCardClick}
-        className={`mood__card ${isSelected ? "selected" : ""}`}
-        onClick={isClickable ? onClick : null}
+        className={`mood__card ${isSelected ? "mood__card--selected" : ""}`}
+        onClick={onClick}
       >
         <div className="mood__card-wrapper">
           <img

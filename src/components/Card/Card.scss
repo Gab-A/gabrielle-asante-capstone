@@ -19,9 +19,13 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     cursor: pointer;
 
+    &--selected {
+      background-color: #5fa5ce;
+    }
+
     &:hover {
       transform: translateY(-0.2rem);
-      background-color: #5fa5ce;
+      // background-color: #5fa5ce;
       // width: 6.5rem;
       // height: 9.5rem;
       // margin-bottom: 1rem;
