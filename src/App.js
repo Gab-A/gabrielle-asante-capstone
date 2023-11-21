@@ -6,6 +6,7 @@ import SignupPage from "../src/pages/SignupPage/SignupPage";
 import ProfilePage from "../src/pages/ProfilePage/ProfilePage";
 import JournalPage from "../src/pages/JournalPage/JournalPage";
 import TrackerPage from "../src/pages/TrackerPage/TrackerPage";
+import JournalEntriesPage from "./pages/JournalEntriesPage/JournalEntriesPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/journal" element={<JournalPage />} />
+          <Route path="/journalEntries" element={<JournalEntriesPage />} />
           <Route path="/tracker" element={<TrackerPage />} />
         </Routes>
       </BrowserRouter>

@@ -3,7 +3,6 @@ import "./ProfilePage.scss";
 import profileImage from "../../assets/icons/profile.svg";
 import { useState, useEffect } from "react";
 import getAllQuotes from "../../scripts/utils/get-all-quotes";
-import journalImage from "../../assets/icons/journal.svg";
 import QuotesCarousel from "../../components/QuotesCarousel/QuotesCarousel";
 
 export default function ProfilePage() {
@@ -27,7 +26,6 @@ export default function ProfilePage() {
       try {
         const response = await getAllQuotes();
         const quotesData = response;
-        console.log(response);
         setQuotes(quotesData);
       } catch (error) {
         console.error(error);
@@ -39,8 +37,6 @@ export default function ProfilePage() {
   if (!quotes) {
     return <p>Loading</p>;
   }
-
-  console.log(quotes);
 
   return (
     <section className="profile">

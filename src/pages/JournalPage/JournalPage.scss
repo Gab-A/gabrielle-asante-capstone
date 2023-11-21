@@ -1,0 +1,14 @@
+.journal {
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input {
+    border-radius: 0.25rem;
+    font-family: "Quicksand";
+    &--content {
+      resize: none;
+    }
+  }
+}
