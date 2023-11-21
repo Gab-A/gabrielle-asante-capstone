@@ -3,16 +3,23 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function Card({ image, title }) {
-  const [clicked, setClicked] = useState(false);
-  const handleClick = () => {
-    setClicked(!clicked);
-  };
+  // const [selectedCard, setSelectedCard] = useState(null);
+  // const [showThoughtsDiv, setShowThoughtsDiv] = useState(false);
+
+  // const handleCardClick = (cardId) => {
+  //   if (!selectedCard) {
+  //     setSelectedCard(cardId);
+  //     setShowThoughtsDiv(true);
+  //   }
+  // };
+
   return (
-    <Link to="/journal" className="mood__link">
+    <div>
+      {/* <Link to="/journal" className="mood__link"> */}
       <article
         // className="mood__card "
-        onClick={handleClick}
-        className={clicked ? "mood__card--active" : "mood__card"}
+        // onClick={handleCardClick}
+        className="mood__card"
       >
         <div className="mood__card-wrapper">
           <img
@@ -23,6 +30,12 @@ export default function Card({ image, title }) {
           <p className="mood__card-title">{title}</p>
         </div>
       </article>
-    </Link>
+      {/* {showThoughtsDiv && (
+        <div className="write-thoughts">
+          <p>Write your thoughts here</p>
+        </div>
+      )} */}
+    </div>
+    // {/* </Link> */}
   );
 }

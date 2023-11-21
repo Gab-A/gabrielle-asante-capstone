@@ -3,6 +3,7 @@ import "./ProfilePage.scss";
 import profileImage from "../../assets/icons/profile.svg";
 import { useState, useEffect } from "react";
 import getAllQuotes from "../../scripts/utils/get-all-quotes";
+import journalImage from "../../assets/icons/journal.svg";
 import QuotesCarousel from "../../components/QuotesCarousel/QuotesCarousel";
 
 export default function ProfilePage() {
@@ -50,18 +51,38 @@ export default function ProfilePage() {
             alt="profile placeholder"
             className="profile__image"
           ></img>
-          <h4 className="profile__title">{greeting}, Mia</h4>
+          <h4 className="profile__title">{greeting}, Mia!</h4>
         </div>
-        <p className="profile__title-quotes">Your Daily Motivational Quotes:</p>
+        {/* <h1 className="mood__heading">How are you feeling today?</h1> */}
+        {/* <div className="profile__mood-container"> */}
+        {/* <Emoji /> */}
+        <CardList />
+        {/* </div> */}
+        {/* <p className="profile__title-quotes">Your Daily Motivational Quotes:</p> */}
         <QuotesCarousel quotes={quotes} />
-      </div>
-      <CardList />
-      <h4 className="profile__journal-title">Jounraling</h4>
-      <div className="profile__journal-card">
-        <p className="profile__journal__text">
-          You can be yourself here. Select a mood, and you can express more
-          about how are feeling...
-        </p>
+        <div className="profile__info-cards">
+          <div className="profile__journal-card">
+            <div className="profile__journal-details">
+              <h4 className="profile__journal-title">Jounraling</h4>
+              <img
+                src={journalImage}
+                alt="journal image"
+                className="profile__journal-image"
+              ></img>
+            </div>
+            <p className="profile__journal__text">
+              Select a mood first, and get journaling.
+            </p>
+            <div className="profile__button-container">
+              <button className="profile__button">Write about it</button>
+              <button className="profile__button">Speak about it</button>
+            </div>
+          </div>
+          <div className="profile__mood-tracker-card">
+            <h4 className="profile__mood-tracker-title">Track Your Mood</h4>
+            <p>You can also monitor your mood.</p>
+          </div>
+        </div>
       </div>
     </section>
   );

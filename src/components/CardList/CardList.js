@@ -10,6 +10,7 @@ import gratefulEmoji from "../../assets/icons/grateful.svg";
 import unsureEmoji from "../../assets/icons/unsure.svg";
 import calmEmoji from "../../assets/icons/calm.svg";
 import angryEmoji from "../../assets/icons/angry.svg";
+import { useState } from "react";
 
 export default function CardList() {
   const cardsArray = [
@@ -58,21 +59,40 @@ export default function CardList() {
       title: "Anxious",
       image: anxiousEmoji,
     },
-
-    // {
-    //   id: "423451",
-    //   title: "Angry",
-    //   image: angryEmoji,
-    // },
   ];
+
+  const [selectedCard, setSelectedCard] = useState(null);
+  const [showThoughtsDiv, setShowThoughtsDiv] = useState(false);
+
+  const handleCardClick = (cardId) => {
+    if (!selectedCard) {
+      setSelectedCard(cardId);
+      setShowThoughtsDiv(true);
+    }
+  };
+
   return (
     <section className="mood">
+      <h1 className="mood__heading">How are you feeling today?</h1>
       <div className="mood__wrapper">
-        <h1 className="mood__heading">How are you feeling today?</h1>
-        <div className="mood__container">
+        {/* <h1 className="mood__heading">How are you feeling today?</h1> */}
+        <div className="mood__image-container">
           {cardsArray.map((card) => (
-            <Card key={card.id} title={card.title} image={card.image} />
+            <Card
+              key={card.id}
+              title={card.title}
+              image={card.image}
+              className={`mood__card ${
+                selectedCard === card.id ? "mood__selected" : ""
+              }`}
+              onClick={() => handleCardClick(card.id)}
+            />
           ))}
+          {showThoughtsDiv && (
+            <div className="write-thoughts">
+              <p>Write your thoughts here</p>
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -1,18 +1,37 @@
 @use "../../styles/partials/variables" as *;
 
 .carousel {
-  width: 85%;
-  background-color: #ebe3d5;
-  // background-color: #aedefc;
+  width: 88%;
+  // width: 100%;
   opacity: 80%;
-  background-color: #189ab4;
-  height: 8.5rem;
+  background-color: $lavender;
+  // background-color: #ffffff;
+  // height: 9.5rem;
   padding: 1rem !important;
   border-radius: 0.5rem;
-  text-align: center;
+  // text-align: center;
+
+  &__text,
+  &__quote-title,
+  &__author {
+    color: $black;
+  }
 
   &__text {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     font-weight: 500;
+  }
+
+  &__quote-title {
+    margin: 0rem 0rem 0.5rem 0.5rem;
+    padding: 0.5rem;
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+
+  &__author {
+    margin-top: 0.7rem;
+    font-weight: 600;
+    font-size: 1.1rem;
   }
 }

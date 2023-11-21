@@ -7,21 +7,18 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-// import "./styles.css";
-
-// import required modules
 import { Autoplay, Navigation } from "swiper/modules";
 
 export default function QuotesCarousel({ quotes }) {
   const quotesSlides = quotes.map((quote) => (
     <SwiperSlide key={quote.id}>
-      <p className="carousel__text">
-        {quote.content} - {quote.author}
-      </p>
+      <p className="carousel__text">{quote.content}</p>
+      <p className="carousel__author"> - {quote.author}</p>
     </SwiperSlide>
   ));
   return (
     <>
+      <h4 className="carousel__quote-title">Your Daily Motivational Quotes:</h4>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -31,7 +28,7 @@ export default function QuotesCarousel({ quotes }) {
         }}
         navigation={false}
         modules={[Autoplay, Navigation]}
-        className="carousel"
+        className="carousel carousel__quotation-marks"
       >
         {quotesSlides}
       </Swiper>
