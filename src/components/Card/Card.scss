@@ -10,7 +10,6 @@
   }
 
   &__card {
-    // background-color: $primary-white;
     background-color: #c4deed;
     width: 6rem;
     height: 5.5rem;
@@ -25,12 +24,6 @@
 
     &:hover {
       transform: translateY(-0.2rem);
-      // background-color: #5fa5ce;
-      // width: 6.5rem;
-      // height: 9.5rem;
-      // margin-bottom: 1rem;
-      // border-radius: 0.5rem;
-      // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
     @include tablet {
       width: 8rem;

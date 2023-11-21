@@ -53,36 +53,13 @@ export default function ProfilePage() {
           ></img>
           <h4 className="profile__title">{greeting}, Mia!</h4>
         </div>
-        {/* <h1 className="mood__heading">How are you feeling today?</h1> */}
-        {/* <div className="profile__mood-container"> */}
-        {/* <Emoji /> */}
         <CardList />
-        {/* </div> */}
-        {/* <p className="profile__title-quotes">Your Daily Motivational Quotes:</p> */}
-        <QuotesCarousel quotes={quotes} />
-        <div className="profile__info-cards">
-          <div className="profile__journal-card">
-            <div className="profile__journal-details">
-              <h4 className="profile__journal-title">Jounraling</h4>
-              <img
-                src={journalImage}
-                alt="journal image"
-                className="profile__journal-image"
-              ></img>
-            </div>
-            <p className="profile__journal__text">
-              Select a mood first, and get journaling.
-            </p>
-            <div className="profile__button-container">
-              <button className="profile__button">Write about it</button>
-              <button className="profile__button">Speak about it</button>
-            </div>
-          </div>
-          <div className="profile__mood-tracker-card">
-            <h4 className="profile__mood-tracker-title">Track Your Mood</h4>
-            <p>You can also monitor your mood.</p>
-          </div>
+        <div className="profile__mood-tracker-card">
+          <h4 className="profile__mood-tracker-title">Track Your Mood</h4>
+          <p>You can also monitor your mood.</p>
         </div>
+        <QuotesCarousel quotes={quotes} />
+        <div className="profile__info-cards"></div>
       </div>
     </section>
   );

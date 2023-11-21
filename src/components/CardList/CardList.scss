@@ -27,7 +27,6 @@
     margin-left: -1rem;
     justify-content: center;
     margin-top: 0.4rem;
-    // max-width: 25rem;
 
     @include tablet {
       max-width: 34rem;
@@ -37,6 +36,56 @@
       flex-wrap: nowrap;
       gap: 1rem;
       margin-left: 5rem;
+    }
+  }
+
+  &__journal-card {
+    background-color: $columbia-blue;
+    background-color: $light-yellow;
+    margin-top: 1rem;
+    opacity: 70%;
+    width: 100%;
+    padding-top: 1rem;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    margin-left: 0.8rem;
+  }
+
+  &__journal-image {
+    width: 1.5rem;
+  }
+
+  &__journal-details {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__journal-button-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+  }
+
+  &__journal-title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  &__journal-button {
+    cursor: pointer;
+    background-color: $dark-yellow;
+    padding: 1rem 3rem;
+    font-size: 0.95rem;
+    width: 100%;
+    border-radius: 0.65rem;
+    border: 1px solid $dark-yellow;
+    box-shadow: 0rem 0.2rem 0rem 0rem $box-shadow;
+
+    &:active {
+      box-shadow: none;
+      transform: translateY(0.375rem);
     }
   }
 }

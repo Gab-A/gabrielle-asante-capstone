@@ -1,4 +1,5 @@
 import Card from "../Card/Card";
+import journalImage from "../../assets/icons/journal.svg";
 import "./CardList.scss";
 import "../../assets/icons/smile.svg";
 import happyEmoji from "../../assets/icons/smile.svg";
@@ -78,7 +79,6 @@ export default function CardList() {
     <section className="mood">
       <h1 className="mood__heading">How are you feeling today?</h1>
       <div className="mood__wrapper">
-        {/* <h1 className="mood__heading">How are you feeling today?</h1> */}
         <div className="mood__image-container">
           {cardsArray.map((card, index) => (
             <Card
@@ -91,8 +91,20 @@ export default function CardList() {
             />
           ))}
           {showThoughtsDiv && (
-            <div className="write-thoughts">
-              <p>Write your thoughts here</p>
+            <div className="mood__journal-card">
+              <div className="mood__journal-details">
+                <h4 className="mood__journal-title">Jounraling</h4>
+                <img
+                  src={journalImage}
+                  alt="journal image"
+                  className="mood__journal-image"
+                ></img>
+              </div>
+              <div className="mood__journal-button-container">
+                <button className="mood__journal-button">
+                  Express your thoughts here
+                </button>
+              </div>
             </div>
           )}
         </div>
