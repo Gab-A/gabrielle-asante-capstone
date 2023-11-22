@@ -11,7 +11,6 @@ import { useState } from "react";
 
 function App() {
   const [mood, setMood] = useState("");
-  console.log(mood);
 
   return (
     <>

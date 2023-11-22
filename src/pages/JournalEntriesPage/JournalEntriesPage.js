@@ -3,7 +3,7 @@ import getAllJournals from "../../scripts/utils/get-all-journals";
 import "./JournalEntriesPage.scss";
 import { Link } from "react-router-dom";
 
-export default function JournalEntriesPage() {
+export default function JournalEntriesPage({ journalEntry, onEditJournal }) {
   const [journals, setJournals] = useState(null);
   const [expand, setExpanded] = useState(false);
   // const [delete, setDelete] = useState(false)
@@ -12,6 +12,7 @@ export default function JournalEntriesPage() {
     const fetchJournals = async () => {
       try {
         const response = await getAllJournals();
+        console.log(response);
         setJournals(response);
       } catch (error) {
         console.error(error);
@@ -24,13 +25,9 @@ export default function JournalEntriesPage() {
     return <p>Loading</p>;
   }
 
-  // const handleDelete = () => {
-  //   setDelete(true);
-  // };
-
-  const confirmDelete = () => {};
-
-  console.log(journals.title);
+  const handleUpdate = (journalId) => {
+    onEditJournal(journalId);
+  };
 
   const handleExpand = (journal) => {
     setExpanded((selectedJournal) =>
@@ -48,6 +45,7 @@ export default function JournalEntriesPage() {
               <button>
                 <Link to="/journal">Edit</Link>
               </button>
+              {/* </div> */}
               <button>Delete</button>
             </div>
             {!expand || expand !== journal ? (

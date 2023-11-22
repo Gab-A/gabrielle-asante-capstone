@@ -8,15 +8,49 @@
   }
 
   &__form {
-    // background-color: $columbia-blue;
-    // background-color: #fefae0;
+    background-color: $columbia-blue;
     border-radius: 0.5rem;
-    height: 60vh;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    height: 70vh;
+    margin-left: 1rem;
+    margin-right: 1rem;
     padding-left: 1.5rem;
     padding-top: 0.2rem;
   }
+
+  &__title {
+    font-weight: 500;
+    padding: 2rem 0rem 2rem;
+    font-size: 1.7rem;
+  }
+
+  &__intro-wrapper {
+    @include flexCenter(column);
+  }
+
+  &__mood-tell {
+    font-size: 1.4rem;
+  }
+
+  &__mood-tell,
+  &__title,
+  &__mood-explanation {
+    color: $dark-blue;
+  }
+
+  &__mood-tell {
+    margin-left: 5rem;
+    margin-top: 0.5rem;
+  }
+
+  &__mood-explanation {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__mood-tell-wrapper {
+    margin-top: -2rem;
+  }
+
   &__form-title {
     margin-top: 2rem;
   }
@@ -25,25 +59,31 @@
     margin-top: 2rem;
   }
 
+  &__form-label {
+    font-size: 1.5rem;
+    color: $dark-grey;
+  }
+
   &__input {
-    border-radius: 0.5rem;
-    width: 95%;
+    width: 100%;
     font-family: "Quicksand";
+    font-size: 1.2rem;
     padding: 0.5rem;
+    background-color: $columbia-blue;
+    border: none;
     &--content {
       resize: none;
       height: 8rem;
     }
-  }
 
-  &__form-label {
-    color: $dark-grey;
+    &:focus {
+      outline: none;
+    }
   }
 
   &__button-container {
     @include flexCenter(row);
-    margin-top: 2rem;
-    margin: 2rem auto;
+    margin-top: 22rem;
   }
 
   &__button {
@@ -68,5 +108,7 @@
 
   &__form-error {
     margin-top: 1rem;
+    color: $red;
+    font-weight: 500;
   }
 }

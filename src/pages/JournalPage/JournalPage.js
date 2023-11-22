@@ -1,14 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./JournalPage.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import getJournalById from "../../scripts/utils/get-single-journal";
 
-export default function JournalPage({ mood }) {
+export default function JournalPage({ mood, onJournalChange }) {
   const [isError, setIsError] = useState(false);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [submit, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [journalEntry, setJournalEntry] = useState({ title: "", content: "" });
+
+  const { journalId } = useParams();
+
+  useEffect(() => {
+    const getAndSetJournal = async () => {
+      try {
+        const response = await getJournalById();
+        console.log(response);
+        setJournalEntry(response);
+      } catch (error) {
+        console.error(`Error fetching journal `);
+      }
+    };
+    if (journalId) {
+      getAndSetJournal();
+    }
+  }, [journalId]);
+
+  // console.log(response);
+
+  // // const [journalEntry, setJournalEntry] = useState({ title: "", content: "" });
+  // const { journalId } = useParams();
+  // const getAndSetJournal = async (journalId) => {
+  //   const journal = await getJournalById(journalId);
+  // };
+
+  useEffect(() => {});
 
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
@@ -72,16 +101,21 @@ export default function JournalPage({ mood }) {
   return (
     <section className="journal">
       <div className="journal__wrapper">
-        <h2>This is the journal page.</h2>
-        {mood && (
-          <div>
-            <p>Your are: {mood}</p>
-          </div>
-        )}
+        <div className="journal__intro-wrapper">
+          <h2 className="journal__title">Write your vibe!</h2>
+          {mood && (
+            <div className="journal__mood-tell-wrapper">
+              <p className="journal__mood-tell">You are: {mood}</p>
+              <p className="journal__mood-explanation">
+                Tell me more about why you are: {mood}
+              </p>
+            </div>
+          )}
+        </div>
         <form className="journal__form" onSubmit={handleSubmit}>
           <div className="journal__form-group journal__form-title">
             <label htmlFor="title" className="journal__form-label">
-              Title
+              Title:
             </label>
             <input
               type="text"
@@ -99,7 +133,7 @@ export default function JournalPage({ mood }) {
           </div>
           <div className="journal__form-group journal__form-content">
             <label htmlFor="content" className="journal__form-label">
-              Content
+              Content:
             </label>
             <textarea
               name="content"
