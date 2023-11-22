@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import getAllQuotes from "../../scripts/utils/get-all-quotes";
 import QuotesCarousel from "../../components/QuotesCarousel/QuotesCarousel";
 
-export default function ProfilePage() {
+export default function ProfilePage({ mood, setMood }) {
   const [greeting, setGreeting] = useState("");
   const [quotes, setQuotes] = useState(null);
 
@@ -49,7 +49,7 @@ export default function ProfilePage() {
           ></img>
           <h4 className="profile__title">{greeting}, Mia!</h4>
         </div>
-        <CardList />
+        <CardList mood={mood} setMood={setMood} />
         <div className="profile__mood-tracker-card">
           <h4 className="profile__mood-tracker-title">Track Your Mood</h4>
           <p>You can also monitor your mood.</p>

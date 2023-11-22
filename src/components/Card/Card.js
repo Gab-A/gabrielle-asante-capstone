@@ -1,32 +1,25 @@
 import "./Card.scss";
-import { Link } from "react-router-dom";
-import { useState } from "react";
 
 export default function Card({
   image,
   title,
   isSelected,
-  isClickable,
   onClick,
+  setMood,
+  mood,
 }) {
-  // const [selectedCard, setSelectedCard] = useState(null);
-  // const [showThoughtsDiv, setShowThoughtsDiv] = useState(false);
-
-  // const handleCardClick = (cardId) => {
-  //   if (!selectedCard) {
-  //     setSelectedCard(cardId);
-  //     setShowThoughtsDiv(true);
-  //   }
-  // };
+  const handleMoodSelection = () => {
+    setMood(title);
+  };
 
   return (
     <div>
-      {/* <Link to="/journal" className="mood__link"> */}
       <article
-        // className="mood__card "
-        // onClick={handleCardClick}
         className={`mood__card ${isSelected ? "mood__card--selected" : ""}`}
-        onClick={onClick}
+        onClick={(event) => {
+          onClick();
+          handleMoodSelection();
+        }}
       >
         <div className="mood__card-wrapper">
           <img
@@ -37,12 +30,6 @@ export default function Card({
           <p className="mood__card-title">{title}</p>
         </div>
       </article>
-      {/* {showThoughtsDiv && (
-        <div className="write-thoughts">
-          <p>Write your thoughts here</p>
-        </div>
-      )} */}
     </div>
-    // {/* </Link> */}
   );
 }

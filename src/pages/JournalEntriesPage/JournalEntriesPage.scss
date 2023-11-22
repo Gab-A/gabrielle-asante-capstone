@@ -2,4 +2,8 @@
 @use "../../styles/partials/variables" as *;
 
 .journal-entries {
+  &__edit {
+    display: flex;
+    flex-direction: row;
+  }
 }

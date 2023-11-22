@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./JournalPage.scss";
-import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export default function JournalPage() {
+export default function JournalPage({ mood }) {
   const [isError, setIsError] = useState(false);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [submit, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
 
@@ -23,12 +23,11 @@ export default function JournalPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     setSubmitted(true);
 
     const newJournal = {
       title: event.target.title.value,
-      description: event.target.content.value,
+      content: event.target.content.value,
     };
     try {
       await axios.post("http://localhost:8000/journal", newJournal);
@@ -74,6 +73,11 @@ export default function JournalPage() {
     <section className="journal">
       <div className="journal__wrapper">
         <h2>This is the journal page.</h2>
+        {mood && (
+          <div>
+            <p>Your are: {mood}</p>
+          </div>
+        )}
         <form className="journal__form" onSubmit={handleSubmit}>
           <div className="journal__form-group journal__form-title">
             <label htmlFor="title" className="journal__form-label">

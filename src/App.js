@@ -7,8 +7,12 @@ import ProfilePage from "../src/pages/ProfilePage/ProfilePage";
 import JournalPage from "../src/pages/JournalPage/JournalPage";
 import TrackerPage from "../src/pages/TrackerPage/TrackerPage";
 import JournalEntriesPage from "./pages/JournalEntriesPage/JournalEntriesPage";
+import { useState } from "react";
 
 function App() {
+  const [mood, setMood] = useState("");
+  console.log(mood);
+
   return (
     <>
       <BrowserRouter>
@@ -16,8 +20,14 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/journal" element={<JournalPage />} />
+          <Route
+            path="/profile"
+            element={<ProfilePage mood={mood} setMood={setMood} />}
+          />
+          <Route
+            path="/journal"
+            element={<JournalPage mood={mood} setMood={setMood} />}
+          />
           <Route path="/journal-entries" element={<JournalEntriesPage />} />
           <Route path="/tracker" element={<TrackerPage />} />
         </Routes>

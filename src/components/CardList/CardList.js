@@ -14,7 +14,7 @@ import angryEmoji from "../../assets/icons/angry.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function CardList() {
+export default function CardList({ mood, setMood }) {
   const cardsArray = [
     {
       id: "267858",
@@ -89,6 +89,8 @@ export default function CardList() {
               isSelected={selectedCardIndex === index}
               isClickable={selectedCardIndex === null}
               onClick={() => handleCardClick(index)}
+              mood={mood}
+              setMood={setMood}
             />
           ))}
           {showThoughtsDiv && (
