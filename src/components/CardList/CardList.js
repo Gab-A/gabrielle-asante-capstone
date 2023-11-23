@@ -103,7 +103,7 @@ export default function CardList({ mood, setMood }) {
                   className="mood__journal-image"
                 ></img>
               </div>
-              <Link to="/journal" className="mood__journal-button-link">
+              <Link to="/journal/new" className="mood__journal-button-link">
                 <div className="mood__journal-button-container">
                   <button className="mood__journal-button">
                     Express your thoughts here

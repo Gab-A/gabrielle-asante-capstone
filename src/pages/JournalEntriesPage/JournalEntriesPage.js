@@ -3,7 +3,7 @@ import getAllJournals from "../../scripts/utils/get-all-journals";
 import "./JournalEntriesPage.scss";
 import { Link } from "react-router-dom";
 
-export default function JournalEntriesPage({ journalEntry, onEditJournal }) {
+export default function JournalEntriesPage() {
   const [journals, setJournals] = useState(null);
   const [expand, setExpanded] = useState(false);
   // const [delete, setDelete] = useState(false)
@@ -12,7 +12,7 @@ export default function JournalEntriesPage({ journalEntry, onEditJournal }) {
     const fetchJournals = async () => {
       try {
         const response = await getAllJournals();
-        console.log(response);
+        // console.log(response);
         setJournals(response);
       } catch (error) {
         console.error(error);
@@ -25,15 +25,19 @@ export default function JournalEntriesPage({ journalEntry, onEditJournal }) {
     return <p>Loading</p>;
   }
 
-  const handleUpdate = (journalId) => {
-    onEditJournal(journalId);
-  };
+  // Here creating a function to update the journal. And getting a specific one by it's id.
+  // And then using that function when the button is clicked.
+
+  // const handleUpdate = (journalId) => {
+  //   onEditJournal(journalId);
+  // };
 
   const handleExpand = (journal) => {
     setExpanded((selectedJournal) =>
       selectedJournal === journal ? null : journal
     );
   };
+  // console.log(journalEntry);
   return (
     <article className="journal-entries">
       <div className="journal-entries__wrapper">
@@ -42,8 +46,8 @@ export default function JournalEntriesPage({ journalEntry, onEditJournal }) {
             {" "}
             <div className="journal-entries__edit">
               <h4>{journal.title}</h4>
-              <button onClick={() => handleUpdate(journalEntry.id)}>
-                <Link to="/journal">Edit</Link>
+              <button>
+                <Link to={`/journal/edit/${journal.id}`}>Edit</Link>
               </button>
               <button>Delete</button>
             </div>
@@ -52,7 +56,6 @@ export default function JournalEntriesPage({ journalEntry, onEditJournal }) {
             ) : (
               <div>
                 <p>{journal.content}</p>
-
                 <button onClick={() => handleExpand(journal)}>Read Less</button>
               </div>
             )}

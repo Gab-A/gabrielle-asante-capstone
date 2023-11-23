@@ -5,49 +5,81 @@ import axios from "axios";
 import getJournalById from "../../scripts/utils/get-single-journal";
 import updateJournal from "../../scripts/utils/update-journal";
 
-export default function JournalPage({ mood, onJournalChange }) {
+export default function JournalPage({ mood }) {
   const [isError, setIsError] = useState(false);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [submit, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
-  const [journalEntry, setJournalEntry] = useState({ title: "", content: "" });
+  const [newJournalEntry, setNewJournalEntry] = useState({
+    title: "",
+    content: "",
+    id: "",
+  });
+
+  const navigate = useNavigate();
+  const [message, setMessage] = useState("");
 
   const { journalId } = useParams();
 
   useEffect(() => {
     const getAndSetJournal = async () => {
       try {
-        const journal = await getJournalById();
+        const response = await getJournalById(journalId);
         console.log(response);
-        setJournalEntry(journal);
+        // console.log(response.data);
+        console.log(response.title);
+
+        if (journalId) {
+          setTitle(response.title);
+          setContent(response.content);
+        }
       } catch (error) {
-        console.error(`Error fetching journal `);
+        console.error(`Error fetching journal`);
       }
     };
+
     if (journalId) {
+      // console.log("hello");
+      // console.log(response.data);
       getAndSetJournal();
     }
   }, [journalId]);
 
-  if (!journalEntry) {
-    return <p>Loading...</p>;
-  }
-
-  const handleSave = async () => {
-    await updateJournal(journalEntry, journalId);
-  };
-
-  // console.log(response);
-
-  // // const [journalEntry, setJournalEntry] = useState({ title: "", content: "" });
-  // const { journalId } = useParams();
-  // const getAndSetJournal = async (journalId) => {
-  //   const journal = await getJournalById(journalId);
+  // const handleTitleChange = (event) => {
+  //   setNewJournalEntry({
+  //     ...newJournalEntry,
+  //     title: event.target.value,
+  //   });
   // };
 
-  const navigate = useNavigate();
-  const [message, setMessage] = useState("");
+  // const handleContentChange = (event) => {
+  //   setNewJournalEntry({
+  //     ...newJournalEntry,
+  //     content: event.target.value,
+  //   });
+  // };
+
+  // const handleSaveButtonClick = async () => {
+  //   try {
+  //     await updateJournal(journalId, newJournalEntry);
+  //   } catch (error) {
+  //     console.error("Error updating journal entry", error);
+  //   }
+  // };
+
+  useEffect(() => {
+    const getAndSetUpdatedJournal = async () => {
+      try {
+        const response = await updateJournal(newJournalEntry);
+        console.log(response);
+        return response.data;
+      } catch (error) {
+        console.error(`Error updating journal entry`);
+      }
+    };
+    getAndSetUpdatedJournal();
+  }, [journalId, newJournalEntry]);
 
   const handleChangeTitle = (event) => {
     setTitle(event.target.value);
@@ -65,6 +97,7 @@ export default function JournalPage({ mood, onJournalChange }) {
       title: event.target.title.value,
       content: event.target.content.value,
     };
+
     try {
       await axios.post("http://localhost:8000/journal", newJournal);
       setIsError(false);
