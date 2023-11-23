@@ -17,6 +17,7 @@ export default function JournalPage({ mood, type }) {
   const [message, setMessage] = useState("");
 
   const { journalId } = useParams();
+  console.log(journalId);
 
   useEffect(() => {
     const getAndSetJournal = async () => {
@@ -54,6 +55,7 @@ export default function JournalPage({ mood, type }) {
     const newJournal = {
       title: event.target.title.value,
       content: event.target.content.value,
+      mood,
     };
     if (type === "new") {
       try {
