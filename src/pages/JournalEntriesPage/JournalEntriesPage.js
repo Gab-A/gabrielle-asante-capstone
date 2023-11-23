@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import getAllJournals from "../../scripts/utils/get-all-journals";
 import "./JournalEntriesPage.scss";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import deleteJournalById from "../../scripts/utils/delete-journal";
 
 export default function JournalEntriesPage() {
   const [journals, setJournals] = useState(null);
@@ -25,6 +26,12 @@ export default function JournalEntriesPage() {
     return <p>Loading</p>;
   }
 
+  // const handleDelete = async (journalId) => {
+  //   try {
+  //     const response = await deleteJournalById(journalId)
+  //   }
+  // }
+
   // Here creating a function to update the journal. And getting a specific one by it's id.
   // And then using that function when the button is clicked.
 
@@ -39,29 +46,39 @@ export default function JournalEntriesPage() {
   };
   // console.log(journalEntry);
   return (
-    <article className="journal-entries">
+    <section className="journal-entries">
       <div className="journal-entries__wrapper">
         {journals.map((journal, index) => (
-          <div key={index}>
+          <article key={index} className="journal-entries__card">
             {" "}
             <div className="journal-entries__edit">
-              <h4>{journal.title}</h4>
+              <h4 className="journal-entries__title">{journal.title}</h4>
               <button>
                 <Link to={`/journal/edit/${journal.id}`}>Edit</Link>
               </button>
               <button>Delete</button>
             </div>
             {!expand || expand !== journal ? (
-              <button onClick={() => handleExpand(journal)}>Read More</button>
+              <button
+                onClick={() => handleExpand(journal)}
+                className="journal-entries__read"
+              >
+                Read More
+              </button>
             ) : (
               <div>
                 <p>{journal.content}</p>
-                <button onClick={() => handleExpand(journal)}>Read Less</button>
+                <button
+                  onClick={() => handleExpand(journal)}
+                  className="journal-entries__read"
+                >
+                  Read Less
+                </button>
               </div>
             )}
-          </div>
+          </article>
         ))}
       </div>
-    </article>
+    </section>
   );
 }

@@ -2,8 +2,32 @@
 @use "../../styles/partials/variables" as *;
 
 .journal-entries {
+  &__wrapper {
+    max-width: $wrapper-max-width;
+    margin: 0rem 1rem 0rem 1rem;
+  }
   &__edit {
     display: flex;
     flex-direction: row;
+    gap: 1rem;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 1.15rem;
+  }
+
+  &__read {
+    border: none;
+    background: none;
+    padding: none;
+    font-size: 1.1rem;
+  }
+
+  &__card {
+    padding: 0.5rem;
+    background-color: #ffe79b;
+    margin: 1rem 0rem 1rem 0rem;
+    border-radius: 0.5rem;
   }
 }
