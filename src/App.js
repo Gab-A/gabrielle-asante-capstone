@@ -26,11 +26,13 @@ function App() {
 
           <Route
             path="/journal/new"
-            element={<JournalPage mood={mood} setMood={setMood} />}
+            element={<JournalPage mood={mood} setMood={setMood} type={"new"} />}
           />
           <Route
             path="/journal/edit/:journalId"
-            element={<JournalPage mood={mood} setMood={setMood} />}
+            element={
+              <JournalPage mood={mood} setMood={setMood} type={"edit"} />
+            }
           />
           <Route path="/journal-entries" element={<JournalEntriesPage />} />
           <Route path="/tracker" element={<TrackerPage />} />
