@@ -42,10 +42,9 @@ export default function JournalEntriesPage({ journalEntry, onEditJournal }) {
             {" "}
             <div className="journal-entries__edit">
               <h4>{journal.title}</h4>
-              <button>
+              <button onClick={() => handleUpdate(journalEntry.id)}>
                 <Link to="/journal">Edit</Link>
               </button>
-              {/* </div> */}
               <button>Delete</button>
             </div>
             {!expand || expand !== journal ? (

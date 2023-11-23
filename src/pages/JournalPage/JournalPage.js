@@ -3,6 +3,7 @@ import "./JournalPage.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import getJournalById from "../../scripts/utils/get-single-journal";
+import updateJournal from "../../scripts/utils/update-journal";
 
 export default function JournalPage({ mood, onJournalChange }) {
   const [isError, setIsError] = useState(false);
@@ -17,9 +18,9 @@ export default function JournalPage({ mood, onJournalChange }) {
   useEffect(() => {
     const getAndSetJournal = async () => {
       try {
-        const response = await getJournalById();
+        const journal = await getJournalById();
         console.log(response);
-        setJournalEntry(response);
+        setJournalEntry(journal);
       } catch (error) {
         console.error(`Error fetching journal `);
       }
@@ -29,6 +30,14 @@ export default function JournalPage({ mood, onJournalChange }) {
     }
   }, [journalId]);
 
+  if (!journalEntry) {
+    return <p>Loading...</p>;
+  }
+
+  const handleSave = async () => {
+    await updateJournal(journalEntry, journalId);
+  };
+
   // console.log(response);
 
   // // const [journalEntry, setJournalEntry] = useState({ title: "", content: "" });
@@ -36,8 +45,6 @@ export default function JournalPage({ mood, onJournalChange }) {
   // const getAndSetJournal = async (journalId) => {
   //   const journal = await getJournalById(journalId);
   // };
-
-  useEffect(() => {});
 
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
@@ -123,6 +130,7 @@ export default function JournalPage({ mood, onJournalChange }) {
               id="title"
               value={title}
               onChange={handleChangeTitle}
+              // onChnage = setJournalEntry=({...journalEntry, title: event.target.value})
               className={`journal__input journal__input--title${
                 submit && title === "" ? "journal__input--invalid" : ""
               }`}
@@ -140,6 +148,7 @@ export default function JournalPage({ mood, onJournalChange }) {
               id="content"
               value={content}
               onChange={handleChangeContent}
+              //  onChnage = setJournalEntry=({...journalEntry, content: event.target.value})
               className={`journal__input  journal__input--content${
                 submit && content === "" ? "journal__input--invalid" : ""
               }`}
