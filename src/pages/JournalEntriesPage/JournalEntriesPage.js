@@ -93,6 +93,9 @@ export default function JournalEntriesPage() {
           </article>
         ))}
       </div>
+      <Link to="/tracker">
+        <button>Go to calender</button>
+      </Link>
     </section>
   );
 }

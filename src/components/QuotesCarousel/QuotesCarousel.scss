@@ -35,14 +35,13 @@
 
   &__blockquote p:before {
     content: open-quote;
-    font-weight: bold;
     font-size: 3.125rem;
     color: $air-blue;
+    padding: 1rem;
   }
 
   &__blockquote p:after {
     content: close-quote;
-    font-weight: bold;
     color: $air-blue;
   }
 }
