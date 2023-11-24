@@ -3,6 +3,8 @@ import getAllJournals from "../../scripts/utils/get-all-journals";
 import "./JournalEntriesPage.scss";
 import { Link, useParams } from "react-router-dom";
 import deleteJournalById from "../../scripts/utils/delete-journal";
+import editImage from "../../assets/icons/edit.png";
+import deleteImage from "../../assets/icons/bin.png";
 
 export default function JournalEntriesPage() {
   const [journals, setJournals] = useState(null);
@@ -47,16 +49,28 @@ export default function JournalEntriesPage() {
   // console.log(journalEntry);
   return (
     <section className="journal-entries">
+      <h2 className="journal-entries__heading">Your Journal Entries</h2>
       <div className="journal-entries__wrapper">
         {journals.map((journal, index) => (
           <article key={index} className="journal-entries__card">
             {" "}
             <div className="journal-entries__edit">
               <h4 className="journal-entries__title">{journal.title}</h4>
-              <button>
-                <Link to={`/journal/edit/${journal.id}`}>Edit</Link>
-              </button>
-              <button>Delete</button>
+              <div className="journal-entries__buttons">
+                <Link to={`/journal/edit/${journal.id}`}>
+                  <img
+                    src={editImage}
+                    alt="edit image"
+                    className="journal-entries__edit-photo"
+                  />
+                </Link>
+                {/* <Link to={`/journal/edit/${journal.id}`}>Edit</Link> */}
+                <img
+                  src={deleteImage}
+                  alt="delete image"
+                  className="journal-entries__delete-photo"
+                />
+              </div>
             </div>
             {!expand || expand !== journal ? (
               <button
@@ -67,7 +81,7 @@ export default function JournalEntriesPage() {
               </button>
             ) : (
               <div>
-                <p>{journal.content}</p>
+                <p className="journal-entries__content">{journal.content}</p>
                 <button
                   onClick={() => handleExpand(journal)}
                   className="journal-entries__read"

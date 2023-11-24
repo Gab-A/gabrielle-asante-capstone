@@ -7,6 +7,7 @@ import ProfilePage from "../src/pages/ProfilePage/ProfilePage";
 import JournalPage from "../src/pages/JournalPage/JournalPage";
 import TrackerPage from "../src/pages/TrackerPage/TrackerPage";
 import JournalEntriesPage from "./pages/JournalEntriesPage/JournalEntriesPage";
+import MeditationPage from "./pages/MeditationPage/MeditationPage";
 import { useState } from "react";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           />
           <Route path="/journal-entries" element={<JournalEntriesPage />} />
           <Route path="/tracker" element={<TrackerPage />} />
+          <Route path="/meditation" element={<MeditationPage />} />
         </Routes>
       </BrowserRouter>
     </>
