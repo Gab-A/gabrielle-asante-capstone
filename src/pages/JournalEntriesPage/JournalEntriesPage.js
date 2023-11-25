@@ -5,11 +5,22 @@ import { Link, useParams } from "react-router-dom";
 import deleteJournalById from "../../scripts/utils/delete-journal";
 import editImage from "../../assets/icons/edit.png";
 import deleteImage from "../../assets/icons/bin.png";
+import Modal from "../../components/Modal/Modal";
 
 export default function JournalEntriesPage() {
   const [journals, setJournals] = useState(null);
   const [expand, setExpanded] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedJournalId, setSelectedJournalId] = useState(null);
+  const [modalStates, setModalStates] = useState({});
+  // const [deleteJournal, setDeleteJournal] = useState(null);
   // const [delete, setDelete] = useState(false)
+
+  // useEffect(() => {
+  //   if (deleteJournal !== null) {
+  //     handleConfirmDelete();
+  //   }
+  // }, [deleteJournal]);
 
   useEffect(() => {
     const fetchJournals = async () => {
@@ -27,6 +38,56 @@ export default function JournalEntriesPage() {
   if (!journals) {
     return <p>Loading</p>;
   }
+
+  const toggleModal = (journalId) => {
+    setModalStates((prevState) => ({
+      ...prevState,
+      [journalId]: !prevState[journalId],
+    }));
+  };
+
+  const clickDeleteIcon = (journalId) => {
+    console.log("Clicked delete icon with ID:", journalId);
+    setOpenModal(true);
+    setSelectedJournalId(journalId);
+  };
+
+  const handleModalCancel = () => {
+    setOpenModal(false);
+  };
+
+  const handleDelete = async (journalId) => {
+    try {
+      await deleteJournalById(journalId);
+      const updatedJournals = await getAllJournals();
+      setJournals(updatedJournals);
+      setOpenModal(false);
+      // window.location.reload();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // useEffect(() => {
+  //   if (deleteJournal !== null) {
+  //     handleConfirmDelete();
+  //   }
+  // }, [deleteJournal]);
+
+  // const handleDeleteClick = (journalId) => {
+  //   setDeleteJournal(journalId);
+  //   setOpenModal(true);
+  // };
+
+  // const handleConfirmDelete = async () => {
+  //   try {
+  //     await deleteJournalById(deleteJournal);
+  //     setOpenModal(false);
+  //     setDeleteJournal(null);
+  //   } catch (error) {
+  //     console.error("Error deleting");
+  //   }
+  // };
 
   // const handleDelete = async (journalId) => {
   //   try {
@@ -69,7 +130,23 @@ export default function JournalEntriesPage() {
                   src={deleteImage}
                   alt="delete image"
                   className="journal-entries__delete-photo"
+                  // onClick={() => handleDeleteClick(journal.id)}
+                  // onClick={() => setOpenModal(true)}
+                  onClick={() => {
+                    toggleModal(journal.id);
+                    clickDeleteIcon(journal.id);
+                  }}
                 />
+                {modalStates[journal.id] && (
+                  <Modal
+                    setOpenModal={(value) => toggleModal(journal.id, value)}
+                    // confirm={handleConfirmDelete}
+                    handleModalCancel={handleModalCancel}
+                    selectedJournalId={selectedJournalId}
+                    handleDelete={handleDelete}
+                    openModal={openModal}
+                  />
+                )}
               </div>
             </div>
             {!expand || expand !== journal ? (

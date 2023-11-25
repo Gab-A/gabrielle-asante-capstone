@@ -1,13 +1,13 @@
 import axios from "axios";
 
 const deleteJournalById = async (journalId) => {
-  console.log("fetch journal");
+  console.log("Deleting journal:", journalId);
   try {
-    const response = await axios.get(
+    const response = await axios.delete(
       `http://localhost:8000/journal/${journalId}`
     );
-    console.log("Response", response);
-    console.log(response.data);
+    // console.log(" Delete Response", response);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);

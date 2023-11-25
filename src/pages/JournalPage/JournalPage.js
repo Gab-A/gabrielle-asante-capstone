@@ -17,7 +17,7 @@ export default function JournalPage({ mood, type }) {
   const [message, setMessage] = useState("");
 
   const { journalId } = useParams();
-  console.log(journalId);
+  // console.log(journalId);
 
   useEffect(() => {
     const getAndSetJournal = async () => {
@@ -112,7 +112,7 @@ export default function JournalPage({ mood, type }) {
       <div className="journal__wrapper">
         <div className="journal__intro-wrapper">
           <h2 className="journal__title">Write your vibe!</h2>
-          {mood && (
+          {!journalId && mood && (
             <div className="journal__mood-tell-wrapper">
               <p className="journal__mood-tell">You are: {mood}</p>
               <p className="journal__mood-explanation">
