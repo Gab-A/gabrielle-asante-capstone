@@ -1,11 +1,11 @@
-import Calender2 from "../../components/Calender2/Calender2";
 import { Link } from "react-router-dom";
+import MoodCalender from "../../components/MoodCalender/MoodCalender";
 
 export default function TrackerPage() {
   return (
     <section>
       <p>I am the tracker page</p>
-      <Calender2 />
+      <MoodCalender />
       <Link to="/meditation">
         <button>Go to tracker</button>
       </Link>

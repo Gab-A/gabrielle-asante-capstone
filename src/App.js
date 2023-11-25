@@ -5,8 +5,9 @@ import LoginPage from "../src/pages/LoginPage/LoginPage";
 import SignupPage from "../src/pages/SignupPage/SignupPage";
 import ProfilePage from "../src/pages/ProfilePage/ProfilePage";
 import JournalPage from "../src/pages/JournalPage/JournalPage";
-import TrackerPage from "../src/pages/TrackerPage/TrackerPage";
 import JournalEntriesPage from "./pages/JournalEntriesPage/JournalEntriesPage";
+import TrackerPage from "../src/pages/TrackerPage/TrackerPage";
+// import JournalEntriesPage from "./pages/JournalEntriesPage/JournalEntriesPage";
 import MeditationPage from "./pages/MeditationPage/MeditationPage";
 import { useState } from "react";
 
