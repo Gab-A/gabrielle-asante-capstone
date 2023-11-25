@@ -51,8 +51,8 @@ export default function ProfilePage({ mood, setMood }) {
         </div>
         <CardList mood={mood} setMood={setMood} />
         <div className="profile__mood-tracker-card">
-          <h4 className="profile__mood-tracker-title">Track Your Mood</h4>
-          <p>You can also monitor your mood.</p>
+          <h4 className="profile__mood-tracker-title">Monitor Your Mood</h4>
+          <p>Monitor your mood here.</p>
         </div>
         <QuotesCarousel quotes={quotes} />
       </div>

@@ -93,26 +93,26 @@ export default function CardList({ mood, setMood }) {
               setMood={setMood}
             />
           ))}
-          {showThoughtsDiv && (
-            <div className="mood__journal-card">
-              <div className="mood__journal-details">
-                <h4 className="mood__journal-title">Jounraling</h4>
-                <img
-                  src={journalImage}
-                  alt="journal image"
-                  className="mood__journal-image"
-                ></img>
-              </div>
-              <Link to="/journal/new" className="mood__journal-button-link">
-                <div className="mood__journal-button-container">
-                  <button className="mood__journal-button">
-                    Express your thoughts here
-                  </button>
-                </div>
-              </Link>
-            </div>
-          )}
         </div>
+        {showThoughtsDiv && (
+          <div className="mood__journal-card">
+            <div className="mood__journal-details">
+              <h4 className="mood__journal-title">Jounraling</h4>
+              <img
+                src={journalImage}
+                alt="journal image"
+                className="mood__journal-image"
+              ></img>
+            </div>
+            <Link to="/journal/new" className="mood__journal-button-link">
+              <div className="mood__journal-button-container">
+                <button className="mood__journal-button">
+                  Express your thoughts here
+                </button>
+              </div>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
+import MobileNavBar from "../src/components/MobileNavBar/MobileNavBar";
 import LandingPage from "../src/pages/LandingPage/LandingPage";
 import LoginPage from "../src/pages/LoginPage/LoginPage";
 import SignupPage from "../src/pages/SignupPage/SignupPage";
@@ -40,6 +41,7 @@ function App() {
           <Route path="/tracker" element={<TrackerPage />} />
           <Route path="/meditation" element={<MeditationPage />} />
         </Routes>
+        <MobileNavBar />
       </BrowserRouter>
     </>
   );

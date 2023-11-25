@@ -36,17 +36,23 @@
     padding-top: 1rem;
   }
   &__mood-tracker-card {
-    background-color: $columbia-blue;
     background-color: $light-yellow;
     margin-top: 1rem;
     opacity: 70%;
     width: 100%;
     padding-top: 1rem;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     padding: 1rem;
     margin: 0 auto;
     margin-left: 0.0625rem;
     padding: 1.5rem;
     margin-bottom: 2rem;
+
+    @include tablet {
+      width: 80%;
+      margin-left: 0rem;
+      margin: 0 auto;
+      margin-top: 1rem;
+    }
   }
 }

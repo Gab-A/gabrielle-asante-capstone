@@ -1,0 +1,25 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.mobile {
+  @include tablet {
+    display: none;
+  }
+
+  &__nav-icon {
+    width: 2rem;
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: 5rem;
+    // background-color: $columbia-blue;
+    background-color: $light-yellow;
+    opacity: 70%;
+    padding: 1rem;
+    width: 100%;
+    margin: 0;
+    border-radius: 0.2rem;
+    padding-left: 2rem;
+  }
+}

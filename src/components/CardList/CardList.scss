@@ -22,15 +22,17 @@
   &__image-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.3rem;
     padding: 0.5rem;
     margin-left: -1rem;
     justify-content: center;
     margin-top: 0.4rem;
+    max-width: 25rem;
 
     @include tablet {
       max-width: 34rem;
-      gap: 4rem;
+      gap: 1.2rem;
+      // gap: 4rem;
     }
     @include desktop {
       flex-wrap: nowrap;
@@ -46,11 +48,14 @@
     opacity: 70%;
     width: 100%;
     padding-top: 1rem;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     padding: 1rem;
     margin: 0 auto;
     margin-bottom: 1rem;
-    margin-left: 0.8rem;
+
+    @include tablet {
+      width: 80%;
+    }
   }
 
   &__journal-image {
