@@ -103,8 +103,8 @@ export default function Calender() {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer components={["DatePicker", "DatePicker", "DatePicker"]}>
         <DatePicker
-          label="Small picker"
-          slotProps={{ textField: { size: "small" } }}
+          label="Date picker"
+          slotProps={{ textField: { size: "large" } }}
           value={selectedDate || null}
           onChange={handleDateChange}
         />

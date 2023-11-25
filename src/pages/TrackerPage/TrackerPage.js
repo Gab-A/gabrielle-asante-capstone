@@ -4,10 +4,9 @@ import MoodCalender from "../../components/MoodCalender/MoodCalender";
 export default function TrackerPage() {
   return (
     <section>
-      <p>I am the tracker page</p>
       <MoodCalender />
       <Link to="/meditation">
-        <button>Go to tracker</button>
+        <button>Go to meditation</button>
       </Link>
     </section>
   );
