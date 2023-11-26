@@ -2,6 +2,11 @@
 
 VibeScribe
 
+## How To Run This Project:
+
+- npm start
+- Go to env file on gabrielle-asante-capstone-api to get the base url.
+
 ## Overview
 
 What is your app? Brief description in a couple of sentences.

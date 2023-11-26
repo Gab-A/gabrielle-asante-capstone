@@ -1,24 +1,37 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.mobile {
+.mobile-nav {
+  background-color: $primary-white;
+  width: 100%;
+
+  position: sticky;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  z-index: 1;
+
   @include tablet {
     display: none;
   }
 
-  &__nav-icon {
-    width: 2rem;
+  &__link {
+    &--active {
+      background-color: $columbia-blue;
+      border-radius: 50%;
+      padding: 0.5rem;
+    }
   }
 
-  &__nav-list {
+  &__icon {
+    width: 1.4rem;
+  }
+
+  &__list {
     display: flex;
-    gap: 5rem;
-    background-color: $light-yellow;
+    gap: 4rem;
     opacity: 70%;
-    padding: 1.5rem;
-    width: 100%;
-    margin: 0;
     border-radius: 0.2rem;
+    align-items: center;
     padding-left: 2rem;
   }
 }

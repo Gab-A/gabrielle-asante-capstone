@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
 import "./App.scss";
 import MobileNavBar from "../src/components/MobileNavBar/MobileNavBar";
 import LandingPage from "../src/pages/LandingPage/LandingPage";
@@ -15,6 +16,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route

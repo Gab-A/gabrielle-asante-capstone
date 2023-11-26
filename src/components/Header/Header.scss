@@ -1,0 +1,39 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.header {
+  @include mobile {
+    display: none;
+  }
+  @include tablet {
+    display: flex;
+    background-color: $columbia-blue;
+  }
+
+  &__wrapper {
+    max-width: $wrapper-max-width;
+    padding: 1.2rem;
+    display: flex;
+  }
+}
+
+.header-nav {
+  &__list {
+    display: flex;
+    gap: 5rem;
+    padding-left: 4rem;
+    font-weight: 600;
+
+    @include desktop {
+      gap: 12rem;
+    }
+  }
+  &__link {
+    text-decoration: none;
+    color: $dark-blue;
+
+    &--active {
+      color: red;
+    }
+  }
+}

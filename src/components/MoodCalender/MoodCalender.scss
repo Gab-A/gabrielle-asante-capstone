@@ -3,7 +3,7 @@
 
 .tracker {
   &__calender {
-    background-color: $light-yellow;
+    background-color: $columbia-blue;
     border-radius: 0.5rem;
   }
   &__mood-wrapper {
@@ -15,8 +15,9 @@
   }
 
   &__card {
-    background-color: $light-yellow;
+    background-color: $columbia-blue;
     opacity: 70%;
+    color: $dark-grey;
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 1.5rem;

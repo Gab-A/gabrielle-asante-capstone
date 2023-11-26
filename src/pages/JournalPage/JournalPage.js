@@ -58,6 +58,7 @@ export default function JournalPage({ mood, type }) {
       content: event.target.content.value,
       mood,
     };
+
     if (type === "new") {
       try {
         await axios.post("http://localhost:8000/journal", newJournal);

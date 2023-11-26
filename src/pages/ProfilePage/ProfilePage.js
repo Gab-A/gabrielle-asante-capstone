@@ -4,7 +4,7 @@ import profileImage from "../../assets/icons/profile.svg";
 import { useState, useEffect } from "react";
 import getAllQuotes from "../../scripts/utils/get-all-quotes";
 import QuotesCarousel from "../../components/QuotesCarousel/QuotesCarousel";
-import trackerIcon from "../../assets/icons/tracker.svg";
+import calenderIcon from "../../assets/icons/calender.png";
 import chevronIcon from "../../assets/icons/chevron.png";
 import { Link } from "react-router-dom";
 
@@ -57,7 +57,7 @@ export default function ProfilePage({ mood, setMood }) {
           <h4 className="profile__mood-tracker-title">
             Monitor Your Mood
             <img
-              src={trackerIcon}
+              src={calenderIcon}
               alt="tracker icon"
               className="profile__tracker"
             ></img>
