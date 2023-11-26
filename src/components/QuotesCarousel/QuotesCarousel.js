@@ -1,8 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-// import { useState, useEffect } from "react";
+
 import "./QuotesCarousel.scss";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";

@@ -33,7 +33,7 @@
     }
 
     @include desktop {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
     }
   }
 
@@ -43,8 +43,12 @@
     margin: 0.4rem 0rem 0.5rem 0.5rem;
 
     @include tablet {
-      font-size: 1rem;
+      font-size: 1.2rem;
       margin-bottom: 1.5rem;
+    }
+
+    @include desktop {
+      font-size: 1.5rem;
     }
   }
   &__image-container {

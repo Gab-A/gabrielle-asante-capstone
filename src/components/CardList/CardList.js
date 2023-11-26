@@ -1,5 +1,4 @@
 import Card from "../Card/Card";
-// import journalImage from "../../assets/icons/open-book.png";
 import journalIcon from "../../assets/icons/journal.png";
 import thoughtsIcon from "../../assets/icons/thought.png";
 import "./CardList.scss";

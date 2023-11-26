@@ -25,6 +25,7 @@
     padding: 2rem 0rem 2rem;
     font-size: 1.7rem;
     margin-left: 1rem;
+    color: $dark-blue;
   }
 
   &__intro-wrapper {
@@ -44,12 +45,11 @@
   &__mood-tell {
     margin-left: 3.5rem;
     margin-top: 0.5rem;
-    // color: $black;
   }
 
   &__mood-span {
     font-weight: 600;
-    color: #090a29;
+    color: $dark-blue;
     text-transform: uppercase;
   }
 
@@ -103,7 +103,7 @@
 
   &__button {
     color: $primary-white;
-    background-color: $dark-blue;
+    background-color: $medium-blue;
     width: 80%;
     font-weight: 500;
     font-family: "Quicksand";

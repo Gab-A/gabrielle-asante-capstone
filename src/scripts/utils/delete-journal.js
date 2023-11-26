@@ -6,8 +6,6 @@ const deleteJournalById = async (journalId) => {
     const response = await axios.delete(
       `http://localhost:8000/journal/${journalId}`
     );
-    // console.log(" Delete Response", response);
-    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);

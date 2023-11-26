@@ -24,16 +24,21 @@
     padding-left: 4rem;
     font-weight: 600;
 
+    @include tablet {
+      font-size: 1.3rem;
+    }
+
     @include desktop {
+      font-size: 1.5rem;
       gap: 12rem;
     }
   }
   &__link {
     text-decoration: none;
-    color: $dark-blue;
+    color: $black;
 
     &--active {
-      color: red;
+      color: $dark-blue;
     }
   }
 }

@@ -17,10 +17,15 @@
   &__card {
     background-color: $columbia-blue;
     opacity: 70%;
-    color: $dark-grey;
+    color: $black;
+    font-weight: 500;
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 1.5rem;
     border-radius: 0.5rem;
+  }
+
+  &__text {
+    margin-left: 2rem;
   }
 }

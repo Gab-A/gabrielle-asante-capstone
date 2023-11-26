@@ -19,7 +19,6 @@ export default function JournalEntriesPage() {
     const fetchJournals = async () => {
       try {
         const response = await getAllJournals();
-        // console.log(response);
         setJournals(response);
       } catch (error) {
         console.error(error);
@@ -55,7 +54,6 @@ export default function JournalEntriesPage() {
       const updatedJournals = await getAllJournals();
       setJournals(updatedJournals);
       setOpenModal(false);
-      // window.location.reload();
     } catch (error) {
       console.error(error);
     }
@@ -74,7 +72,7 @@ export default function JournalEntriesPage() {
         <h3 className="journal-entries__subheading">Your Journal Entries</h3>
         <img
           src={journalLogo}
-          alt="journal wntries logo"
+          alt="journal entries logo"
           className="journal-entries__logo"
         />
       </div>

@@ -5,8 +5,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar, Day } from "@mui/x-date-pickers/DateCalendar";
 import getMoods from "../../scripts/utils/get-mood";
 import { useState, useEffect } from "react";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs from "dayjs";
 
 export default function Calender() {
@@ -17,7 +15,6 @@ export default function Calender() {
     const getAndSetMoods = async () => {
       try {
         const response = await getMoods();
-        // console.log(response);
         setMoods(response);
         if (response.length > 0) {
           setSelectedDate(response[0].date);
@@ -29,66 +26,13 @@ export default function Calender() {
     getAndSetMoods();
   }, []);
 
-  //   const handleDateChange = (event) => {
-  //     const newDate = event.target.value;
-  //     setSelectedDate(newDate);
-  //   };
-
-  //   // Ensure formattedSelectedDate is always defined
-  //   const formattedSelectedDate = selectedDate
-  //     ? dayjs(selectedDate).startOf("day").format("YYYY-MM-DD")
-  //     : "";
-
-  //   console.log("selectedDate", selectedDate);
-  //   console.log("formattedSelectedDate", formattedSelectedDate);
-  //   console.log("moods", moods);
-
-  //   const selectedDateMoods = moods.filter((mood) => {
-  //     const formattedMoodDate = dayjs(mood.created_at)
-  //       .startOf("day")
-  //       .format("YYYY-MM-DD");
-  //     return formattedMoodDate === formattedSelectedDate;
-  //   });
-
-  //   console.log("selectedDateMoods", selectedDateMoods);
-
-  //   return (
-  //     <LocalizationProvider dateAdapter={AdapterDayjs}>
-  //       <div>
-  //         <label htmlFor="dateInput">Select Date: </label>
-  //         <input
-  //           type="date"
-  //           id="dateInput"
-  //           value={selectedDate || ""}
-  //           onChange={handleDateChange}
-  //         />
-  //       </div>
-
-  //       {selectedDateMoods.length > 0 && (
-  //         <div>
-  //           <p>Moods for {formattedSelectedDate}:</p>
-  //           <ul>
-  //             {selectedDateMoods.map((mood, index) => (
-  //               <li key={index}>{mood.mood}</li>
-  //             ))}
-  //           </ul>
-  //         </div>
-  //       )}
-  //     </LocalizationProvider>
-  //   );
-  // }
   const handleDateChange = (newDate) => {
     setSelectedDate(newDate);
   };
 
-  // Ensure formattedSelectedDate is always defined
   const formattedSelectedDate = selectedDate
     ? dayjs(selectedDate).startOf("day").format("YYYY-MM-DD")
     : "";
-
-  // console.log("selectedDate", selectedDate);
-  // console.log("formattedSelectedDate", formattedSelectedDate);
-  // console.log("moods", moods);
 
   const selectedDateMoods = moods.filter((mood) => {
     const formattedMoodDate = dayjs(mood.created_at)
@@ -97,8 +41,6 @@ export default function Calender() {
     return formattedMoodDate === formattedSelectedDate;
   });
 
-  // console.log("selectedDateMoods", selectedDateMoods);
-
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateCalendar
@@ -106,6 +48,11 @@ export default function Calender() {
         onChange={handleDateChange}
         className="tracker__calender"
       />
+      <h4 className="tracker__text">
+        Get on track to see your different moods your evolution. It is time so
+        see how much you have evolved.
+      </h4>
+      <p></p>
 
       {selectedDateMoods.length > 0 && (
         <div className="tracker__mood-wrapper">

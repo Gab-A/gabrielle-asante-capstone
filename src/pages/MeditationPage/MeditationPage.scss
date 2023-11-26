@@ -13,6 +13,12 @@
     font-weight: 600;
     text-align: center;
     margin-top: 1rem;
+    font-size: 1.5rem;
+    color: $black;
+
+    @include tablet {
+      font-size: 2.2rem;
+    }
   }
 
   &__container {
@@ -34,28 +40,43 @@
     gap: 1rem;
     width: 100%;
     margin-bottom: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1.5rem;
   }
 
   &__mindfulness {
-    color: $dark-purple;
+    color: $black;
     font-weight: 600;
     font-size: 1.2rem;
+    margin-bottom: 2rem;
+
+    @include tablet {
+      font-size: 2.4rem;
+    }
   }
 
   &__list {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+
+    @include tablet {
+      padding: 2rem;
+    }
   }
 
   &__lessen {
-    color: $dark-purple;
+    color: $black;
     font-size: 1.2rem;
     font-weight: 600;
+
+    @include tablet {
+      font-size: 2rem;
+    }
   }
 
   &__circle-wrapper {
-    background-color: $lavender;
+    background-color: $columbia-blue;
     width: 15.625rem;
     height: 15.625rem;
     border-radius: 50%;
@@ -68,6 +89,10 @@
     color: $black;
     line-height: 1.4rem;
     font-weight: 500;
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
   }
 
   &__in {
@@ -82,7 +107,7 @@
     font-size: 1.15rem;
     text-align: center;
     font-weight: 400;
-    color: $medium-purple;
+    color: $air-blue;
   }
 }
 

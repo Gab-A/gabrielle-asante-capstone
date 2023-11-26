@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// console.log("journal");
 const getJournalById = async (journalId) => {
   console.log("fetch journal");
   try {

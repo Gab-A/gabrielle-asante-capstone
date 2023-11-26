@@ -18,7 +18,6 @@ export default function JournalPage({ mood, type }) {
   const [message, setMessage] = useState("");
 
   const { journalId } = useParams();
-  // console.log(journalId);
 
   useEffect(() => {
     const getAndSetJournal = async () => {

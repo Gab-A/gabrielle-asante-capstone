@@ -13,7 +13,6 @@ export default function TrackerPage() {
         </p>
       </div>
       <MoodCalender />
-      <Link to="/meditation">{/* <button>Go to meditation</button> */}</Link>
     </section>
   );
 }
