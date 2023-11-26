@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import getJournalById from "../../scripts/utils/get-single-journal";
 import updateJournal from "../../scripts/utils/update-journal";
+import thoughtIcon from "../../assets/icons/thought.png";
 
 export default function JournalPage({ mood, type }) {
   const [isError, setIsError] = useState(false);
@@ -111,12 +112,22 @@ export default function JournalPage({ mood, type }) {
     <section className="journal">
       <div className="journal__wrapper">
         <div className="journal__intro-wrapper">
-          <h2 className="journal__title">Write your vibe!</h2>
+          <h2 className="journal__title">
+            Write your vibe!
+            <img
+              src={thoughtIcon}
+              alt="thought bubble"
+              className="journal__thought-bubble"
+            />
+          </h2>
           {!journalId && mood && (
             <div className="journal__mood-tell-wrapper">
-              <p className="journal__mood-tell">You are: {mood}</p>
+              <p className="journal__mood-tell">
+                You are: <span className="journal__mood-span">{mood}</span>
+              </p>
               <p className="journal__mood-explanation">
-                Tell me more about why you are: {mood}
+                Tell me more about why you are:{" "}
+                <span className="journal__mood-span">{mood}</span>
               </p>
             </div>
           )}

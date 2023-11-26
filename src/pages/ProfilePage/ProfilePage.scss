@@ -4,6 +4,10 @@
 .profile {
   &__wrapper {
     padding: 0rem 1rem 0rem 1rem;
+
+    @include tablet {
+      padding: 0rem 3rem 0rem 3rem;
+    }
   }
   &__container {
     gap: 0.5rem;
@@ -30,6 +34,11 @@
   &__mood-tracker-title {
     margin-top: 0;
     margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+
+    @include tablet {
+      font-size: 1.6rem;
+    }
   }
 
   &__info-cards {
@@ -49,10 +58,41 @@
     margin-bottom: 2rem;
 
     @include tablet {
-      width: 80%;
-      margin-left: 0rem;
-      margin: 0 auto;
+      width: 100%;
       margin-top: 1rem;
+      padding: 2.5rem;
     }
+  }
+
+  &__tracker {
+    width: 1.4rem;
+    margin-left: 0.5rem;
+  }
+
+  &__mood-indicator {
+    display: flex;
+    gap: 6rem;
+
+    @include tablet {
+      gap: 15rem;
+    }
+    @include desktop {
+      gap: 45rem;
+    }
+  }
+
+  &__mood-subheading {
+    @include tablet {
+      font-size: 1.19rem;
+    }
+  }
+
+  &__mood-chevron-container {
+    margin-top: -1.5rem;
+    border-radius: 50%;
+  }
+
+  &__chevron {
+    width: 1.4rem;
   }
 }

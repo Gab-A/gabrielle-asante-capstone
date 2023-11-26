@@ -5,8 +5,21 @@
   padding-top: 0.3rem;
 
   &__wrapper {
-    max-width: $wrapper-max-width;
+    // max-width: $wrapper-max-width;
     @include flexCenter(column);
+  }
+
+  &__journal-subheading {
+    color: $black;
+    margin-top: 1rem;
+
+    @include tablet {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__heading-container {
+    padding-left: 1rem;
   }
 
   &__heading {
@@ -17,6 +30,21 @@
 
     @include tablet {
       font-size: 2.2rem;
+    }
+
+    @include desktop {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__subheading {
+    font-size: 0.8rem;
+    color: $dark-grey;
+    margin: 0.4rem 0rem 0.5rem 0.5rem;
+
+    @include tablet {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
     }
   }
   &__image-container {
@@ -31,18 +59,14 @@
 
     @include tablet {
       max-width: 34rem;
-      gap: 1.2rem;
-      // gap: 4rem;
+      gap: 4rem;
     }
     @include desktop {
-      flex-wrap: nowrap;
-      gap: 1rem;
-      margin-left: 5rem;
+      gap: 5.5rem;
     }
   }
 
   &__journal-card {
-    background-color: $columbia-blue;
     background-color: $light-yellow;
     margin-top: 1rem;
     opacity: 70%;
@@ -54,28 +78,48 @@
     margin-bottom: 1rem;
 
     @include tablet {
-      width: 80%;
+      width: 100%;
+      padding: 0rem;
+      padding-left: 2.5rem;
+      padding-top: 1.3rem;
+      margin-top: 1rem;
     }
   }
 
   &__journal-image {
     width: 1.5rem;
+    margin-top: -0.5rem;
   }
 
   &__journal-details {
     display: flex;
     gap: 0.5rem;
+
+    @include tablet {
+      margin: 0 auto;
+    }
   }
 
   &__journal-button-container {
     display: flex;
     justify-content: space-between;
     padding-top: 1rem;
+
+    @include tablet {
+      width: 60%;
+      margin-bottom: 1rem;
+    }
   }
 
   &__journal-title {
     margin-top: 0;
     margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: $black;
+
+    @include tablet {
+      font-size: 1.6rem;
+    }
   }
 
   &__journal-button-link {
@@ -85,9 +129,9 @@
   &__journal-button {
     cursor: pointer;
     background-color: $dark-yellow;
-    padding: 1rem 3rem;
-    font-size: 0.9rem;
-    font-weight: 600;
+    padding: 1rem;
+    font-size: 0.95rem;
+    font-weight: 00;
     width: 100%;
     border-radius: 0.65rem;
     border: 1px solid $dark-yellow;
@@ -97,5 +141,13 @@
       box-shadow: none;
       transform: translateY(0.375rem);
     }
+  }
+
+  &__thoughts-icon {
+    width: 1.2rem;
+  }
+
+  &__mood-indicator {
+    display: flex;
   }
 }

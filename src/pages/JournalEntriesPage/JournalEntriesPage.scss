@@ -15,8 +15,8 @@
 
   &__title {
     font-weight: 600;
-    font-size: rem;
-    color: $dark-blue;
+    color: $black;
+    font-size: 1.2rem;
   }
 
   &__read {
@@ -24,14 +24,14 @@
     background: none;
     padding: none;
     font-size: 1rem;
-    color: $dark-grey;
+    color: #3c2e99;
     margin-top: 0.3rem;
     margin-left: -0.5rem;
   }
 
   &__card {
     padding: 0.5rem;
-    background-color: $columbia-blue;
+    background-color: $lavender;
     margin: 1rem 0rem 1rem 0rem;
     border-radius: 0.5rem;
   }
@@ -54,11 +54,17 @@
   &__heading {
     margin-top: 1rem;
     margin-left: 1rem;
+    font-weight: 400;
+    color: $black;
+    text-align: center;
+  }
+
+  &__subheading {
     font-weight: 500;
-    color: $dark-blue;
+    margin-left: 1.5rem;
   }
 
   &__content {
-    color: $dark-blue;
+    color: $black;
   }
 }

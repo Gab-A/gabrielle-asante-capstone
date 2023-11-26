@@ -110,7 +110,8 @@ export default function JournalEntriesPage() {
   // console.log(journalEntry);
   return (
     <section className="journal-entries">
-      <h2 className="journal-entries__heading">Your Journal Entries</h2>
+      <h4 className="journal-entries__heading">Journal Entries</h4>
+      <h3 className="journal-entries__subheading">Your Journal Entries</h3>
       <div className="journal-entries__wrapper">
         {journals.map((journal, index) => (
           <article key={index} className="journal-entries__card">

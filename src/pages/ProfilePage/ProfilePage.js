@@ -4,6 +4,9 @@ import profileImage from "../../assets/icons/profile.svg";
 import { useState, useEffect } from "react";
 import getAllQuotes from "../../scripts/utils/get-all-quotes";
 import QuotesCarousel from "../../components/QuotesCarousel/QuotesCarousel";
+import trackerIcon from "../../assets/icons/tracker.svg";
+import chevronIcon from "../../assets/icons/chevron.png";
+import { Link } from "react-router-dom";
 
 export default function ProfilePage({ mood, setMood }) {
   const [greeting, setGreeting] = useState("");
@@ -51,8 +54,24 @@ export default function ProfilePage({ mood, setMood }) {
         </div>
         <CardList mood={mood} setMood={setMood} />
         <div className="profile__mood-tracker-card">
-          <h4 className="profile__mood-tracker-title">Monitor Your Mood</h4>
-          <p>Monitor your mood here.</p>
+          <h4 className="profile__mood-tracker-title">
+            Monitor Your Mood
+            <img
+              src={trackerIcon}
+              alt="tracker icon"
+              className="profile__tracker"
+            ></img>
+          </h4>
+          <div className="profile__mood-indicator">
+            <p className="profile__mood-subheading">
+              Track your mood and see your evolution.
+            </p>
+            <Link to="/tracker">
+              <div className="profile__mood-chevron-container">
+                <img src={chevronIcon} className="profile__chevron"></img>
+              </div>
+            </Link>
+          </div>
         </div>
         <QuotesCarousel quotes={quotes} />
       </div>

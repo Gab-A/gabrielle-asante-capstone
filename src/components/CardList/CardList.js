@@ -1,5 +1,7 @@
 import Card from "../Card/Card";
-import journalImage from "../../assets/icons/journal.svg";
+// import journalImage from "../../assets/icons/open-book.png";
+import journalIcon from "../../assets/icons/journal.png";
+import thoughtsIcon from "../../assets/icons/thought.png";
 import "./CardList.scss";
 import "../../assets/icons/smile.svg";
 import happyEmoji from "../../assets/icons/smile.svg";
@@ -78,7 +80,12 @@ export default function CardList({ mood, setMood }) {
 
   return (
     <section className="mood">
-      <h1 className="mood__heading">How are you feeling today?</h1>
+      <div className="mood__heading-container">
+        <h1 className="mood__heading">How are you feeling today?</h1>
+        <p className="mood__subheading">
+          Select a mood so that you can get journaling!
+        </p>
+      </div>
       <div className="mood__wrapper">
         <div className="mood__image-container">
           {cardsArray.map((card, index) => (
@@ -99,18 +106,26 @@ export default function CardList({ mood, setMood }) {
             <div className="mood__journal-details">
               <h4 className="mood__journal-title">Jounraling</h4>
               <img
-                src={journalImage}
+                src={journalIcon}
                 alt="journal image"
                 className="mood__journal-image"
               ></img>
             </div>
-            <Link to="/journal/new" className="mood__journal-button-link">
-              <div className="mood__journal-button-container">
+            <p className="mood__journal-subheading">
+              Giving you the space and the time for you to write your vibe.
+            </p>
+            <div className="mood__journal-button-container">
+              <Link to="/journal/new" className="mood__journal-button-link">
                 <button className="mood__journal-button">
-                  Express your thoughts here
+                  Click here to express your thoughts{" "}
+                  <img
+                    src={thoughtsIcon}
+                    alt="thought icon"
+                    className="mood__thoughts-icon"
+                  ></img>
                 </button>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
         )}
       </div>
