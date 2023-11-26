@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import getAllJournals from "../../scripts/utils/get-all-journals";
 import "./JournalEntriesPage.scss";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import deleteJournalById from "../../scripts/utils/delete-journal";
 import editImage from "../../assets/icons/edit.png";
 import deleteImage from "../../assets/icons/bin.png";
+import journalLogo from "../../assets/icons/old-live-journal-logo.png";
 import Modal from "../../components/Modal/Modal";
 
 export default function JournalEntriesPage() {
@@ -13,14 +14,6 @@ export default function JournalEntriesPage() {
   const [openModal, setOpenModal] = useState(false);
   const [selectedJournalId, setSelectedJournalId] = useState(null);
   const [modalStates, setModalStates] = useState({});
-  // const [deleteJournal, setDeleteJournal] = useState(null);
-  // const [delete, setDelete] = useState(false)
-
-  // useEffect(() => {
-  //   if (deleteJournal !== null) {
-  //     handleConfirmDelete();
-  //   }
-  // }, [deleteJournal]);
 
   useEffect(() => {
     const fetchJournals = async () => {
@@ -68,53 +61,36 @@ export default function JournalEntriesPage() {
     }
   };
 
-  // useEffect(() => {
-  //   if (deleteJournal !== null) {
-  //     handleConfirmDelete();
-  //   }
-  // }, [deleteJournal]);
-
-  // const handleDeleteClick = (journalId) => {
-  //   setDeleteJournal(journalId);
-  //   setOpenModal(true);
-  // };
-
-  // const handleConfirmDelete = async () => {
-  //   try {
-  //     await deleteJournalById(deleteJournal);
-  //     setOpenModal(false);
-  //     setDeleteJournal(null);
-  //   } catch (error) {
-  //     console.error("Error deleting");
-  //   }
-  // };
-
-  // const handleDelete = async (journalId) => {
-  //   try {
-  //     const response = await deleteJournalById(journalId)
-  //   }
-  // }
-
-  // Here creating a function to update the journal. And getting a specific one by it's id.
-  // And then using that function when the button is clicked.
-
-  // const handleUpdate = (journalId) => {
-  //   onEditJournal(journalId);
-  // };
-
   const handleExpand = (journal) => {
     setExpanded((selectedJournal) =>
       selectedJournal === journal ? null : journal
     );
   };
-  // console.log(journalEntry);
+
   return (
     <section className="journal-entries">
       <h4 className="journal-entries__heading">Journal Entries</h4>
-      <h3 className="journal-entries__subheading">Your Journal Entries</h3>
+      <div className="journal-entries__logo-container">
+        <h3 className="journal-entries__subheading">Your Journal Entries</h3>
+        <img
+          src={journalLogo}
+          alt="journal wntries logo"
+          className="journal-entries__logo"
+        />
+      </div>
+      <p className="journal-entries__paragraph">
+        See a list of all of your journal entries here:{" "}
+      </p>
       <div className="journal-entries__wrapper">
         {journals.map((journal, index) => (
-          <article key={index} className="journal-entries__card">
+          <article
+            key={index}
+            className={`journal-entries__card ${
+              index % 2 === 0
+                ? "journal-entries__card--even"
+                : "journal-entries__card--odd"
+            }`}
+          >
             {" "}
             <div className="journal-entries__edit">
               <h4 className="journal-entries__title">{journal.title}</h4>
@@ -122,17 +98,14 @@ export default function JournalEntriesPage() {
                 <Link to={`/journal/edit/${journal.id}`}>
                   <img
                     src={editImage}
-                    alt="edit image"
+                    alt="edit icon"
                     className="journal-entries__edit-photo"
                   />
                 </Link>
-                {/* <Link to={`/journal/edit/${journal.id}`}>Edit</Link> */}
                 <img
                   src={deleteImage}
-                  alt="delete image"
+                  alt="delete icon"
                   className="journal-entries__delete-photo"
-                  // onClick={() => handleDeleteClick(journal.id)}
-                  // onClick={() => setOpenModal(true)}
                   onClick={() => {
                     toggleModal(journal.id);
                     clickDeleteIcon(journal.id);
@@ -141,7 +114,6 @@ export default function JournalEntriesPage() {
                 {modalStates[journal.id] && (
                   <Modal
                     setOpenModal={(value) => toggleModal(journal.id, value)}
-                    // confirm={handleConfirmDelete}
                     handleModalCancel={handleModalCancel}
                     selectedJournalId={selectedJournalId}
                     handleDelete={handleDelete}
@@ -153,7 +125,11 @@ export default function JournalEntriesPage() {
             {!expand || expand !== journal ? (
               <button
                 onClick={() => handleExpand(journal)}
-                className="journal-entries__read"
+                className={`journal-entries__read ${
+                  index % 2 === 0
+                    ? "journal-entries__read--even"
+                    : "journal-entries__read--odd"
+                }`}
               >
                 Read More
               </button>
@@ -162,7 +138,11 @@ export default function JournalEntriesPage() {
                 <p className="journal-entries__content">{journal.content}</p>
                 <button
                   onClick={() => handleExpand(journal)}
-                  className="journal-entries__read"
+                  className={`journal-entries__read ${
+                    index % 2 === 0
+                      ? "journal-entries__read--even"
+                      : "journal-entries__read--odd"
+                  }`}
                 >
                   Read Less
                 </button>
@@ -171,9 +151,6 @@ export default function JournalEntriesPage() {
           </article>
         ))}
       </div>
-      <Link to="/tracker">
-        <button>Go to calender</button>
-      </Link>
     </section>
   );
 }

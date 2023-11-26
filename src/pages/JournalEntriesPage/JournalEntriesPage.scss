@@ -11,6 +11,7 @@
     flex-direction: row;
     gap: 1rem;
     align-items: center;
+    justify-content: space-between;
   }
 
   &__title {
@@ -24,16 +25,41 @@
     background: none;
     padding: none;
     font-size: 1rem;
-    color: #3c2e99;
     margin-top: 0.3rem;
     margin-left: -0.5rem;
+
+    &--even {
+      color: $dark-purple;
+    }
+
+    &--odd {
+      color: $dark-blue;
+    }
   }
 
   &__card {
     padding: 0.5rem;
-    background-color: $lavender;
     margin: 1rem 0rem 1rem 0rem;
     border-radius: 0.5rem;
+
+    &--even {
+      background-color: $lavender;
+    }
+
+    &--odd {
+      background-color: $columbia-blue;
+    }
+  }
+
+  &__logo-container {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 2rem;
+  }
+
+  &__logo {
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   &__buttons {
@@ -57,6 +83,11 @@
     font-weight: 400;
     color: $black;
     text-align: center;
+  }
+
+  &__paragraph {
+    color: $dark-grey;
+    margin-left: 1rem;
   }
 
   &__subheading {

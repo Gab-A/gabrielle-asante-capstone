@@ -1,28 +1,41 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-// .modal {
-//   width: 100%;
-//   height: 100%;
-//   //   background-color: rgba(0, 0, 0, 0.5);
-//   //   opacity: 0;
-//   z-index: 1;
-//   position: fixed;
-//   left: 0;
-//   top: 0;
-//   overflow: auto;
+.modal {
+  &__confirm {
+    color: $dark-grey;
+    font-size: 0.95rem;
+  }
 
-//   &__wrapper {
-//     background-color: $primary-white;
-//     margin: 15% auto;
-//     padding: 20px;
-//     border: 1px solid #888;
-//     width: 70%;
-//     border-radius: 0.5rem;
-//   }
+  &__confirm {
+    color: $red;
+  }
 
-//   &__title {
-//     text-align: center;
-//     display: inline-block;
-//   }
-// }
+  &__button {
+    padding: 0.4rem 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  &__cancel {
+    border: 0.0625rem solid $black;
+    background-color: $primary-white;
+    color: $dark-grey;
+
+    &:hover {
+      background-color: $dark-grey;
+      color: $primary-white;
+      border: 0.0625rem solid $primary-white;
+    }
+  }
+
+  &__delete {
+    border: 0.0625rem solid $black;
+    background-color: $red;
+    color: $primary-white;
+
+    &:hover {
+      background-color: $red;
+      color: $black;
+    }
+  }
+}
