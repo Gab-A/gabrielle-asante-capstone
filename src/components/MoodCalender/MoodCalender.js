@@ -17,7 +17,7 @@ export default function Calender() {
     const getAndSetMoods = async () => {
       try {
         const response = await getMoods();
-        console.log(response);
+        // console.log(response);
         setMoods(response);
         if (response.length > 0) {
           setSelectedDate(response[0].date);
@@ -86,9 +86,9 @@ export default function Calender() {
     ? dayjs(selectedDate).startOf("day").format("YYYY-MM-DD")
     : "";
 
-  console.log("selectedDate", selectedDate);
-  console.log("formattedSelectedDate", formattedSelectedDate);
-  console.log("moods", moods);
+  // console.log("selectedDate", selectedDate);
+  // console.log("formattedSelectedDate", formattedSelectedDate);
+  // console.log("moods", moods);
 
   const selectedDateMoods = moods.filter((mood) => {
     const formattedMoodDate = dayjs(mood.created_at)
@@ -97,27 +97,28 @@ export default function Calender() {
     return formattedMoodDate === formattedSelectedDate;
   });
 
-  console.log("selectedDateMoods", selectedDateMoods);
+  // console.log("selectedDateMoods", selectedDateMoods);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DemoContainer components={["DatePicker", "DatePicker", "DatePicker"]}>
-        <DatePicker
-          label="Date picker"
-          slotProps={{ textField: { size: "large" } }}
-          value={selectedDate || null}
-          onChange={handleDateChange}
-        />
-      </DemoContainer>
+      <DateCalendar
+        value={selectedDate || null}
+        onChange={handleDateChange}
+        className="tracker__calender"
+      />
 
       {selectedDateMoods.length > 0 && (
-        <div>
-          <p>Moods for {formattedSelectedDate}:</p>
-          <ul>
+        <div className="tracker__mood-wrapper">
+          <h4 className="tracker__different-moods">
+            Your different moods on the {formattedSelectedDate}:
+          </h4>
+          <div className="tracker__mood-container">
             {selectedDateMoods.map((mood, index) => (
-              <li key={index}>{mood.mood}</li>
+              <article key={mood.id} className="tracker__card">
+                {mood.mood}
+              </article>
             ))}
-          </ul>
+          </div>
         </div>
       )}
     </LocalizationProvider>

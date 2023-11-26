@@ -2,13 +2,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
 import MobileNavBar from "../src/components/MobileNavBar/MobileNavBar";
 import LandingPage from "../src/pages/LandingPage/LandingPage";
-import LoginPage from "../src/pages/LoginPage/LoginPage";
-import SignupPage from "../src/pages/SignupPage/SignupPage";
 import ProfilePage from "../src/pages/ProfilePage/ProfilePage";
 import JournalPage from "../src/pages/JournalPage/JournalPage";
 import JournalEntriesPage from "./pages/JournalEntriesPage/JournalEntriesPage";
 import TrackerPage from "../src/pages/TrackerPage/TrackerPage";
-// import JournalEntriesPage from "./pages/JournalEntriesPage/JournalEntriesPage";
 import MeditationPage from "./pages/MeditationPage/MeditationPage";
 import { useState } from "react";
 
@@ -20,8 +17,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
           <Route
             path="/profile"
             element={<ProfilePage mood={mood} setMood={setMood} />}

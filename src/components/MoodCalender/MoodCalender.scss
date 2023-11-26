@@ -1,2 +1,25 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
+
+.tracker {
+  &__calender {
+    background-color: $light-yellow;
+    border-radius: 0.5rem;
+  }
+  &__mood-wrapper {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  &__different-moods {
+    font-weight: 500;
+  }
+
+  &__card {
+    background-color: $light-yellow;
+    opacity: 70%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+  }
+}
