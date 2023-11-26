@@ -5,7 +5,6 @@
   padding-top: 0.3rem;
 
   &__wrapper {
-    // max-width: $wrapper-max-width;
     @include flexCenter(column);
   }
 
@@ -133,9 +132,9 @@
   &__journal-button {
     cursor: pointer;
     background-color: $dark-yellow;
-    padding: 1rem;
+    padding: 0.9rem;
     font-size: 0.95rem;
-    font-weight: 00;
+    font-weight: 400;
     width: 100%;
     border-radius: 0.65rem;
     border: 1px solid $dark-yellow;

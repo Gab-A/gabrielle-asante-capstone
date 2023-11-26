@@ -49,8 +49,8 @@ export default function Calender() {
         className="tracker__calender"
       />
       <h4 className="tracker__text">
-        Get on track to see your different moods your evolution. It is time so
-        see how much you have evolved.
+        Get on track to see your different moods and your evolution. It is time
+        so see how much you have evolved.
       </h4>
       <p></p>
 
