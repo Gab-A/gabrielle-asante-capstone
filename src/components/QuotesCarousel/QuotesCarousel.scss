@@ -25,7 +25,7 @@
   &__text {
     font-size: 1rem;
     font-weight: 500;
-    color: $dark-blue;
+    color: $black;
 
     @include tablet {
       font-size: 1.3rem;
@@ -48,7 +48,7 @@
     font-weight: 600;
     font-size: 1.1rem;
     margin-left: 2rem;
-    color: $dark-blue;
+    color: $air-blue;
 
     @include tablet {
       font-size: 1.3rem;
@@ -58,11 +58,11 @@
   &__blockquote p:before {
     content: open-quote;
     margin: 0;
-    color: $air-blue;
+    color: $dark-blue;
   }
 
   &__blockquote p:after {
     content: close-quote;
-    color: $air-blue;
+    color: $dark-blue;
   }
 }
