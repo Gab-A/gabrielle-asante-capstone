@@ -173,10 +173,12 @@ export default function JournalPage({ mood, type }) {
           </div>
         </form>
       </div>
+      {/* <div className="journal__status"> */}
       {isError && (
         <p className="journal__fail">Failed to upload your journal entry.</p>
       )}
       <p className="journal__redirect-message">{message}</p>
+      {/* </div> */}
     </section>
   );
 }

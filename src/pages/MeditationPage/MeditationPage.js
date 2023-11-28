@@ -104,15 +104,15 @@ export default function MeditationPage() {
                 </p>
               </div>
             </div>
-            <div className="breathe__button-container">
-              {/* <button
+            {/* <div className="breathe__button-container"> */}
+            {/* <button
                 onClick={startAnimation}
                 disabled={isButtonDisabled}
                 className="breathe__button"
               >
                 Start Animation
               </button> */}
-            </div>
+            {/* </div> */}
           </div>
         </div>
       </div>

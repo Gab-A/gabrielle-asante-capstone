@@ -3,7 +3,7 @@
 
 .journal {
   &__wrapper {
-    min-height: calc(100vh - 58px);
+    min-height: calc(100vh - 58.3984px);
     // background-color: $columbia-blue;
     // margin-top: 1rem;
   }
@@ -148,13 +148,18 @@
     color: $red;
   }
 
+  &__fail,
+  &__redirect-message {
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
   &__redirect-message {
     color: $green;
   }
 
   &__form-error {
     margin-top: 1rem;
-    color: $red;
-    font-weight: 500;
   }
 }

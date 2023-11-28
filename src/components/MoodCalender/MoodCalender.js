@@ -8,7 +8,6 @@ import { useState, useEffect } from "react";
 import dayjs from "dayjs";
 import Lottie from "lottie-react";
 import noAnimation from "../../assets/animations/no.json";
-import errorAnimation from "../../assets/animations/error.json";
 
 export default function Calender() {
   const [moods, setMoods] = useState([]);
@@ -52,20 +51,20 @@ export default function Calender() {
         className="tracker__calender"
       />
       <h4 className="tracker__text">
-        Get on track to see your different moods and your evolution. It is time
-        so see how much you have evolved.
+        Get on track to see your different moods. It is exciting to so see how
+        much you have evolved.
       </h4>
       <p></p>
 
       {selectedDateMoods.length > 0 && (
         <div className="tracker__mood-wrapper">
           <h4 className="tracker__different-moods">
-            Your different moods logged on the {formattedSelectedDate}:
+            Your different moods logged on {formattedSelectedDate}:
           </h4>
           <div className="tracker__mood-container">
             {selectedDateMoods.map((mood, index) => (
               <article key={mood.id} className="tracker__card">
-                {mood.mood}
+                <p className="tracker__mood">{mood.mood}</p>
               </article>
             ))}
           </div>
@@ -77,7 +76,7 @@ export default function Calender() {
             No moods were logged on this day {formattedSelectedDate}.
           </p>
           <Lottie
-            animationData={errorAnimation}
+            animationData={noAnimation}
             className="tracker__no-animation"
           />
         </div>

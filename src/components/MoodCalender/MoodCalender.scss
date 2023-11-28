@@ -11,7 +11,8 @@
     margin-right: 1rem;
   }
   &__different-moods,
-  &__no-mood {
+  &__no-mood,
+  &__text {
     font-weight: 500;
   }
 
@@ -24,11 +25,35 @@
     margin-bottom: 1rem;
     padding: 1.5rem;
     border-radius: 0.5rem;
+    border: 3px solid $light-grey;
   }
 
-  &__text,
+  &__title-container {
+    @include flexCenter(row);
+    gap: 1rem;
+  }
+
+  &__calender-image {
+    width: 2.5rem;
+    padding-top: 0.9rem;
+  }
+
+  &__mood {
+    color: #000038;
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+
   &__no-mood {
     margin-left: 1.5rem;
+  }
+
+  &__text {
+    margin: 1.5rem 1.5rem 0rem 1.5rem;
+  }
+
+  &__different-moods {
+    margin-left: 0.5rem;
   }
 
   &__no-mood {
@@ -42,9 +67,5 @@
   &__no-mood-wrapper {
     display: flex;
     align-items: center;
-  }
-
-  &__text {
-    font-weight: 400;
   }
 }
