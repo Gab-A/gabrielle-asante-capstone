@@ -68,6 +68,11 @@ export default function Calender() {
           </div>
         </div>
       )}
+      {selectedDateMoods.length === 0 && (
+        <div>
+          <p>No moods logged on this day {formattedSelectedDate}.</p>
+        </div>
+      )}
     </LocalizationProvider>
   );
 }
