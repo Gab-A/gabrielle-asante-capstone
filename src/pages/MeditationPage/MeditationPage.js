@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import "./MeditationPage.scss";
 import meditationIcon from "../../assets/icons/meditation-icon.svg";
 import ChipButton from "../../components/ChipButton/ChipButton";
+import Lottie from "lottie-react";
+import meditationAnimation from "../../assets/animations/meditation.json";
 
 export default function MeditationPage() {
   const [pickedOption, setPickedOption] = useState(null);
@@ -53,10 +55,14 @@ export default function MeditationPage() {
           <div className="breathe__wrapper-description">
             <div className="breathe__mindfulness-container">
               <h3 className="breathe__mindfulness">Mindfulness:</h3>
-              <img
+              {/* <img
                 src={meditationIcon}
                 alt="meditaton icon"
                 className="breathe__meditation-icon"
+              /> */}
+              <Lottie
+                animationData={meditationAnimation}
+                className="breathe__meditation-animation"
               />
             </div>
             <p className="breathe__description">

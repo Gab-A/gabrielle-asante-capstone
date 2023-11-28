@@ -67,73 +67,61 @@ export default function JournalEntriesPage() {
 
   return (
     <section className="journal-entries">
-      <h4 className="journal-entries__heading">Journal Entries</h4>
-      <div className="journal-entries__logo-container">
-        <h3 className="journal-entries__subheading">Your Journal Entries</h3>
-        <img
-          src={journalLogo}
-          alt="journal entries logo"
-          className="journal-entries__logo"
-        />
-      </div>
-      <p className="journal-entries__paragraph">
-        See a list of all of your journal entries here:{" "}
-      </p>
-      <div className="journal-entries__wrapper">
-        {journals.map((journal, index) => (
-          <article
-            key={index}
-            className={`journal-entries__card ${
-              index % 2 === 0
-                ? "journal-entries__card--even"
-                : "journal-entries__card--odd"
-            }`}
-          >
-            {" "}
-            <div className="journal-entries__edit">
-              <h4 className="journal-entries__title">{journal.title}</h4>
-              <div className="journal-entries__buttons">
-                <Link to={`/journal/edit/${journal.id}`}>
+      <div className="journal-entries__container">
+        <h4 className="journal-entries__heading">Journal Entries</h4>
+        <div className="journal-entries__logo-container">
+          <h3 className="journal-entries__subheading">Your Journal Entries</h3>
+          <img
+            src={journalLogo}
+            alt="journal entries logo"
+            className="journal-entries__logo"
+          />
+        </div>
+        <p className="journal-entries__paragraph">
+          See a list of all of your journal entries here:{" "}
+        </p>
+        <div className="journal-entries__wrapper">
+          {journals.map((journal, index) => (
+            <article
+              key={index}
+              className={`journal-entries__card ${
+                index % 2 === 0
+                  ? "journal-entries__card--even"
+                  : "journal-entries__card--odd"
+              }`}
+            >
+              {" "}
+              <div className="journal-entries__edit">
+                <h4 className="journal-entries__title">{journal.title}</h4>
+                <div className="journal-entries__buttons">
+                  <Link to={`/journal/edit/${journal.id}`}>
+                    <img
+                      src={editImage}
+                      alt="edit icon"
+                      className="journal-entries__edit-photo"
+                    />
+                  </Link>
                   <img
-                    src={editImage}
-                    alt="edit icon"
-                    className="journal-entries__edit-photo"
+                    src={deleteImage}
+                    alt="delete icon"
+                    className="journal-entries__delete-photo"
+                    onClick={() => {
+                      toggleModal(journal.id);
+                      clickDeleteIcon(journal.id);
+                    }}
                   />
-                </Link>
-                <img
-                  src={deleteImage}
-                  alt="delete icon"
-                  className="journal-entries__delete-photo"
-                  onClick={() => {
-                    toggleModal(journal.id);
-                    clickDeleteIcon(journal.id);
-                  }}
-                />
-                {modalStates[journal.id] && (
-                  <Modal
-                    setOpenModal={(value) => toggleModal(journal.id, value)}
-                    handleModalCancel={handleModalCancel}
-                    selectedJournalId={selectedJournalId}
-                    handleDelete={handleDelete}
-                    openModal={openModal}
-                  />
-                )}
+                  {modalStates[journal.id] && (
+                    <Modal
+                      setOpenModal={(value) => toggleModal(journal.id, value)}
+                      handleModalCancel={handleModalCancel}
+                      selectedJournalId={selectedJournalId}
+                      handleDelete={handleDelete}
+                      openModal={openModal}
+                    />
+                  )}
+                </div>
               </div>
-            </div>
-            {!expand || expand !== journal ? (
-              <button
-                onClick={() => handleExpand(journal)}
-                className={`journal-entries__read ${
-                  index % 2 === 0
-                    ? "journal-entries__read--even"
-                    : "journal-entries__read--odd"
-                }`}
-              >
-                Read More
-              </button>
-            ) : (
-              <div>
-                <p className="journal-entries__content">{journal.content}</p>
+              {!expand || expand !== journal ? (
                 <button
                   onClick={() => handleExpand(journal)}
                   className={`journal-entries__read ${
@@ -142,12 +130,26 @@ export default function JournalEntriesPage() {
                       : "journal-entries__read--odd"
                   }`}
                 >
-                  Read Less
+                  Read More
                 </button>
-              </div>
-            )}
-          </article>
-        ))}
+              ) : (
+                <div>
+                  <p className="journal-entries__content">{journal.content}</p>
+                  <button
+                    onClick={() => handleExpand(journal)}
+                    className={`journal-entries__read ${
+                      index % 2 === 0
+                        ? "journal-entries__read--even"
+                        : "journal-entries__read--odd"
+                    }`}
+                  >
+                    Read Less
+                  </button>
+                </div>
+              )}
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

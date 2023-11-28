@@ -2,6 +2,9 @@
 @use "../../styles/partials/variables" as *;
 
 .journal {
+  &__wrapper {
+    min-height: calc(100vh - 58px);
+  }
   &__form-group {
     display: flex;
     flex-direction: column;

@@ -17,6 +17,10 @@
     padding-top: 1rem;
   }
 
+  &__wrapper {
+    min-height: calc(100vh - 74.3984px);
+  }
+
   &__heading {
     font-weight: 400;
     text-align: center;
@@ -39,8 +43,13 @@
     margin-top: 2.1rem;
   }
 
-  &__meditation-icon {
-    width: 3.5rem;
+  // &__meditation-icon {
+  //   width: 3.5rem;
+  // }
+
+  &__meditation-animation {
+    width: 8rem;
+    margin-top: -1rem;
   }
 
   &__wrapper-description {
@@ -105,12 +114,11 @@
   &__mindfulness-container {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 1rem;
   }
   &__circle-wrapper {
     background-color: $columbia-blue;
-    width: 14rem;
-    height: 14rem;
+    width: 12rem;
+    height: 12rem;
     border-radius: 50%;
     margin-top: 2rem;
     display: flex;

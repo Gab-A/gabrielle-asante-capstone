@@ -2,6 +2,9 @@
 @use "../../styles/partials/mixins" as *;
 
 .tracker {
+  &__container {
+    min-height: calc(100vh - 74.3984px);
+  }
   &__title {
     font-weight: 500;
     text-align: center;

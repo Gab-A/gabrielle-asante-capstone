@@ -31,9 +31,7 @@ function App() {
           <Route path="/journal-entries" element={<JournalEntriesPage />} />
           <Route
             path="/journal/edit/:journalId"
-            element={
-              <JournalPage mood={mood} setMood={setMood} type={"edit"} />
-            }
+            element={<JournalPage type={"edit"} />}
           />
           <Route path="/tracker" element={<TrackerPage />} />
           <Route path="/meditation" element={<MeditationPage />} />

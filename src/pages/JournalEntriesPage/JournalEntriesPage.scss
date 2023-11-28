@@ -5,6 +5,11 @@
   &__wrapper {
     margin: 0rem 1rem 0rem 1rem;
   }
+
+  &__container {
+    min-height: calc(100vh - 74.3984px);
+  }
+
   &__edit {
     display: flex;
     flex-direction: row;
