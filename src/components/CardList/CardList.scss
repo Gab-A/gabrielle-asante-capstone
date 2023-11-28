@@ -72,7 +72,7 @@
   &__journal-card {
     background-color: $light-yellow;
     margin-top: 1rem;
-    opacity: 70%;
+    // opacity: 70%;
     width: 100%;
     padding-top: 1rem;
     border-radius: 0.5rem;
@@ -132,7 +132,7 @@
   &__journal-button {
     cursor: pointer;
     background-color: $dark-yellow;
-    padding: 0.9rem;
+    padding: 0.7rem;
     font-size: 0.95rem;
     font-weight: 400;
     width: 100%;

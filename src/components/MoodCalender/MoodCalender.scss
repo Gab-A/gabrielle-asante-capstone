@@ -10,14 +10,15 @@
     margin-left: 1rem;
     margin-right: 1rem;
   }
-  &__different-moods {
+  &__different-moods,
+  &__no-mood {
     font-weight: 500;
   }
 
   &__card {
     background-color: $columbia-blue;
     opacity: 70%;
-    color: $black;
+    color: $secondary-black;
     font-weight: 500;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -25,7 +26,25 @@
     border-radius: 0.5rem;
   }
 
+  &__text,
+  &__no-mood {
+    margin-left: 1.5rem;
+  }
+
+  &__no-mood {
+    font-size: 0.93rem;
+  }
+
+  &__no-animation {
+    width: 4rem;
+  }
+
+  &__no-mood-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
   &__text {
-    margin-left: 2rem;
+    font-weight: 400;
   }
 }

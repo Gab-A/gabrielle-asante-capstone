@@ -7,18 +7,22 @@ import meditationAnimation from "../../assets/animations/meditation.json";
 
 export default function MeditationPage() {
   const [pickedOption, setPickedOption] = useState(null);
-  // const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const [breathing, setBreathing] = useState(true);
-
-  // const startAnimation = () => {
-  //   setBreathing(true);
-  //   setIsButtonDisabled(true);
-  // };
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  // const [breathing, setBreathing] = useState(true);
+  const [breathing, setBreathing] = useState(false);
+  const startAnimation = () => {
+    setBreathing(true);
+    setIsButtonDisabled(true);
+  };
 
   // const stopAnimation = () => {
   //   setBreathing(false);
   //   setIsButtonDisabled(false);
   // };
+
+  const handleButtonClick = () => {
+    setBreathing(!breathing);
+  };
 
   useEffect(() => {
     const breathTimer = setTimeout(() => {
@@ -100,15 +104,15 @@ export default function MeditationPage() {
                 </p>
               </div>
             </div>
-            {/* <div className="breathe__button-container">
-              <button
+            <div className="breathe__button-container">
+              {/* <button
                 onClick={startAnimation}
                 disabled={isButtonDisabled}
                 className="breathe__button"
               >
                 Start Animation
-              </button>
-            </div> */}
+              </button> */}
+            </div>
           </div>
         </div>
       </div>

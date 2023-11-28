@@ -6,6 +6,9 @@ import { DateCalendar, Day } from "@mui/x-date-pickers/DateCalendar";
 import getMoods from "../../scripts/utils/get-mood";
 import { useState, useEffect } from "react";
 import dayjs from "dayjs";
+import Lottie from "lottie-react";
+import noAnimation from "../../assets/animations/no.json";
+import errorAnimation from "../../assets/animations/error.json";
 
 export default function Calender() {
   const [moods, setMoods] = useState([]);
@@ -57,7 +60,7 @@ export default function Calender() {
       {selectedDateMoods.length > 0 && (
         <div className="tracker__mood-wrapper">
           <h4 className="tracker__different-moods">
-            Your different moods on the {formattedSelectedDate}:
+            Your different moods logged on the {formattedSelectedDate}:
           </h4>
           <div className="tracker__mood-container">
             {selectedDateMoods.map((mood, index) => (
@@ -69,8 +72,14 @@ export default function Calender() {
         </div>
       )}
       {selectedDateMoods.length === 0 && (
-        <div>
-          <p>No moods logged on this day {formattedSelectedDate}.</p>
+        <div className="tracker__no-mood-wrapper">
+          <p className="tracker__no-mood">
+            No moods were logged on this day {formattedSelectedDate}.
+          </p>
+          <Lottie
+            animationData={errorAnimation}
+            className="tracker__no-animation"
+          />
         </div>
       )}
     </LocalizationProvider>

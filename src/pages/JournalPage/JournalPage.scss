@@ -4,6 +4,8 @@
 .journal {
   &__wrapper {
     min-height: calc(100vh - 58px);
+    // background-color: $columbia-blue;
+    // margin-top: 1rem;
   }
   &__form-group {
     display: flex;
@@ -106,7 +108,7 @@
 
   &__button {
     color: $primary-white;
-    background-color: $medium-blue;
+    background-color: $blue;
     width: 80%;
     font-weight: 500;
     font-family: "Quicksand";
@@ -130,9 +132,14 @@
       width: 20%;
     }
 
+    &:hover {
+      background-color: $medium-blue;
+    }
+
     &:active {
       box-shadow: none;
       transform: translateY(0.375rem);
+      background-color: $medium-blue;
     }
   }
 

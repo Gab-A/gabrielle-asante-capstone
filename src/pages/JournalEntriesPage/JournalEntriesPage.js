@@ -6,7 +6,9 @@ import deleteJournalById from "../../scripts/utils/delete-journal";
 import editImage from "../../assets/icons/edit.png";
 import deleteImage from "../../assets/icons/bin.png";
 import journalLogo from "../../assets/icons/old-live-journal-logo.png";
+import journalAnimation from "../../assets/animations/journal.json";
 import Modal from "../../components/Modal/Modal";
+import Lottie from "lottie-react";
 
 export default function JournalEntriesPage() {
   const [journals, setJournals] = useState(null);
@@ -71,11 +73,15 @@ export default function JournalEntriesPage() {
         <h4 className="journal-entries__heading">Journal Entries</h4>
         <div className="journal-entries__logo-container">
           <h3 className="journal-entries__subheading">Your Journal Entries</h3>
-          <img
+          <Lottie
+            animationData={journalAnimation}
+            className="journal-entries__logo"
+          />
+          {/* <img
             src={journalLogo}
             alt="journal entries logo"
             className="journal-entries__logo"
-          />
+          /> */}
         </div>
         <p className="journal-entries__paragraph">
           See a list of all of your journal entries here:{" "}
