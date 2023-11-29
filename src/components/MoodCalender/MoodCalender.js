@@ -8,6 +8,15 @@ import { useState, useEffect } from "react";
 import dayjs from "dayjs";
 import Lottie from "lottie-react";
 import noAnimation from "../../assets/animations/no.json";
+import happyEmoji from "../../assets/icons/smile.svg";
+import sadEmoji from "../../assets/icons/sad.svg";
+import anxiousEmoji from "../../assets/icons/anxious.svg";
+import tiredEmoji from "../../assets/icons/tired.svg";
+import stressedEmoji from "../../assets/icons/stressed.svg";
+import gratefulEmoji from "../../assets/icons/grateful.svg";
+import unsureEmoji from "../../assets/icons/unsure.svg";
+import calmEmoji from "../../assets/icons/calm.svg";
+import angryEmoji from "../../assets/icons/angry.svg";
 
 export default function Calender() {
   const [moods, setMoods] = useState([]);
@@ -43,6 +52,22 @@ export default function Calender() {
     return formattedMoodDate === formattedSelectedDate;
   });
 
+  const moodEmoji = {
+    Grateful: gratefulEmoji,
+    Tired: tiredEmoji,
+    Happy: happyEmoji,
+    Sad: sadEmoji,
+    Angry: angryEmoji,
+    Calm: calmEmoji,
+    Unsure: unsureEmoji,
+    Anxious: anxiousEmoji,
+    Stressed: stressedEmoji,
+  };
+
+  const getMoodEmoji = (mood) => {
+    return moodEmoji[mood]; // Use a default emoji if no match found
+  };
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateCalendar
@@ -59,12 +84,19 @@ export default function Calender() {
       {selectedDateMoods.length > 0 && (
         <div className="tracker__mood-wrapper">
           <h4 className="tracker__different-moods">
-            Your different moods logged on {formattedSelectedDate}:
+            Your different moods on {formattedSelectedDate}:
           </h4>
           <div className="tracker__mood-container">
             {selectedDateMoods.map((mood, index) => (
               <article key={mood.id} className="tracker__card">
-                <p className="tracker__mood">{mood.mood}</p>
+                <div className="tracker__mood-wrap">
+                  <p className="tracker__mood">{mood.mood}</p>
+                  <img
+                    src={`${getMoodEmoji(mood.mood)}`}
+                    alt={mood.mood}
+                    className="tracker__mood-icon"
+                  />
+                </div>
               </article>
             ))}
           </div>

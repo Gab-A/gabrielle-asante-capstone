@@ -44,7 +44,7 @@ export default function CardList({ mood, setMood }) {
     },
     {
       id: "434323",
-      title: "Unusre",
+      title: "Unsure",
       image: unsureEmoji,
     },
     {

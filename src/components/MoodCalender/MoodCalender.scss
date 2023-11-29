@@ -23,8 +23,10 @@
     gap: 0.3rem;
   }
   &__card {
-    background-color: lavender;
-    opacity: 50%;
+    background-color: rgba(216, 212, 242, 0.4);
+    // margin: 0 auto;
+    // background-color: lavender;
+    // opacity: 50%;
     color: $secondary-black;
     font-weight: 500;
     margin-top: 1rem;
@@ -32,7 +34,7 @@
     padding: 1.5rem;
     border-radius: 0.5rem;
     border: 1.5px solid $medium-purple;
-    width: 75%;
+    width: 85%;
   }
 
   &__title-container {
@@ -74,5 +76,15 @@
   &__no-mood-wrapper {
     display: flex;
     align-items: center;
+  }
+
+  &__mood-icon {
+    width: 1.8rem;
+    opacity: 1;
+  }
+
+  &__mood-wrap {
+    display: flex;
+    gap: 1rem;
   }
 }
