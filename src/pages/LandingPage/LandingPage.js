@@ -1,5 +1,5 @@
 import "./LandingPage.scss";
-import vibeScribeLogo from "../../assets/logo/vibe-scribe1.svg";
+import vibeScribeLogo from "../../assets/logo/vibe-scribe-3.svg";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
 

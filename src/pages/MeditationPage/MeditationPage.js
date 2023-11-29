@@ -42,11 +42,11 @@ export default function MeditationPage() {
     "Saddness",
     "Anxiety",
     "Nervous",
-    "Frustrated",
+    "Frustration",
     "Stressed",
-    "Angry",
+    "Anger",
     "Weariness",
-    "Annoyed",
+    "Annoyance",
     "Other",
   ];
   return (
@@ -58,7 +58,7 @@ export default function MeditationPage() {
           </div>
           <div className="breathe__wrapper-description">
             <div className="breathe__mindfulness-container">
-              <h3 className="breathe__mindfulness">Mindfulness:</h3>
+              <h3 className="breathe__mindfulness">Mindfulness</h3>
               {/* <img
                 src={meditationIcon}
                 alt="meditaton icon"
@@ -72,11 +72,11 @@ export default function MeditationPage() {
             <p className="breathe__description">
               Breathing meditation helps you feel at ease, and calms your mind
               allowing you to quiten down the noise, enabliing you to take
-              control of your thoughts. Try it out, right now, for as long as
-              you like!
+              control of your thoughts. Try it out right now for as long as you
+              like!
             </p>
             <div className="breathe__lessen-container">
-              <p className="breathe__lessen">Breathe to lessen:</p>
+              <p className="breathe__lessen">Breathe to lessen</p>
               <div className="breathe__list">
                 {chipSelections.map((text, index) => (
                   <ChipButton

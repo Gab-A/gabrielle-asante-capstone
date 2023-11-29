@@ -3,7 +3,7 @@
 
 .tracker {
   &__calender {
-    background-color: $columbia-blue;
+    background-color: $lavender;
     border-radius: 0.5rem;
   }
   &__mood-wrapper {
@@ -16,16 +16,23 @@
     font-weight: 500;
   }
 
+  &__mood-container {
+    // display: flex;
+    // flex-wrap: wrap;
+    // max-width: 12rem;
+    gap: 0.3rem;
+  }
   &__card {
-    background-color: $columbia-blue;
-    opacity: 70%;
+    background-color: lavender;
+    opacity: 50%;
     color: $secondary-black;
     font-weight: 500;
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 1.5rem;
     border-radius: 0.5rem;
-    border: 3px solid $light-grey;
+    border: 1.5px solid $medium-purple;
+    width: 75%;
   }
 
   &__title-container {

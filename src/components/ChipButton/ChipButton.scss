@@ -6,7 +6,8 @@
     @include chip;
 
     &--selected {
-      background-color: $air-blue;
+      background-color: $primary-white;
+      color: $black;
     }
   }
 }

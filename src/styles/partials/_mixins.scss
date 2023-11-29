@@ -32,11 +32,12 @@
 }
 
 @mixin chip {
-  border: 0.0625rem solid $primary-white;
-  background-color: $columbia-blue;
+  border: none;
+  background-color: $air-blue;
   border-radius: 0.5rem;
-  padding: 0.25rem 1.75rem;
+  padding: 0.45rem 1.75rem;
   cursor: pointer;
+  color: $primary-white;
 
   @include tablet {
     padding: 1rem 6rem;

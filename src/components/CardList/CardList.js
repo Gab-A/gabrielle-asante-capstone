@@ -103,7 +103,7 @@ export default function CardList({ mood, setMood }) {
         {showThoughtsDiv && (
           <div className="mood__journal-card">
             <div className="mood__journal-details">
-              <h4 className="mood__journal-title">Jounraling</h4>
+              <h4 className="mood__journal-title">Journaling</h4>
               <img
                 src={journalIcon}
                 alt="journal image"

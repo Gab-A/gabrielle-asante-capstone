@@ -4,8 +4,6 @@
 .journal {
   &__wrapper {
     min-height: calc(100vh - 58.3984px);
-    // background-color: $columbia-blue;
-    // margin-top: 1rem;
   }
   &__form-group {
     display: flex;
@@ -54,7 +52,7 @@
 
   &__mood-span {
     font-weight: 600;
-    color: $dark-blue;
+    color: $medium-blue;
     text-transform: uppercase;
   }
 
