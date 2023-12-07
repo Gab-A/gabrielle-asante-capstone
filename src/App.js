@@ -8,6 +8,8 @@ import JournalPage from "../src/pages/JournalPage/JournalPage";
 import JournalEntriesPage from "./pages/JournalEntriesPage/JournalEntriesPage";
 import TrackerPage from "../src/pages/TrackerPage/TrackerPage";
 import MeditationPage from "./pages/MeditationPage/MeditationPage";
+import SignupPage from "../src/pages/SignupPage/SignupPage";
+import LoginPage from "../src/pages/LoginPage/LoginPage";
 import { useState } from "react";
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route
             path="/profile"
             element={<ProfilePage mood={mood} setMood={setMood} />}
