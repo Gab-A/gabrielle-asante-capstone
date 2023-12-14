@@ -26,8 +26,8 @@
       transform: translateY(-0.2rem);
     }
     @include tablet {
-      width: 8rem;
-      height: 6.5rem;
+      width: 10rem;
+      height: 10rem;
     }
     @include desktop {
       width: 7rem;
@@ -41,10 +41,21 @@
 
   &__card-title {
     margin-top: 0rem;
+
+    @include tablet {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
   }
 
   &__card-image {
     width: 3rem;
     margin-top: -0.5rem;
+
+    @include tablet {
+      width: auto;
+      width: 5rem;
+    }
   }
 }

@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import "./App.scss";
-import MobileNavBar from "../src/components/MobileNavBar/MobileNavBar";
+import BottomNavBar from "./components/BottomNavBar/BottomNavBar";
+import MobileNavBar from "./components/BottomNavBar/BottomNavBar";
 import LandingPage from "../src/pages/LandingPage/LandingPage";
 import ProfilePage from "../src/pages/ProfilePage/ProfilePage";
 import JournalPage from "../src/pages/JournalPage/JournalPage";
@@ -40,7 +41,7 @@ function App() {
           <Route path="/tracker" element={<TrackerPage />} />
           <Route path="/meditation" element={<MeditationPage />} />
         </Routes>
-        <MobileNavBar />
+        <BottomNavBar />
       </BrowserRouter>
     </>
   );

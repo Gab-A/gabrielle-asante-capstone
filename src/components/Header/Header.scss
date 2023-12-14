@@ -5,9 +5,9 @@
   @include mobile {
     display: none;
   }
-  @include tablet {
+  @include desktop {
     display: flex;
-    background-color: $columbia-blue;
+    background-color: $primary-white;
   }
 
   &__wrapper {

@@ -74,9 +74,9 @@ export default function ProfilePage({ mood, setMood }) {
     navigate("/login");
   };
 
-  // if (failedAuth) {
-  //   return <main className="profile">You must log in to see this page.</main>;
-  // }
+  if (failedAuth) {
+    return <main className="profile">You must log in to see this page.</main>;
+  }
 
   if (isLoading) {
     return <main className="dashboard">Loading...</main>;
@@ -91,9 +91,9 @@ export default function ProfilePage({ mood, setMood }) {
             alt="profile placeholder"
             className="profile__image"
           ></img>
-          {/* <h4 className="profile__title">
+          <h4 className="profile__title">
             {greeting}, {data.first_name}
-          </h4> */}
+          </h4>
         </div>
         <CardList mood={mood} setMood={setMood} />
         <div className="profile__mood-tracker-card">
