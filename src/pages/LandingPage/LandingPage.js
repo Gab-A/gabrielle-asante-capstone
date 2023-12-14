@@ -8,7 +8,7 @@ export default function LandingPage() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/profile");
+      navigate("/signup");
     }, 2000);
 
     return () => clearTimeout(timer);

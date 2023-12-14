@@ -7,10 +7,16 @@ import QuotesCarousel from "../../components/QuotesCarousel/QuotesCarousel";
 import calenderIcon from "../../assets/icons/calender.png";
 import chevronIcon from "../../assets/icons/chevron.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfilePage({ mood, setMood }) {
   const [greeting, setGreeting] = useState("");
   const [quotes, setQuotes] = useState(null);
+  const [failedAuth, setFailedAuth] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const time = new Date().getHours();
@@ -37,12 +43,47 @@ export default function ProfilePage({ mood, setMood }) {
     fetchQuotes();
   }, []);
 
+  const login = async () => {
+    const token = sessionStorage.getItem("token");
+
+    try {
+      const response = await axios.get("http://localhost:8000/my-profile", {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+
+      setData(response.data);
+    } catch (error) {
+      setFailedAuth(true);
+      console.error(error);
+    }
+
+    setIsLoading(false);
+  };
+  useEffect(() => {
+    login();
+  }, []);
+
   if (!quotes) {
     return <p>Loading</p>;
   }
 
+  const logout = () => {
+    sessionStorage.removeItem("token");
+    navigate("/login");
+  };
+
+  // if (failedAuth) {
+  //   return <main className="profile">You must log in to see this page.</main>;
+  // }
+
+  if (isLoading) {
+    return <main className="dashboard">Loading...</main>;
+  }
+
   return (
-    <section className="profile">
+    <main className="profile">
       <div className="profile__wrapper">
         <div className="profile__container">
           <img
@@ -50,7 +91,9 @@ export default function ProfilePage({ mood, setMood }) {
             alt="profile placeholder"
             className="profile__image"
           ></img>
-          <h4 className="profile__title">{greeting}, Mia!</h4>
+          {/* <h4 className="profile__title">
+            {greeting}, {data.first_name}
+          </h4> */}
         </div>
         <CardList mood={mood} setMood={setMood} />
         <div className="profile__mood-tracker-card">
@@ -75,6 +118,6 @@ export default function ProfilePage({ mood, setMood }) {
         </div>
         <QuotesCarousel quotes={quotes} />
       </div>
-    </section>
+    </main>
   );
 }

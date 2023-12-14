@@ -18,12 +18,13 @@ export default function LoginPage() {
       });
 
       sessionStorage.setItem("token", response.data.token);
-      navigate("/");
+      navigate("/profile");
     } catch (error) {
       console.error(error);
       setError(error.response.data);
     }
   };
+  // console.log("Response is", response);
 
   return (
     <main className="login-page">
