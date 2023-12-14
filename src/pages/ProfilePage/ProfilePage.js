@@ -5,10 +5,9 @@ import { useState, useEffect } from "react";
 import getAllQuotes from "../../scripts/utils/get-all-quotes";
 import QuotesCarousel from "../../components/QuotesCarousel/QuotesCarousel";
 import calenderIcon from "../../assets/icons/calender.png";
-import chevronIcon from "../../assets/icons/chevron.png";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import NavigationCard from "../../components/NavigationCard/NavigationCard";
 
 export default function ProfilePage({ mood, setMood }) {
   const [greeting, setGreeting] = useState("");
@@ -86,38 +85,27 @@ export default function ProfilePage({ mood, setMood }) {
     <main className="profile">
       <div className="profile__wrapper">
         <div className="profile__container">
-          <img
+          {/* <img
             src={profileImage}
             alt="profile placeholder"
             className="profile__image"
-          ></img>
-          <h4 className="profile__title">
+          ></img> */}
+          {/* <div>{data.first_name[0]}</div> */}
+          <h4 className="profile__greeting">
             {greeting}, {data.first_name}
           </h4>
+          <div className="profile__initial">{data.first_name[0]}</div>
         </div>
         <CardList mood={mood} setMood={setMood} />
-        <div className="profile__mood-tracker-card">
-          <h4 className="profile__mood-tracker-title">
-            Monitor Your Mood
-            <img
-              src={calenderIcon}
-              alt="tracker icon"
-              className="profile__tracker"
-            ></img>
-          </h4>
-          <div className="profile__mood-indicator">
-            <p className="profile__mood-subheading">
-              Track your mood and see your evolution.
-            </p>
-            <Link to="/tracker">
-              <div className="profile__mood-chevron-container">
-                <img src={chevronIcon} className="profile__chevron"></img>
-              </div>
-            </Link>
-          </div>
-        </div>
-        <QuotesCarousel quotes={quotes} />
+        <NavigationCard
+          title="Monitor Your Mood"
+          image={calenderIcon}
+          description="Track your mood and see your evolution"
+          showButton={false}
+          showImage={true}
+        />
       </div>
+      <QuotesCarousel quotes={quotes} />
     </main>
   );
 }

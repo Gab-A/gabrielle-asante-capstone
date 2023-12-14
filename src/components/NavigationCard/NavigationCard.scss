@@ -1,0 +1,83 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.mood-navigation {
+  &__card {
+    background-color: $light-yellow;
+    // background-color: #ffe9b1;
+    // background-color: #fdf5bc;
+    margin-top: 1rem;
+    // opacity: 70%;
+    width: 100%;
+    padding-top: 1rem;
+    border-radius: 0.8rem;
+
+    padding: 1rem;
+    // border: rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    // border: 2px solid $light-yellow;
+    box-shadow: rgba(0, 0, 0, 0.205) 0.7px 0.7px 0.7px 0.7px;
+  }
+
+  &__title {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: $black;
+  }
+
+  &__description {
+    // font-size: 0.8rem;
+    color: $black;
+    font-weight: 500;
+    margin: 0.4rem 0rem 0.5rem 0.5rem;
+  }
+
+  &__image-container {
+    display: flex;
+    gap: 0.5rem;
+  }
+  &__image {
+    width: 1.4rem;
+    height: 1.4rem;
+    margin-top: -0.1rem;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__button {
+    cursor: pointer;
+    background-color: $dark-yellow;
+    padding: 0.7rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    width: 100%;
+    border-radius: 0.65rem;
+    border: 1px solid $dark-yellow;
+    box-shadow: 0rem 0.2rem 0rem 0rem $box-shadow;
+
+    &:active {
+      box-shadow: none;
+      transform: translateY(0.375rem);
+    }
+  }
+
+  &__thought-bubble {
+    width: 1.2rem;
+  }
+
+  &__details {
+    display: flex;
+    gap: 6rem;
+  }
+
+  &__chevron-container {
+    border-radius: 50%;
+  }
+
+  &__chevron {
+    width: 1.4rem;
+  }
+}
