@@ -29,7 +29,7 @@ export default function QuotesCarousel({ quotes }) {
         }}
         navigation={false}
         modules={[Autoplay, Navigation]}
-        className="carousel carousel__quotation-marks"
+        className="carousel__slide carousel__quotation-marks"
       >
         {quotesSlides}
       </Swiper>

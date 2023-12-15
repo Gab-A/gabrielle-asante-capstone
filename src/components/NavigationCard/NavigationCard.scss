@@ -2,21 +2,20 @@
 @use "../../styles/partials/variables" as *;
 
 .mood-navigation {
+  &__wrapper {
+    @include tablet {
+      display: flex;
+    }
+  }
   &__card {
     background-color: $light-yellow;
-    // background-color: #ffe9b1;
-    // background-color: #fdf5bc;
     margin-top: 1rem;
-    // opacity: 70%;
     width: 100%;
     padding-top: 1rem;
     border-radius: 0.8rem;
-
-    padding: 1rem;
-    // border: rgba(0, 0, 0, 0.5);
+    padding: 1rem 1rem 1.5rem 1rem;
     margin: 0 auto;
     margin-bottom: 1rem;
-    // border: 2px solid $light-yellow;
     box-shadow: rgba(0, 0, 0, 0.205) 0.7px 0.7px 0.7px 0.7px;
   }
 
@@ -51,12 +50,19 @@
     cursor: pointer;
     background-color: $dark-yellow;
     padding: 0.7rem;
-    font-size: 0.95rem;
     font-weight: 400;
     width: 100%;
     border-radius: 0.65rem;
     border: 1px solid $dark-yellow;
     box-shadow: 0rem 0.2rem 0rem 0rem $box-shadow;
+
+    &:disabled {
+      cursor: not-allowed;
+      box-shadow: 0rem 0.2rem 0rem 0rem $box-shadow;
+      transform: none;
+      // opacity: 70%;
+      color: #808080c2;
+    }
 
     &:active {
       box-shadow: none;
@@ -65,7 +71,7 @@
   }
 
   &__thought-bubble {
-    width: 1.2rem;
+    width: 0.82rem;
   }
 
   &__details {

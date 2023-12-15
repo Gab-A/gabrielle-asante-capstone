@@ -14,7 +14,12 @@ import angryEmoji from "../../assets/icons/angry.svg";
 import { useState } from "react";
 import NavigationCard from "../NavigationCard/NavigationCard";
 
-export default function CardList({ mood, setMood }) {
+export default function CardList({
+  mood,
+  setMood,
+  selectedCardIndex,
+  handleCardClick,
+}) {
   const cardsArray = [
     {
       id: "267858",
@@ -63,18 +68,18 @@ export default function CardList({ mood, setMood }) {
     },
   ];
 
-  const [selectedCardIndex, setSelectedCardIndex] = useState(null);
-  const [showThoughtsDiv, setShowThoughtsDiv] = useState(false);
+  // const [selectedCardIndex, setSelectedCardIndex] = useState(null);
+  // const [showThoughtsDiv, setShowThoughtsDiv] = useState(false);
 
-  const handleCardClick = (cardIndex) => {
-    if (selectedCardIndex === null || selectedCardIndex !== cardIndex) {
-      setSelectedCardIndex(cardIndex);
-      setShowThoughtsDiv(true);
-    } else {
-      setShowThoughtsDiv(false);
-      setSelectedCardIndex(null);
-    }
-  };
+  // const handleCardClick = (cardIndex) => {
+  //   if (selectedCardIndex === null || selectedCardIndex !== cardIndex) {
+  //     setSelectedCardIndex(cardIndex);
+  //     setShowThoughtsDiv(true);
+  //   } else {
+  //     setShowThoughtsDiv(false);
+  //     setSelectedCardIndex(null);
+  //   }
+  // };
 
   return (
     <section className="mood">
@@ -93,13 +98,13 @@ export default function CardList({ mood, setMood }) {
               image={card.image}
               isSelected={selectedCardIndex === index}
               isClickable={selectedCardIndex === null}
-              onClick={() => handleCardClick(index)}
+              handleCardClick={() => handleCardClick(index)}
               mood={mood}
               setMood={setMood}
             />
           ))}
         </div>
-        {showThoughtsDiv && (
+        {/* {showThoughtsDiv && (
           <NavigationCard
             title="Journaling"
             image={journalIcon}
@@ -107,7 +112,7 @@ export default function CardList({ mood, setMood }) {
             showButton={true}
             showImage={false}
           />
-        )}
+        )} */}
       </div>
     </section>
   );

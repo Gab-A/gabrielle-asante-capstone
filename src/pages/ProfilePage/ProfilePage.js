@@ -8,6 +8,7 @@ import calenderIcon from "../../assets/icons/calender.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import NavigationCard from "../../components/NavigationCard/NavigationCard";
+import journalIcon from "../../assets/icons/journal.png";
 
 export default function ProfilePage({ mood, setMood }) {
   const [greeting, setGreeting] = useState("");
@@ -16,6 +17,7 @@ export default function ProfilePage({ mood, setMood }) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
   const navigate = useNavigate();
+  const [selectedCardIndex, setSelectedCardIndex] = useState(null);
 
   useEffect(() => {
     const time = new Date().getHours();
@@ -81,6 +83,12 @@ export default function ProfilePage({ mood, setMood }) {
     return <main className="dashboard">Loading...</main>;
   }
 
+  const handleCardClick = (cardIndex) => {
+    // console.log("Before Click - selectedCardIndex:", selectedCardIndex);
+    setSelectedCardIndex(cardIndex);
+    // console.log("After Click - selectedCardIndex:", cardIndex);
+  };
+
   return (
     <main className="profile">
       <div className="profile__wrapper">
@@ -96,16 +104,36 @@ export default function ProfilePage({ mood, setMood }) {
           </h4>
           <div className="profile__initial">{data.first_name[0]}</div>
         </div>
-        <CardList mood={mood} setMood={setMood} />
-        <NavigationCard
-          title="Monitor Your Mood"
-          image={calenderIcon}
-          description="Track your mood and see your evolution"
-          showButton={false}
-          showImage={true}
+        <CardList
+          mood={mood}
+          setMood={setMood}
+          handleCardClick={handleCardClick}
+          selectedCardIndex={selectedCardIndex}
         />
+        <section className="mood-navigation">
+          <div className="mood-navigation__wrapper">
+            <NavigationCard
+              title="Journaling"
+              image={journalIcon}
+              description="Giving you the space and time to write your vibe!"
+              showButton={true}
+              showImage={false}
+              handleCardClick={handleCardClick}
+              selectedCardIndex={selectedCardIndex}
+            />
+            <NavigationCard
+              title="Monitor Your Mood"
+              image={calenderIcon}
+              description="Track your mood and see your evolution"
+              showButton={false}
+              showImage={true}
+            />
+          </div>
+        </section>
+        <section className="carousel">
+          <QuotesCarousel quotes={quotes} />
+        </section>
       </div>
-      <QuotesCarousel quotes={quotes} />
     </main>
   );
 }

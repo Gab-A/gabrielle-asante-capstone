@@ -5,6 +5,7 @@ export default function Card({
   title,
   isSelected,
   onClick,
+  handleCardClick,
   setMood,
   mood,
 }) {
@@ -17,7 +18,7 @@ export default function Card({
       <article
         className={`mood__card ${isSelected ? "mood__card--selected" : ""}`}
         onClick={(event) => {
-          onClick();
+          handleCardClick();
           handleMoodSelection();
         }}
       >
