@@ -5,15 +5,34 @@ import "./QuotesCarousel.scss";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import quoteImg from "../../assets/icons/quote.svg";
 
 import { Autoplay, Navigation } from "swiper/modules";
 
 export default function QuotesCarousel({ quotes }) {
   const quotesSlides = quotes.map((quote) => (
     <SwiperSlide key={quote.id}>
-      <blockquote className="carousel__blockquote">
+      {/* <blockquote className="carousel__blockquote"> */}
+      <div className="carousel__details">
+        <div className="carousel__opening-quote-wrapper">
+          <img
+            src={quoteImg}
+            className="carousel__quote"
+            alt="opening quotation marks"
+          ></img>
+        </div>
         <p className="carousel__text">{quote.content}</p>
-      </blockquote>
+      </div>
+
+      {/* </blockquote> */}
+      {/* <p className="carousel__author"> - {quote.author}</p> */}
+      <div className="carousel__closing-quote-wrapper">
+        <img
+          src={quoteImg}
+          className="carousel__quote--rotate"
+          alt="closing quotation"
+        ></img>
+      </div>
       <p className="carousel__author"> - {quote.author}</p>
     </SwiperSlide>
   ));

@@ -8,10 +8,12 @@
     background-color: $columbia-blue;
     border-radius: 0.5rem;
     margin-bottom: 5rem;
-    padding: 0.5rem !important;
+    // padding: 0.5rem !important;
+    padding: 1.5rem !important;
     border: 2px solid $air-blue;
     box-shadow: 0 0 8px $air-blue;
     outline: none;
+    // height: 500px;
 
     @include tablet {
       width: 100%;
@@ -27,10 +29,16 @@
     color: $black;
   }
 
+  &__text,
+  &__author {
+    margin-left: 2rem;
+  }
+
   &__text {
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-weight: 500;
     color: $black;
+    line-height: 1.5rem;
 
     @include tablet {
       font-size: 1.3rem;
@@ -51,12 +59,38 @@
   &__author {
     margin-top: 0.7rem;
     font-weight: 600;
-    font-size: 1.1rem;
-    margin-left: 2rem;
+    font-size: 1.35rem;
+
     color: $air-blue;
 
     @include tablet {
       font-size: 1.3rem;
+    }
+  }
+
+  // &__details {
+  //   display: flex;
+  //   align-items: center;
+  //   // margin-top: -4rem;
+  // }
+
+  // &__opening-quote-wrapper {
+  //   // display: flex;
+  //   // align-items: center;
+  //   margin-top: -5rem;
+  // }
+
+  &__closing-quote-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    // margin-bottom: 1rem;
+  }
+  &__quote {
+    width: 3rem;
+
+    &--rotate {
+      transform: rotate(180deg);
+      display: flex;
     }
   }
 

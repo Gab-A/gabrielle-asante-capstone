@@ -1,6 +1,7 @@
 import "./NavigationCard.scss";
 import { Link } from "react-router-dom";
-import chevronIcon from "../../assets/icons/chevron.png";
+// import chevronIcon from "../../assets/icons/chevron.png";
+import chevronIcon from "../../assets/icons/right-chevron.svg";
 import thoughtsIcon from "../../assets/icons/thought.png";
 
 export default function NavigationCard({
@@ -26,9 +27,15 @@ export default function NavigationCard({
           <button
             disabled={selectedCardIndex === null}
             className={`mood-navigation__button ${
-              selectedCardIndex !== null ? "active-button-class" : ""
+              selectedCardIndex !== null
+                ? "mood-navigation__button--active"
+                : ""
+            } ${
+              selectedCardIndex === null
+                ? "mood-navigation__button--disabled"
+                : ""
             }`}
-            onClick={() => handleCardClick(/* pass card index if needed */)}
+            onClick={() => handleCardClick()}
           >
             {selectedCardIndex !== null
               ? "Now you can begin expressing your thoughts! "

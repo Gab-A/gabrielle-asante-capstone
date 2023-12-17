@@ -109,6 +109,7 @@ export default function Calender() {
           </p>
           <Lottie
             animationData={noAnimation}
+            loop={false}
             className="tracker__no-animation"
           />
         </div>
