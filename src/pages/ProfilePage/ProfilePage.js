@@ -1,6 +1,5 @@
 import CardList from "../../components/CardList/CardList";
 import "./ProfilePage.scss";
-import profileImage from "../../assets/icons/profile.svg";
 import { useState, useEffect } from "react";
 import getAllQuotes from "../../scripts/utils/get-all-quotes";
 import QuotesCarousel from "../../components/QuotesCarousel/QuotesCarousel";
@@ -102,7 +101,10 @@ export default function ProfilePage({ mood, setMood }) {
           <h4 className="profile__greeting">
             {greeting}, {data.first_name}
           </h4>
-          <div className="profile__initial">{data.first_name[0]}</div>
+          <div className="profile__initial">
+            {data.first_name[0]}
+            {data.last_name[0]}
+          </div>
         </div>
         <CardList
           mood={mood}
@@ -115,7 +117,8 @@ export default function ProfilePage({ mood, setMood }) {
             <NavigationCard
               title="Journaling"
               image={journalIcon}
-              description="Giving you the space and time to write your vibe!"
+              description="Mood check in! Write down your thoughts and go deeper into how you are feeling."
+              // description="Giving you the space and time to write your vibe!"
               showButton={true}
               showImage={false}
               handleCardClick={handleCardClick}
@@ -124,7 +127,7 @@ export default function ProfilePage({ mood, setMood }) {
             <NavigationCard
               title="Monitor Your Mood"
               image={calenderIcon}
-              description="Track your mood and see your evolution"
+              description="Monitor your mood and gain insights about how you have felt and begin to discover patterns and your evolution."
               showButton={false}
               showImage={true}
             />

@@ -12,7 +12,6 @@ import { Autoplay, Navigation } from "swiper/modules";
 export default function QuotesCarousel({ quotes }) {
   const quotesSlides = quotes.map((quote) => (
     <SwiperSlide key={quote.id}>
-      {/* <blockquote className="carousel__blockquote"> */}
       <div className="carousel__details">
         <div className="carousel__opening-quote-wrapper">
           <img
@@ -23,9 +22,6 @@ export default function QuotesCarousel({ quotes }) {
         </div>
         <p className="carousel__text">{quote.content}</p>
       </div>
-
-      {/* </blockquote> */}
-      {/* <p className="carousel__author"> - {quote.author}</p> */}
       <div className="carousel__closing-quote-wrapper">
         <img
           src={quoteImg}
