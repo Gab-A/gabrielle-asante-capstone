@@ -14,23 +14,21 @@ export default function Card({
   };
 
   return (
-    <div>
-      <article
-        className={`mood__card ${isSelected ? "mood__card--selected" : ""}`}
-        onClick={(event) => {
-          handleCardClick();
-          handleMoodSelection();
-        }}
-      >
-        <div className="mood__card-wrapper">
-          <img
-            src={image}
-            alt="card mood emoji"
-            className="mood__card-image"
-          ></img>
-          <p className="mood__card-title">{title}</p>
-        </div>
-      </article>
-    </div>
+    <article
+      className={`mood__card ${isSelected ? "mood__card--selected" : ""}`}
+      onClick={(event) => {
+        handleCardClick();
+        handleMoodSelection();
+      }}
+    >
+      <div className="mood__card-content">
+        <img
+          src={image}
+          alt="card mood emoji"
+          className="mood__card-image"
+        ></img>
+        <p className="mood__card-title">{title}</p>
+      </div>
+    </article>
   );
 }

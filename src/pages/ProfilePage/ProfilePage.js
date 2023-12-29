@@ -83,21 +83,13 @@ export default function ProfilePage({ mood, setMood }) {
   }
 
   const handleCardClick = (cardIndex) => {
-    // console.log("Before Click - selectedCardIndex:", selectedCardIndex);
     setSelectedCardIndex(cardIndex);
-    // console.log("After Click - selectedCardIndex:", cardIndex);
   };
 
   return (
     <main className="profile">
       <div className="profile__wrapper">
-        <div className="profile__container">
-          {/* <img
-            src={profileImage}
-            alt="profile placeholder"
-            className="profile__image"
-          ></img> */}
-          {/* <div>{data.first_name[0]}</div> */}
+        <div className="profile__header">
           <h4 className="profile__greeting">
             {greeting}, {data.first_name}
           </h4>
@@ -118,7 +110,6 @@ export default function ProfilePage({ mood, setMood }) {
               title="Journaling"
               image={journalIcon}
               description="Mood check in! Write down your thoughts and go deeper into how you are feeling."
-              // description="Giving you the space and time to write your vibe!"
               showButton={true}
               showImage={false}
               handleCardClick={handleCardClick}

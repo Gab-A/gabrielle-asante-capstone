@@ -83,14 +83,14 @@ export default function CardList({
 
   return (
     <section className="mood">
-      <div className="mood__heading-container">
+      <div className="mood__header">
         <h3 className="mood__heading">How are you feeling today?</h3>
         <p className="mood__subheading">
           Select a mood so that you can get journaling!
         </p>
       </div>
       <div className="mood__wrapper">
-        <div className="mood__image-container">
+        <div className="mood__cards-container">
           {cardsArray.map((card, index) => (
             <Card
               key={card.id}

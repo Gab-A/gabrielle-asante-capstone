@@ -5,9 +5,12 @@
   &__wrapper {
     @include tablet {
       margin-top: 2rem;
-      display: flex;
+      @include flexCenter(row);
       gap: 2rem;
-      height: 27.5rem;
+    }
+
+    @include desktop {
+      gap: 4rem;
     }
   }
 
@@ -15,6 +18,11 @@
     @include tablet {
       @include flexCenter(column);
       align-items: stretch;
+      gap: 2rem;
+      // height: 25.2rem;
+    }
+
+    @include desktop {
       gap: 3rem;
     }
   }
@@ -28,6 +36,15 @@
     margin: 0 auto;
     margin-bottom: 1rem;
     box-shadow: rgba(0, 0, 0, 0.205) 0.7px 0.7px 0.7px 0.7px;
+
+    @include tablet {
+      margin: 0;
+      height: 25.2rem;
+    }
+
+    @include desktop {
+      width: 40%;
+    }
   }
 
   &__title {

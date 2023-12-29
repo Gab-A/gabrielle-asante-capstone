@@ -12,7 +12,7 @@
 
   &__wrapper {
     max-width: $wrapper-max-width;
-    padding: 1.2rem;
+    padding: 0.8rem;
     display: flex;
   }
 }
@@ -20,25 +20,17 @@
 .header-nav {
   &__list {
     display: flex;
-    gap: 5rem;
+    gap: 10rem;
     padding-left: 4rem;
     font-weight: 600;
-
-    @include tablet {
-      font-size: 1.3rem;
-    }
-
-    @include desktop {
-      font-size: 1.5rem;
-      gap: 12rem;
-    }
+    font-size: 1.1rem;
   }
   &__link {
     text-decoration: none;
     color: $black;
 
     &--active {
-      color: $dark-blue;
+      color: #94a1ad;
     }
   }
 }

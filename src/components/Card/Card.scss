@@ -30,22 +30,26 @@
       height: 9.3rem;
     }
     @include desktop {
-      width: 7rem;
+      width: 10.33rem;
+      height: 9.6rem;
     }
   }
 
-  &__card-wrapper {
+  &__card-content {
     @include flexCenter(column);
     padding-top: 1rem;
   }
 
   &__card-title {
     margin-top: 0rem;
+    font-weight: 500;
 
     @include tablet {
       margin-top: 0.5rem;
       font-size: 1.5rem;
-      font-weight: 500;
+    }
+    @include desktop {
+      font-size: 1.65rem;
     }
   }
 
@@ -54,8 +58,11 @@
     margin-top: -0.5rem;
 
     @include tablet {
-      width: auto;
       width: 5rem;
+    }
+
+    @include desktop {
+      width: 5.5rem;
     }
   }
 }
