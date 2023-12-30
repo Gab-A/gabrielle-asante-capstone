@@ -20,6 +20,11 @@
 
     &--selected {
       background-color: #5fa5ce;
+      border: 3px solid $primary-white;
+
+      @include desktop {
+        border: 5px solid $primary-white;
+      }
     }
 
     &:hover {
@@ -30,8 +35,9 @@
       height: 9.3rem;
     }
     @include desktop {
-      width: 10.33rem;
-      height: 9.6rem;
+      width: 13rem;
+      height: 13rem;
+      border-radius: 1rem;
     }
   }
 
@@ -50,6 +56,7 @@
     }
     @include desktop {
       font-size: 1.65rem;
+      padding-top: 0.75rem;
     }
   }
 
@@ -62,7 +69,8 @@
     }
 
     @include desktop {
-      width: 5.5rem;
+      width: 6rem;
+      padding-top: 1.2rem;
     }
   }
 }

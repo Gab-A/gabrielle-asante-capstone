@@ -4,10 +4,6 @@
 .mood {
   padding-top: 0.3rem;
 
-  // &__wrapper {
-  //   // @include flexCenter(column);
-  // }
-
   &__journal-subheading {
     color: $black;
     margin-top: 1rem;
@@ -21,6 +17,10 @@
     @include tablet {
       margin-top: -0.5rem;
     }
+    @include desktop {
+      margin-left: 6rem;
+      margin-bottom: 2.5rem;
+    }
   }
 
   &__heading {
@@ -33,7 +33,7 @@
     }
 
     @include desktop {
-      font-size: 2.5rem;
+      font-size: 2.15rem;
     }
   }
 
@@ -70,7 +70,10 @@
       gap: 5rem;
     }
     @include desktop {
-      gap: 7rem;
+      // gap: 7rem;
+      column-gap: 13rem;
+      row-gap: 8rem;
+      margin-left: 6.5rem;
       // max-width: $wrapper-max-width;
     }
   }

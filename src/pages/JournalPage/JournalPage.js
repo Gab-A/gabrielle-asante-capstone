@@ -6,7 +6,7 @@ import getJournalById from "../../scripts/utils/get-single-journal";
 import updateJournal from "../../scripts/utils/update-journal";
 import thoughtIcon from "../../assets/icons/thought.png";
 
-export default function JournalPage({ mood, type }) {
+export default function JournalPage({ mood, type, cardsArray }) {
   const [isError, setIsError] = useState(false);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -108,6 +108,11 @@ export default function JournalPage({ mood, type }) {
     }
   };
 
+  const getEmoji = () => {
+    const moodEmoji = cardsArray.find((card) => card.title === mood);
+    return moodEmoji.image;
+  };
+
   return (
     <section className="journal">
       <div className="journal__wrapper">
@@ -129,6 +134,8 @@ export default function JournalPage({ mood, type }) {
                 Tell me more about why you are:{" "}
                 <span className="journal__mood-span">{mood}</span>
               </p>
+
+              <img src={getEmoji()} alt={`${mood} Emoji}`} />
             </div>
           )}
         </div>
@@ -137,10 +144,12 @@ export default function JournalPage({ mood, type }) {
             <label htmlFor="title" className="journal__form-label">
               Title:
             </label>
-            <input
+            <textarea
               type="text"
               name="title"
               id="title"
+              placeholder="Title of your journal entry..."
+              rows={2}
               value={title}
               onChange={handleChangeTitle}
               className={`journal__input journal__input--title${
@@ -153,12 +162,14 @@ export default function JournalPage({ mood, type }) {
           </div>
           <div className="journal__form-group journal__form-content">
             <label htmlFor="content" className="journal__form-label">
-              Content:
+              Note:
             </label>
             <textarea
               name="content"
               id="content"
+              rows={15}
               value={content}
+              placeholder="Add a note about how you are feeling today..."
               onChange={handleChangeContent}
               className={`journal__input  journal__input--content${
                 submit && content === "" ? "journal__input--invalid" : ""

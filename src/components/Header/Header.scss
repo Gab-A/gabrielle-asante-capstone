@@ -7,22 +7,23 @@
   }
   @include desktop {
     display: flex;
+    justify-content: space-between;
     background-color: $primary-white;
   }
 
   &__wrapper {
     max-width: $wrapper-max-width;
     padding: 0.8rem;
-    display: flex;
+    width: 100%;
   }
 }
 
 .header-nav {
   &__list {
     display: flex;
-    gap: 10rem;
-    padding-left: 4rem;
-    font-weight: 600;
+    justify-content: space-between;
+    padding: 0rem 10.5rem;
+    font-weight: 500;
     font-size: 1.1rem;
   }
   &__link {

@@ -11,6 +11,8 @@
 
     @include desktop {
       gap: 4rem;
+      padding-left: 4rem;
+      margin: 5rem 0rem;
     }
   }
 
@@ -23,7 +25,7 @@
     }
 
     @include desktop {
-      gap: 3rem;
+      gap: 3.5rem;
     }
   }
   &__card {
@@ -43,7 +45,7 @@
     }
 
     @include desktop {
-      width: 40%;
+      width: 45%;
     }
   }
 

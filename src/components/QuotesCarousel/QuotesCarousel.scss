@@ -2,6 +2,11 @@
 @use "../../styles/partials/mixins" as *;
 
 .carousel {
+  &__wrapper {
+    @include desktop {
+      margin-left: 5rem;
+    }
+  }
   &__slide {
     width: 88%;
     opacity: 80%;
@@ -24,7 +29,7 @@
   }
 
   &__text,
-  &__quote-title,
+  &__heading,
   &__author {
     color: $black;
   }
@@ -43,9 +48,13 @@
     @include tablet {
       font-size: 1.3rem;
     }
+
+    @include desktop {
+      font-size: 1.5rem;
+    }
   }
 
-  &__quote-title {
+  &__heading {
     margin: 0rem 0rem 0.5rem 0.5rem;
     padding: 0.5rem;
     font-size: 1.15rem;
@@ -53,6 +62,11 @@
 
     @include tablet {
       font-size: 1.6rem;
+    }
+
+    @include desktop {
+      padding-bottom: 3rem;
+      font-size: 1.8rem;
     }
   }
 
@@ -65,6 +79,9 @@
 
     @include tablet {
       font-size: 1.3rem;
+    }
+    @include desktop {
+      font-size: 1.5rem;
     }
   }
 
