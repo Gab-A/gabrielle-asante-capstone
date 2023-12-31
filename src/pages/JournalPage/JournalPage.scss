@@ -6,22 +6,27 @@
     min-height: calc(100vh - 58.3984px);
   }
 
+  &__arrow-left {
+    opacity: 55%;
+    width: 2.3rem;
+    margin-left: -1rem;
+  }
+
   &__heading {
     font-weight: 600;
     padding-left: 2rem;
     padding-top: 2rem;
     font-weight: 2.5rem;
   }
-  &__form-group {
+  &__form-group,
+  &__tag-container {
     display: flex;
     flex-direction: column;
     background-color: $columbia-blue;
     opacity: 60%;
-    margin-right: 2rem;
-    margin-top: 1.5rem;
+    margin: 1.5rem 1.5rem 0rem 0rem;
     border-radius: 1rem;
     padding: 1rem;
-    margin-right: 1.5rem;
   }
 
   &__form {
@@ -31,45 +36,55 @@
     padding: 0.2rem 0rem 0rem 1.5rem;
     // height: 40rem;
     height: 100vh;
-    opacity: 75%;
     position: relative;
+    z-index: 2;
+    margin-top: -1.5rem;
 
     @include tablet {
       height: 90vh;
     }
   }
 
-  &__title {
-    font-weight: 500;
-    padding: 2rem 0rem 2rem;
-    font-size: 1.7rem;
-    margin-left: 1rem;
-    color: $dark-blue;
+  &__header-container {
+    padding: 1rem 2rem 2rem 2rem;
+    background-color: $columbia-blue;
+    position: relative;
+    z-index: 1;
   }
 
-  &__intro-wrapper {
+  &__header-content-container {
     @include flexCenter(column);
-    background-color: #e4eff6;
-    // background-color: $primary-white;
+    margin-top: 0.5rem;
+  }
+
+  &__note {
+    color: $black;
+    text-align: center;
+    margin-bottom: 1rem;
+    line-height: 1.7rem;
+    font-weight: 500;
+  }
+
+  &__emoji-container {
+    text-align: center;
+  }
+
+  &__emoji {
+    width: 3.5rem;
   }
 
   &__mood-tell {
     font-size: 1.4rem;
   }
 
-  &__mood-tell,
-  &__title,
-  &__mood-explanation {
+  &__mood-explanation,
+  &__note {
     color: $dark-blue;
-  }
-
-  &__mood-tell {
-    margin-left: 3.5rem;
-    margin-top: 0.5rem;
+    font-size: 1.3rem;
   }
 
   &__mood-span {
-    font-weight: 600;
+    font-weight: 700;
     color: $medium-blue;
     text-transform: uppercase;
   }
@@ -79,23 +94,18 @@
     margin-bottom: 0.5rem;
   }
 
-  &__mood-tell-wrapper {
-    margin-top: -2rem;
-  }
-
   &__form-content {
     margin-top: 2rem;
-    height: 60vh;
+    height: 50vh;
   }
 
   &__form-label {
     font-size: 1rem;
-    color: rgba(0, 0, 0, 1);
     margin-left: 0.4rem;
   }
 
   &__thought-bubble {
-    width: 2.8rem;
+    width: 1.2rem;
   }
 
   &__input {
@@ -117,6 +127,27 @@
       resize: none;
       height: 23rem;
     }
+  }
+
+  &__button-container {
+    padding-bottom: 3rem;
+  }
+
+  &__button-container {
+    @include flexCenter(row);
+    justify-content: flex-end;
+    margin-right: 2.5rem;
+    margin-top: 1rem;
+  }
+
+  &__button {
+    // opacity: 55%;
+    background-color: $air-blue;
+    color: $primary-white;
+    border: none;
+    padding: 0.6rem 3rem;
+    border-radius: 1rem;
+    cursor: pointer;
   }
 
   // &__button-container {
@@ -175,6 +206,7 @@
 
   &__redirect-message {
     color: $green;
+    margin-bottom: 0rem;
   }
 
   &__form-error {
