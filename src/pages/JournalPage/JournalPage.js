@@ -86,12 +86,12 @@ export default function JournalPage({ mood, type, cardsArray }) {
 
     if (!title) {
       formIsValid = false;
-      errors["title"] = "Hey, please add a title for your journal!";
+      errors["title"] = "Hey, please add a title!";
     }
 
     if (!content) {
       formIsValid = false;
-      errors["content"] = "Hey, please add some content for your journal!";
+      errors["content"] = "Hey, please add a note!";
     }
 
     if (!formIsValid) {
@@ -135,8 +135,9 @@ export default function JournalPage({ mood, type, cardsArray }) {
           </div>
           <div className="journal__header-content-container">
             <p className="journal__note">
-              Take a minute to express your thoughts. It is going to be valuable
-              later to realised you captured this moment
+              Take a moment to articulate your thoughts. This reflection will
+              prove valuable later when you realize you've encapsulated this
+              particular moment.
               <img
                 src={thoughtIcon}
                 alt="thought bubble"
@@ -181,9 +182,9 @@ export default function JournalPage({ mood, type, cardsArray }) {
               <p className="journal__form-error">{errors.title}</p>
             )}
           </div>
-          <div className="journal__tag-container">
-            <p> Add Tags</p>
-            {/* {selections.map((text, index) => (
+          {/* <div className="journal__tag-container">
+            <p> Add Tags</p> */}
+          {/* {selections.map((text, index) => (
               <ChipButton
                 key={index}
                 text={text}
@@ -191,7 +192,7 @@ export default function JournalPage({ mood, type, cardsArray }) {
                 onClick={() => handleChipClick(index)}
               />
             ))} */}
-          </div>
+          {/* </div> */}
           <div className="journal__form-group journal__form-content">
             <label htmlFor="content" className="journal__form-label">
               Note
@@ -203,12 +204,14 @@ export default function JournalPage({ mood, type, cardsArray }) {
               value={content}
               placeholder="Add a note about how you are feeling today..."
               onChange={handleChangeContent}
-              className={`journal__input  journal__input--content${
+              className={`journal__input  journal__input--content ${
                 submit && content === "" ? "journal__input--invalid" : ""
               }`}
             />
             {errors.content && (
-              <p className="journal__form-error">{errors.content}</p>
+              <p className="journal__form-error journal__form-error--content">
+                {errors.content}
+              </p>
             )}
           </div>
           {isError && (

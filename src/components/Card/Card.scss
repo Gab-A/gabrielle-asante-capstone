@@ -21,6 +21,7 @@
     &--selected {
       background-color: #5fa5ce;
       border: 3px solid $primary-white;
+      // border: 3px solid #235471;
 
       @include desktop {
         border: 5px solid $primary-white;
