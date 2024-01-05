@@ -7,15 +7,23 @@ import editImage from "../../assets/icons/edit.png";
 import deleteImage from "../../assets/icons/bin.png";
 import journalLogo from "../../assets/icons/old-live-journal-logo.png";
 import journalAnimation from "../../assets/animations/journal.json";
-import Modal from "../../components/Modal/Modal";
+import deleteIcon from "../../assets/icons/trash.svg";
+// import editIcon from "../../assets/icons/edit-2.svg";
+// import editAirBlue from "../../assets/icons/edit-2 (5).svg";
+// import editIconTwo from "../../assets/icons/edit-2 (2).svg";
+import editDarkPurple from "../../assets/icons/edit-2 (3).svg";
+import editMediumBlue from "../../assets/icons/edit-2 (4).svg";
 import Lottie from "lottie-react";
+import JournalEntriesModal from "../../components/JournalEntriesModal/JournalEntriesModal";
 
 export default function JournalEntriesPage() {
   const [journals, setJournals] = useState(null);
   const [expand, setExpanded] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
-  const [selectedJournalId, setSelectedJournalId] = useState(null);
-  const [modalStates, setModalStates] = useState({});
+  // const [openModal, setOpenModal] = useState(false);
+  const [selectedJournal, setSelectedJournal] = useState(null);
+  // const [modalStates, setModalStates] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedNote, setSelectedNote] = useState(null);
 
   useEffect(() => {
     const fetchJournals = async () => {
@@ -33,32 +41,48 @@ export default function JournalEntriesPage() {
     return <p>Loading</p>;
   }
 
-  const toggleModal = (journalId) => {
-    setModalStates((prevState) => ({
-      ...prevState,
-      [journalId]: !prevState[journalId],
-    }));
+  // const toggleModal = (journalId) => {
+  //   setModalStates((prevState) => ({
+  //     ...prevState,
+  //     [journalId]: !prevState[journalId],
+  //   }));
+  // };
+
+  const openModal = (journalId) => {
+    setSelectedJournal(journalId);
+    setIsModalOpen(true);
+    console.log("Modal should be open now");
   };
 
-  const clickDeleteIcon = (journalId) => {
-    console.log("Clicked delete icon with ID:", journalId);
-    setOpenModal(true);
-    setSelectedJournalId(journalId);
+  const closeModal = () => {
+    setSelectedJournal(null);
+    setIsModalOpen(false);
+    console.log("Modal should be closed now");
   };
 
-  const handleModalCancel = () => {
-    setOpenModal(false);
-  };
+  // const clickDeleteIcon = (journalId) => {
+  //   setOpenModal(true);
+  //   setSelectedJournalId(journalId);
+  // };
+
+  // const handleModalCancel = () => {
+  //   setOpenModal(false);
+  // };
 
   const handleDelete = async (journalId) => {
     try {
       await deleteJournalById(journalId);
       const updatedJournals = await getAllJournals();
       setJournals(updatedJournals);
-      setOpenModal(false);
+      closeModal();
+      console.log(`Journal with ID ${journalId} deleted successfully`);
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const onDelete = () => {
+    handleDelete(selectedJournal?.id);
   };
 
   const handleExpand = (journal) => {
@@ -67,27 +91,27 @@ export default function JournalEntriesPage() {
     );
   };
 
+  const sortedJournals = [...journals].sort(
+    (a, b) => new Date(b.created_at) - new Date(a.created_at)
+  );
+
   return (
     <section className="journal-entries">
       <div className="journal-entries__container">
-        <h4 className="journal-entries__heading">Journal Entries</h4>
+        {/* <h4 className="journal-entries__heading">Journal Entries</h4> */}
         <div className="journal-entries__logo-container">
-          <h3 className="journal-entries__subheading">Your Journal Entries</h3>
+          <h3 className="journal-entries__heading">Your Journal Entries</h3>
           <Lottie
             animationData={journalAnimation}
             className="journal-entries__logo"
+            loop={false}
           />
-          {/* <img
-            src={journalLogo}
-            alt="journal entries logo"
-            className="journal-entries__logo"
-          /> */}
         </div>
-        <p className="journal-entries__paragraph">
+        <p className="journal-entries__subheading">
           See a list of all of your journal entries here:{" "}
         </p>
         <div className="journal-entries__wrapper">
-          {journals.map((journal, index) => (
+          {sortedJournals.map((journal, index) => (
             <article
               key={index}
               className={`journal-entries__card ${
@@ -97,26 +121,45 @@ export default function JournalEntriesPage() {
               }`}
             >
               {" "}
-              <div className="journal-entries__edit">
+              <div>
+                <p className="journal-entries__date">
+                  {new Date(journal.created_at).toLocaleDateString()}
+                </p>
+              </div>
+              <div className="journal-entries__title-container">
                 <h4 className="journal-entries__title">{journal.title}</h4>
                 <div className="journal-entries__buttons">
                   <Link to={`/journal/edit/${journal.id}`}>
-                    <img
-                      src={editImage}
-                      alt="edit icon"
-                      className="journal-entries__edit-photo"
-                    />
+                    {index % 2 === 0 ? (
+                      <img
+                        src={editDarkPurple}
+                        alt="edit icon"
+                        className="journal-entries__edit"
+                      />
+                    ) : (
+                      <img
+                        src={editMediumBlue}
+                        alt="edit icon"
+                        className="journal-entries__edit"
+                      />
+                    )}
                   </Link>
                   <img
-                    src={deleteImage}
+                    src={deleteIcon}
                     alt="delete icon"
-                    className="journal-entries__delete-photo"
-                    onClick={() => {
-                      toggleModal(journal.id);
-                      clickDeleteIcon(journal.id);
-                    }}
+                    className="journal-entries__delete"
+                    onClick={() => openModal(journal)}
+
+                    // onClick={() => {
+                    //   toggleModal(journal.id);
+                    //   clickDeleteIcon(journal.id);
+                    // }}
                   />
-                  {modalStates[journal.id] && (
+                  <div
+                    className="clickable-area"
+                    onClick={() => openModal(journal)}
+                  ></div>
+                  {/* {modalStates[journal.id] && (
                     <Modal
                       setOpenModal={(value) => toggleModal(journal.id, value)}
                       handleModalCancel={handleModalCancel}
@@ -124,7 +167,14 @@ export default function JournalEntriesPage() {
                       handleDelete={handleDelete}
                       openModal={openModal}
                     />
-                  )}
+                  )} */}
+                  <JournalEntriesModal
+                    isOpen={isModalOpen}
+                    onRequestClose={closeModal}
+                    selectedJournal={selectedJournal}
+                    appElement={document.getElementById("root")}
+                    onDelete={onDelete}
+                  />
                 </div>
               </div>
               {!expand || expand !== journal ? (

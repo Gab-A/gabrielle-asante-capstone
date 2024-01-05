@@ -10,51 +10,44 @@
     min-height: calc(100vh - 74.3984px);
   }
 
-  &__edit {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  &__title {
-    font-weight: 600;
-    color: $black;
-    font-size: 1.2rem;
-
-    @include tablet {
-      font-size: 1.5rem;
-    }
-  }
-
-  &__read {
-    border: none;
-    background: none;
-    padding: none;
-    font-size: 1rem;
-    margin-top: 0.3rem;
-    margin-left: -0.5rem;
-    cursor: pointer;
+  &__heading {
     font-weight: 500;
-
-    &--even {
-      color: $dark-purple;
-    }
-
-    &--odd {
-      color: $air-blue;
-    }
+    margin-left: 1.5rem;
 
     @include tablet {
-      font-size: 1.5rem;
+      font-size: 2rem;
+    }
+  }
+
+  &__subheading {
+    color: $dark-grey;
+    margin: 0.6rem 0rem 1.5rem 1.5rem;
+
+    @include tablet {
+      font-size: 1.9rem;
+    }
+  }
+
+  &__logo-container {
+    @include flexCenter(row);
+    justify-content: space-between;
+    margin-top: 2.5rem;
+  }
+
+  &__logo {
+    width: 5rem;
+    margin-top: -1.2rem;
+
+    @include tablet {
+      display: none;
     }
   }
 
   &__card {
     padding: 0.5rem;
-    margin: 1rem 0rem 1rem 0rem;
+    margin: 1rem 0rem;
     border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.205) 0.85px 0.85px 0.85px 0.85px;
 
     &--even {
       background-color: $lavender;
@@ -65,37 +58,38 @@
     }
   }
 
-  &__logo-container {
-    display: flex;
-    justify-content: space-between;
-    padding-right: 2rem;
+  &__date {
+    margin: 0.4rem 0rem 0.4rem 0.3rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: $dark-grey;
   }
 
-  &__logo {
-    width: 6rem;
-    height: 4rem;
+  &__title-container {
+    @include flexCenter(row);
+    justify-content: space-between;
+    gap: 1rem;
+    margin-left: 0.3rem;
+  }
+
+  &__title {
+    font-weight: 500;
+    color: $black;
+    font-size: 1.05rem;
+    margin-left: -0.1rem;
 
     @include tablet {
-      display: none;
+      font-size: 1.5rem;
     }
   }
 
   &__buttons {
-    display: flex;
+    @include flexCenter(row);
     gap: 0.5rem;
   }
 
-  &__edit-photo {
-    width: 1.25rem;
-    height: 1.25rem;
-
-    @include tablet {
-      width: 2.5rem;
-      height: 2.5rem;
-    }
-  }
-
-  &__delete-photo {
+  &__edit,
+  &__delete {
     width: 1.25rem;
     height: 1.25rem;
     cursor: pointer;
@@ -106,40 +100,48 @@
     }
   }
 
-  &__heading {
-    margin-top: 1rem;
-    margin-left: 1rem;
-    font-weight: 400;
-    color: $black;
-    text-align: center;
-
-    @include tablet {
-      font-size: 2.4rem;
-    }
-  }
-
-  &__paragraph {
-    color: $dark-grey;
-    margin-left: 1rem;
-    @include tablet {
-      font-size: 1.9rem;
-    }
-  }
-
-  &__subheading {
+  &__read {
+    border: none;
+    background: none;
+    padding: none;
+    font-size: 0.9rem;
+    margin: 0.3rem 0rem 0rem -0.1rem;
+    cursor: pointer;
     font-weight: 500;
-    margin-left: 1.5rem;
 
-    @include tablet {
-      font-size: 2rem;
+    &--even {
+      color: $dark-purple;
     }
-  }
 
-  &__content {
-    color: $black;
+    &--odd {
+      color: $medium-blue;
+    }
 
     @include tablet {
       font-size: 1.5rem;
     }
   }
+
+  &__content {
+    margin: 0.7rem 0.2rem 0.5rem 0.2rem;
+    color: $black;
+    font-size: 0.95rem;
+    font-weight: 400;
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
+  }
+
+  // &__heading {
+  //   margin-top: 1rem;
+  //   margin-left: 1rem;
+  //   font-weight: 400;
+  //   color: $black;
+  //   text-align: center;
+
+  //   @include tablet {
+  //     font-size: 2.4rem;
+  //   }
+  // }
 }
