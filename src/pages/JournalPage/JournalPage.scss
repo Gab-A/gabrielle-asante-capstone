@@ -209,6 +209,7 @@
     background-color: $air-blue;
     color: $primary-white;
     border: none;
+    @include buttonFont;
     padding: 0.6rem 2.5rem;
     box-shadow: 0rem 0.15rem 0rem 0rem $box-shadow;
     border-radius: 1rem;

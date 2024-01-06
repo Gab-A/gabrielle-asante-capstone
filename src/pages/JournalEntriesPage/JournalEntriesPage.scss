@@ -3,7 +3,23 @@
 
 .journal-entries {
   &__wrapper {
-    margin: 0rem 1rem 0rem 1rem;
+    margin: 0rem 1rem 1rem 1rem;
+    @include flexCenter(column);
+    align-items: stretch;
+    justify-content: flex-start;
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 2rem;
+      row-gap: 1rem;
+      margin: 0rem 1.5rem 1rem 1.5rem;
+      grid-template-rows: auto; /* Set explicit rows */
+    }
+
+    @include desktop {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 
   &__container {
@@ -15,6 +31,10 @@
     margin-left: 1.5rem;
 
     @include tablet {
+      font-size: 1.6rem;
+    }
+
+    @include desktop {
       font-size: 2rem;
     }
   }
@@ -24,7 +44,11 @@
     margin: 0.6rem 0rem 1.5rem 1.5rem;
 
     @include tablet {
-      font-size: 1.9rem;
+      font-size: 1.3rem;
+      margin-left: 2.5rem;
+    }
+    @include desktop {
+      font-size: 1.45rem;
     }
   }
 
@@ -32,6 +56,11 @@
     @include flexCenter(row);
     justify-content: space-between;
     margin-top: 2.5rem;
+
+    @include tablet {
+      justify-content: flex-start;
+      margin-left: 0.95rem;
+    }
   }
 
   &__logo {
@@ -39,13 +68,20 @@
     margin-top: -1.2rem;
 
     @include tablet {
-      display: none;
+      margin-top: -0.3rem;
+      margin-left: -1rem;
+      width: 5.5rem;
+    }
+
+    @include desktop {
+      width: 6rem;
+      margin-top: 0rem;
     }
   }
 
   &__card {
     padding: 0.5rem;
-    margin: 1rem 0rem;
+    margin: 0.6rem 0rem;
     border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.205) 0.85px 0.85px 0.85px 0.85px;
 
@@ -56,6 +92,11 @@
     &--odd {
       background-color: $columbia-blue;
     }
+
+    @include tablet {
+      border-radius: 0.85rem;
+      padding: 1.5rem;
+    }
   }
 
   &__date {
@@ -63,12 +104,19 @@
     font-size: 0.75rem;
     font-weight: 600;
     color: $dark-grey;
+
+    @include tablet {
+      font-size: 1rem;
+    }
+    @include desktop {
+      font-size: 1.2rem;
+    }
   }
 
   &__title-container {
     @include flexCenter(row);
     justify-content: space-between;
-    gap: 1rem;
+    // gap: 1rem;
     margin-left: 0.3rem;
   }
 
@@ -79,6 +127,10 @@
     margin-left: -0.1rem;
 
     @include tablet {
+      font-size: 1.3rem;
+    }
+
+    @include desktop {
       font-size: 1.5rem;
     }
   }
@@ -95,8 +147,13 @@
     cursor: pointer;
 
     @include tablet {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+
+    @include desktop {
+      width: 1.95rem;
+      height: 1.95rem;
     }
   }
 
@@ -105,7 +162,7 @@
     background: none;
     padding: none;
     font-size: 0.9rem;
-    margin: 0.3rem 0rem 0rem -0.1rem;
+    margin: 0.5rem 0rem 0rem -0.2rem;
     cursor: pointer;
     font-weight: 500;
 
@@ -118,7 +175,8 @@
     }
 
     @include tablet {
-      font-size: 1.5rem;
+      font-size: 1.15rem;
+      // height: auto;
     }
   }
 
@@ -129,7 +187,11 @@
     font-weight: 400;
 
     @include tablet {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    @include desktop {
+      font-size: 1.3rem;
     }
   }
 

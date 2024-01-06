@@ -19,18 +19,30 @@ export default function JournalEntriesModal({
       onRequestClose={onRequestClose}
       contentLabel="Journal Modal"
       className="modal"
-      overlayClassName="modal-overlay"
+      overlayClassName="modal__overlay"
       appElement={appElement}
     >
-      <div className="modal-overlay-content">
-        <h2>Do you want to delete this journal?</h2>
-        <p>ID: {selectedJournal?.id}</p>
-        <div className="modal-buttons">
-          <button onClick={onRequestClose}>Cancel</button>
-          <button onClick={handleJournalDelete}>Delete</button>
-        </div>
+      <button onClick={onRequestClose} className="modal__exit">
+        X
+      </button>
+      <div className="modal__content-container">
+        <h2 className="modal__confirmation-heading">You Sure About This?</h2>
+        <p className="modal__journal-title">
+          Journal Title: {selectedJournal?.title}
+        </p>
+        <p className="modal__confirmation-subheading">
+          You will not be able to undo this action.
+        </p>
+        {/* <div className="modal__buttons"> */}
+        <button onClick={handleJournalDelete} className="modal__delete-button">
+          Delete this entry
+        </button>
+        <button onClick={onRequestClose} className="modal__cancel-button">
+          No, I change my mind
+        </button>
       </div>
-      <button onClick={onRequestClose}>Close</button>
+      {/* </div> */}
+      {/* <button onClick={onRequestClose}>Close</button> */}
     </ReactModal>
   );
 }

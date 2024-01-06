@@ -108,7 +108,7 @@ export default function JournalEntriesPage() {
           />
         </div>
         <p className="journal-entries__subheading">
-          See a list of all of your journal entries here:{" "}
+          See a list of all of your journal entries here:
         </p>
         <div className="journal-entries__wrapper">
           {sortedJournals.map((journal, index) => (

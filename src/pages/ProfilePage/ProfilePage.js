@@ -176,7 +176,7 @@ export default function ProfilePage({ mood, setMood, cardsArray }) {
             <NavigationCard
               title="Monitor Your Mood"
               image={calenderIcon}
-              description="Monitor your mood and gain insights about how you have felt and begin to discover patterns and your evolution."
+              description="Monitor your mood, gain insights about how you have felt, and discover the patterns and your evolution."
               showButton={false}
               showImage={true}
             />

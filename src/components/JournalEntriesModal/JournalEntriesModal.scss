@@ -1,14 +1,79 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/resets" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.ReactModal__Body--open {
+  background: rgba(0, 0, 0, 0.15);
+}
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background-color: $background-color;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3.5px;
+  width: 19rem;
+  height: 20.625rem;
 
-  &__content {
-    text-align: center;
+  &__exit {
+    color: $dark-grey;
+    font-weight: 700;
+    @include buttonFont;
+  }
+
+  &__exit,
+  &__cancel-button {
+    border: none;
+    background: none;
+  }
+
+  &__content-container {
+    @include flexCenter(column);
+    align-items: stretch;
+    padding-top: 1rem;
+    gap: 1.5rem;
+    margin-left: 0.75rem;
+  }
+
+  &__confirmation-heading {
+    font-weight: 600;
+    color: $black;
+    font-size: 1.45rem;
+  }
+  &__journal-title {
+    font-weight: 600;
+  }
+
+  &__journal-title,
+  &__confirmation-subheading {
+    color: $dark-grey;
+    font-size: 0.9rem;
+  }
+
+  &__confirmation-subheading {
+    margin-top: -0.5rem;
+  }
+  &__delete-button,
+  &__cancel-button {
+    @include buttonFont;
+    font-size: 0.92rem;
+  }
+
+  &__delete-button {
+    color: $red;
+    font-weight: 600;
+    letter-spacing: 0.021875rem;
+    background: rgba(255, 0, 0, 0.2);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    border-radius: 1.2rem;
+    padding: 0.67rem 1.5rem;
+  }
+
+  &__cancel-button {
+    color: $medium-blue;
+    font-weight: 700;
   }
 }

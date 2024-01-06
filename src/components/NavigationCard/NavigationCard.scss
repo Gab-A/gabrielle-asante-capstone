@@ -105,6 +105,7 @@
     background-color: $dark-yellow;
     padding: 0.7rem;
     font-weight: 400;
+    @include buttonFont;
     width: 100%;
     border-radius: 0.65rem;
     border: 1px solid $dark-yellow;
