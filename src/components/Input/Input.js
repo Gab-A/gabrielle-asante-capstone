@@ -1,6 +1,6 @@
 import "./Input.scss";
 
-export default function Input({ label, name, type, placeholder }) {
+export default function Input({ label, name, type, placeholder, image }) {
   return (
     <div className="field">
       <label htmlFor={name} className="field__label">

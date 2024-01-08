@@ -31,7 +31,9 @@
     color: $black;
 
     &--active {
+      // color: $air-blue;
       color: #94a1ad;
+      font-weight: 600;
     }
   }
 }

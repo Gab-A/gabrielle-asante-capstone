@@ -1,8 +1,9 @@
-import "./SignupPage.scss";
 import Input from "../../components/Input/Input";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import brandLogo from "../../assets/logo/vibe-scribe-3.svg";
+import "../LoginPage/LoginPage.scss";
 
 export default function SignupPage() {
   const [error, setError] = useState(null);
@@ -27,46 +28,48 @@ export default function SignupPage() {
   };
 
   return (
-    <main className="signup-page">
-      <form className="signup" onSubmit={handleSubmit}>
-        <h2 className="signup__title">Create a free VibeScribe account</h2>
+    <main className="auth-page">
+      <div className="auth-page__logo">
+        <img src={brandLogo}></img>
+      </div>
+      <div className="auth-page__form">
+        <h3 className="auth-page__title">
+          Create a free{" "}
+          <span className="auth-page__title-name">VibeScribe</span> account
+        </h3>
+        <form className="auth" onSubmit={handleSubmit}>
+          <Input type="text" name="first_name" placeholder="First Name" />
+          <Input
+            type="text"
+            name="last_name"
+            label="Last name"
+            placeholder="Last Name"
+          />
+          <Input
+            type="text"
+            name="email"
+            label="Email"
+            placeholder="Email address"
+          />
+          <Input
+            type="password"
+            name="password"
+            label="Password"
+            placeholder="Password"
+          />
 
-        <Input
-          type="text"
-          name="first_name"
-          // label="First name"
-          placeholder="First Name"
-        />
-        <Input
-          type="text"
-          name="last_name"
-          label="Last name"
-          placeholder="Last Name"
-        />
-        <Input
-          type="text"
-          name="email"
-          label="Email"
-          placeholder="Email address"
-        />
-        <Input
-          type="password"
-          name="password"
-          label="Password"
-          placeholder="Password (8+ characters)"
-        />
+          <button className="auth__button">Sign up</button>
 
-        <button className="signup__button">Sign up</button>
+          {error && <div className="auth__message">{error}</div>}
+        </form>
 
-        {error && <div className="signup__message">{error}</div>}
-      </form>
-
-      <p>
-        Already have an account?{" "}
-        <Link to="/login" className="signup__login">
-          Log in
-        </Link>
-      </p>
+        <p>
+          Already have an account?{" "}
+          <Link to="/login" className="auth__login">
+            Log in
+          </Link>
+        </p>
+      </div>
     </main>
   );
 }

@@ -19,11 +19,9 @@ import JournalEntriesModal from "../../components/JournalEntriesModal/JournalEnt
 export default function JournalEntriesPage() {
   const [journals, setJournals] = useState(null);
   const [expand, setExpanded] = useState(false);
-  // const [openModal, setOpenModal] = useState(false);
   const [selectedJournal, setSelectedJournal] = useState(null);
-  // const [modalStates, setModalStates] = useState({});
+
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedNote, setSelectedNote] = useState(null);
 
   useEffect(() => {
     const fetchJournals = async () => {

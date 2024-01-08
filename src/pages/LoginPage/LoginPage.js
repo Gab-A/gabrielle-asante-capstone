@@ -3,6 +3,9 @@ import axios from "axios";
 import { useState } from "react";
 import Input from "../../components/Input/Input";
 import { useNavigate, Link } from "react-router-dom";
+import lockIcon from "../../assets/icons/lock.svg";
+import mailIcon from "../../assets/icons/mail.svg";
+import brandLogo from "../../assets/logo/vibe-scribe-3.svg";
 
 export default function LoginPage() {
   const [error, setError] = useState(null);
@@ -24,30 +27,47 @@ export default function LoginPage() {
       setError(error.response.data);
     }
   };
-  // console.log("Response is", response);
 
   return (
-    <main className="login-page">
-      <p>I am the login page.</p>
-      <form className="login" onSubmit={handleSubmit}>
-        <h1 className="login__title">Log in</h1>
-        <Input type="text" name="email" label="Email" placeholder="Email" />
-        <Input
-          type="password"
-          name="password"
-          label="Password"
-          placeholder="Password"
-        />
-        <button className="login__button">Log in</button>
-        {error && <div className="login__message">{error}</div>}
-      </form>
+    <main className="auth-page">
+      <div className="auth-page__logo-container">
+        <img src={brandLogo} className="login-page__logo"></img>
+      </div>
+      <div className="auth-page__form">
+        <h3 className="auth-page__title">
+          Log into your{" "}
+          <span className="auth-page__title-name">VibeScribe</span> account
+        </h3>
+        <form className="auth" onSubmit={handleSubmit}>
+          {/* <h1 className="login__title">Log in</h1> */}
+          <Input
+            type="text"
+            name="email"
+            label="Email"
+            placeholder="Email"
+            image={mailIcon}
+          />
+          {error && <div className="auth__error-message">{error}</div>}
+          <Input
+            type="password"
+            name="password"
+            label="Password"
+            placeholder="Password"
+            image={lockIcon}
+          />
+          {error && <div className="auth__error-message">{error}</div>}
 
-      <p>
-        Need an account?{" "}
-        <Link to="/signup" className="login__signup">
-          Sign up
-        </Link>
-      </p>
+          <button className="auth__button">Log in</button>
+          {/* {error && <div className="login__message">{error}</div>} */}
+        </form>
+
+        <p>
+          Need an account?{" "}
+          <Link to="/signup" className="auth__signup">
+            Sign up
+          </Link>
+        </p>
+      </div>
     </main>
   );
 }

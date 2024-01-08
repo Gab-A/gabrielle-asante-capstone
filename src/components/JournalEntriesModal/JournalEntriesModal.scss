@@ -18,10 +18,36 @@
   width: 19rem;
   height: 20.625rem;
 
+  @include tablet {
+    // width: 75%;
+    // height: 34%;
+    width: 40rem;
+    height: 23rem;
+  }
+
+  @include desktop {
+    width: 50rem;
+    height: 26rem;
+  }
+
   &__exit {
     color: $dark-grey;
     font-weight: 700;
     @include buttonFont;
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
+
+    @include desktop {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__exit,
+  &__cancel-button,
+  &__delete-button {
+    cursor: pointer;
   }
 
   &__exit,
@@ -36,25 +62,48 @@
     padding-top: 1rem;
     gap: 1.5rem;
     margin-left: 0.75rem;
+
+    @include tablet {
+      align-items: center;
+    }
   }
 
   &__confirmation-heading {
     font-weight: 600;
     color: $black;
     font-size: 1.45rem;
+
+    @include tablet {
+      font-size: 1.85rem;
+    }
+
+    @include desktop {
+      font-size: 2.1rem;
+    }
   }
   &__journal-title {
-    font-weight: 600;
+    font-weight: 500;
+    color: $light-grey;
   }
 
   &__journal-title,
   &__confirmation-subheading {
     color: $dark-grey;
     font-size: 0.9rem;
+
+    @include tablet {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    @include desktop {
+      font-size: 1.6rem;
+    }
   }
 
   &__confirmation-subheading {
     margin-top: -0.5rem;
+    font-weight: 600;
   }
   &__delete-button,
   &__cancel-button {
@@ -70,10 +119,29 @@
     border: 1px solid rgba(255, 0, 0, 0.2);
     border-radius: 1.2rem;
     padding: 0.67rem 1.5rem;
+
+    @include tablet {
+      width: 60%;
+      font-size: 1.2rem;
+      border-radius: 1.4rem;
+    }
+
+    @include desktop {
+      font-size: 1.55rem;
+    }
   }
 
   &__cancel-button {
     color: $medium-blue;
     font-weight: 700;
+
+    @include tablet {
+      font-size: 1.2rem;
+    }
+
+    @include desktop {
+      font-size: 1.55rem;
+      margin-top: 0.7rem;
+    }
   }
 }

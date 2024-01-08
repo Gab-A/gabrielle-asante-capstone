@@ -8,19 +8,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import NavigationCard from "../../components/NavigationCard/NavigationCard";
 import journalIcon from "../../assets/icons/journal.png";
-// import happyEmoji from "../../assets/icons/smile.svg";
-// import sadEmoji from "../../assets/icons/sad.svg";
-// import anxiousEmoji from "../../assets/icons/anxious.svg";
-// import tiredEmoji from "../../assets/icons/tired.svg";
-// import stressedEmoji from "../../assets/icons/stressed.svg";
-// import gratefulEmoji from "../../assets/icons/grateful.svg";
-// import unsureEmoji from "../../assets/icons/unsure.svg";
-// import calmEmoji from "../../assets/icons/calm.svg";
-// import angryEmoji from "../../assets/icons/angry.svg";
 
 export default function ProfilePage({ mood, setMood, cardsArray }) {
   const [greeting, setGreeting] = useState("");
-  // const [quotes, setQuotes] = useState(null);
   const [failedAuth, setFailedAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -38,19 +28,6 @@ export default function ProfilePage({ mood, setMood, cardsArray }) {
       setGreeting("Good Evening");
     }
   }, []);
-
-  // useEffect(() => {
-  //   const fetchQuotes = async () => {
-  //     try {
-  //       const response = await getAllQuotes();
-  //       const quotesData = response;
-  //       setQuotes(quotesData);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-  //   fetchQuotes();
-  // }, []);
 
   const login = async () => {
     const token = sessionStorage.getItem("token");
@@ -74,10 +51,6 @@ export default function ProfilePage({ mood, setMood, cardsArray }) {
     login();
   }, []);
 
-  // if (!quotes) {
-  //   return <p>Loading</p>;
-  // }
-
   const logout = () => {
     sessionStorage.removeItem("token");
     navigate("/login");
@@ -94,54 +67,6 @@ export default function ProfilePage({ mood, setMood, cardsArray }) {
   const handleCardClick = (cardIndex) => {
     setSelectedCardIndex(cardIndex);
   };
-
-  // const cardsArray = [
-  //   {
-  //     id: "267858",
-  //     title: "Happy",
-  //     image: happyEmoji,
-  //   },
-  //   {
-  //     id: "246810",
-  //     title: "Sad",
-  //     image: sadEmoji,
-  //   },
-  //   {
-  //     id: "434845",
-  //     title: "Angry",
-  //     image: angryEmoji,
-  //   },
-  //   {
-  //     id: "789569",
-  //     title: "Grateful",
-  //     image: gratefulEmoji,
-  //   },
-  //   {
-  //     id: "435858",
-  //     title: "Calm",
-  //     image: calmEmoji,
-  //   },
-  //   {
-  //     id: "434323",
-  //     title: "Unsure",
-  //     image: unsureEmoji,
-  //   },
-  //   {
-  //     id: "623589",
-  //     title: "Stressed",
-  //     image: stressedEmoji,
-  //   },
-  //   {
-  //     id: "984456",
-  //     title: "Tired",
-  //     image: tiredEmoji,
-  //   },
-  //   {
-  //     id: "4655859",
-  //     title: "Anxious",
-  //     image: anxiousEmoji,
-  //   },
-  // ];
 
   return (
     <main className="profile">
