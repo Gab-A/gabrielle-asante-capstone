@@ -5,7 +5,14 @@ import lockIcon from "../../assets/icons/lock.svg";
 import { Link, useLocation } from "react-router-dom";
 import "./AuthForm.scss";
 
-export default function AuthForm({ handleSubmit, signupError, loginError }) {
+export default function AuthForm({
+  handleSubmit,
+  signupError,
+  // loginError,
+  errors,
+  // password,
+  email,
+}) {
   const location = useLocation();
   const isSignupPage = location.pathname === "/signup";
   const isLoginPage = location.pathname === "/login";
@@ -59,11 +66,12 @@ export default function AuthForm({ handleSubmit, signupError, loginError }) {
               name="email"
               label="Email"
               placeholder="Email"
+              value={email}
               // mailIcon={mailIcon}
             />
             {isLoginPage
-              ? loginError && (
-                  <div className="auth__error-message">{loginError}</div>
+              ? errors && (
+                  <div className="auth__error-message">{errors.email}</div>
                 )
               : signupError && (
                   <div className="auth__error-message">{signupError}</div>
@@ -76,8 +84,8 @@ export default function AuthForm({ handleSubmit, signupError, loginError }) {
               // image={lockIcon}
             />
             {isLoginPage
-              ? loginError && (
-                  <div className="auth__error-message">{loginError}</div>
+              ? errors && (
+                  <div className="auth__error-message">{errors.password}</div>
                 )
               : signupError && (
                   <div className="auth__error-message">{signupError}</div>

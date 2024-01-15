@@ -13,15 +13,22 @@ export default function LandingPage() {
 
     return () => clearTimeout(timer);
   }, [navigate]);
+
+  const isMobile = window.innerWidth <= 768;
+
   return (
-    <section className="vibe-scribe">
-      <div className="vibe-scribe__container">
-        <img
-          src={vibeScribeLogo}
-          alt="vibe scribe logo"
-          className="vibe-scribe__logo vibe-scribe__fadeout"
-        />
-      </div>
-    </section>
+    <>
+      {isMobile ? (
+        <section className="vibe-scribe">
+          <div className="vibe-scribe__container">
+            <img
+              src={vibeScribeLogo}
+              alt="vibe scribe logo"
+              className="vibe-scribe__logo vibe-scribe__fadeout"
+            />
+          </div>
+        </section>
+      ) : null}
+    </>
   );
 }
