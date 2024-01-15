@@ -3,7 +3,7 @@ import MoodCalender from "../../components/MoodCalender/MoodCalender";
 import "./TrackerPage.scss";
 import calenderImage from "../../assets/icons/calender2.png";
 
-export default function TrackerPage() {
+export default function TrackerPage({ cardsArray }) {
   return (
     <section className="tracker">
       <div className="tracker__container">
@@ -21,7 +21,7 @@ export default function TrackerPage() {
             you had on a partiuclar day!
           </p>
         </div>
-        <MoodCalender />
+        <MoodCalender cardsArray={cardsArray} />
       </div>
     </section>
   );

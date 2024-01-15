@@ -18,7 +18,7 @@ import unsureEmoji from "../../assets/icons/unsure.svg";
 import calmEmoji from "../../assets/icons/calm.svg";
 import angryEmoji from "../../assets/icons/angry.svg";
 
-export default function Calender() {
+export default function Calender({ cardsArray }) {
   const [moods, setMoods] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -37,35 +37,42 @@ export default function Calender() {
     getAndSetMoods();
   }, []);
 
+  // console.log(moods.created_at);
+
   const handleDateChange = (newDate) => {
     setSelectedDate(newDate);
   };
 
   const formattedSelectedDate = selectedDate
-    ? dayjs(selectedDate).startOf("day").format("YYYY-MM-DD")
+    ? dayjs(selectedDate).startOf("day").format("DD-MM-YYYY")
     : "";
 
   const selectedDateMoods = moods.filter((mood) => {
     const formattedMoodDate = dayjs(mood.created_at)
       .startOf("day")
-      .format("YYYY-MM-DD");
+      .format("DD-MM-YYYY");
     return formattedMoodDate === formattedSelectedDate;
   });
 
-  const moodEmoji = {
-    Grateful: gratefulEmoji,
-    Tired: tiredEmoji,
-    Happy: happyEmoji,
-    Sad: sadEmoji,
-    Angry: angryEmoji,
-    Calm: calmEmoji,
-    Unsure: unsureEmoji,
-    Anxious: anxiousEmoji,
-    Stressed: stressedEmoji,
-  };
+  // const moodEmoji = {
+  //   Grateful: gratefulEmoji,
+  //   Tired: tiredEmoji,
+  //   Happy: happyEmoji,
+  //   Sad: sadEmoji,
+  //   Angry: angryEmoji,
+  //   Calm: calmEmoji,
+  //   Unsure: unsureEmoji,
+  //   Anxious: anxiousEmoji,
+  //   Stressed: stressedEmoji,
+  // };
+
+  // const getMoodEmoji = (mood) => {
+  //   return moodEmoji[mood];
+  // };
 
   const getMoodEmoji = (mood) => {
-    return moodEmoji[mood]; // Use a default emoji if no match found
+    const card = cardsArray.find((c) => c.title === mood);
+    return card?.image || null;
   };
 
   return (
@@ -84,18 +91,24 @@ export default function Calender() {
       {selectedDateMoods.length > 0 && (
         <div className="tracker__mood-wrapper">
           <h4 className="tracker__different-moods">
-            Your different moods on {formattedSelectedDate}:
+            Your different moods on{" "}
+            <span className="tracker__mood-formatted-date">
+              {formattedSelectedDate}:{" "}
+            </span>
           </h4>
           <div className="tracker__mood-container">
-            {selectedDateMoods.map((mood, index) => (
+            {selectedDateMoods.map((mood) => (
               <article key={mood.id} className="tracker__card">
-                <div className="tracker__mood-wrap">
+                <div className="tracker__mood-details-wrapper">
                   <p className="tracker__mood">{mood.mood}</p>
                   <img
                     src={`${getMoodEmoji(mood.mood)}`}
                     alt={mood.mood}
                     className="tracker__mood-icon"
                   />
+                  <p className="tracker__mood-time">
+                    {mood.created_at.slice(11, 16)}
+                  </p>
                 </div>
               </article>
             ))}
@@ -105,7 +118,11 @@ export default function Calender() {
       {selectedDateMoods.length === 0 && (
         <div className="tracker__no-mood-wrapper">
           <p className="tracker__no-mood">
-            No moods were logged on this day {formattedSelectedDate}.
+            No moods were logged on this day{" "}
+            <span className="tracker__mood-formatted-date">
+              {formattedSelectedDate}
+            </span>
+            .
           </p>
           <Lottie
             animationData={noAnimation}

@@ -108,7 +108,10 @@ function App() {
             path="/journal/edit/:journalId"
             element={<JournalPage type={"edit"} />}
           />
-          <Route path="/tracker" element={<TrackerPage />} />
+          <Route
+            path="/tracker"
+            element={<TrackerPage cardsArray={cardsArray} />}
+          />
           <Route path="/meditation" element={<MeditationPage />} />
         </Routes>
         <BottomNavBar />

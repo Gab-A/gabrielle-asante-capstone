@@ -1,14 +1,51 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+.css-jgls56-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected) {
+  border: 1px solid $dark-purple !important;
+}
+
+.css-1u23akw-MuiButtonBase-root-MuiPickersDay-root.Mui-selected,
+.css-jgls56-MuiButtonBase-root-MuiPickersDay-root.Mui-selected:hover,
+.css-innj4t-MuiPickersYear-yearButton.Mui-selected {
+  background-color: $medium-purple !important;
+}
+
+.css-14iq4xa-MuiDayCalendar-root {
+  @include tablet {
+    font-size: 10rem !important;
+  }
+}
+
+.css-rhmlg1-MuiTypography-root-MuiDayCalendar-weekDayLabel {
+  @include tablet {
+    font-size: 1.2rem !important;
+  }
+}
+.css-1u23akw-MuiButtonBase-root-MuiPickersDay-root {
+  @include tablet {
+    font-size: 1.5rem !important;
+  }
+}
+
+.css-flbe84-MuiDayCalendar-weekContainer {
+  @include tablet {
+    padding: 0.7rem;
+  }
+}
+
 .tracker {
   &__calender {
     background-color: $lavender;
     border-radius: 0.5rem;
+
+    @include tablet {
+      width: 600px !important;
+      min-height: 400px !important;
+    }
   }
   &__mood-wrapper {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin: 0rem 1rem;
   }
   &__different-moods,
   &__no-mood,
@@ -17,24 +54,27 @@
   }
 
   &__mood-container {
-    // display: flex;
-    // flex-wrap: wrap;
-    // max-width: 12rem;
-    gap: 0.3rem;
+    @include flexCenter(row);
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 0.65rem;
   }
+
   &__card {
     background-color: rgba(216, 212, 242, 0.4);
-    // margin: 0 auto;
-    // background-color: lavender;
-    // opacity: 50%;
     color: $secondary-black;
     font-weight: 500;
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 1.25rem;
-    border-radius: 0.5rem;
+    border-radius: 0.65rem;
     border: 1.5px solid $medium-purple;
-    width: 85%;
+    width: 30%;
+
+    @include tablet {
+      width: 15%;
+    }
   }
 
   &__title-container {
@@ -42,15 +82,10 @@
     gap: 1rem;
   }
 
-  &__calender-image {
-    width: 2.5rem;
-    padding-top: 0.9rem;
-  }
-
   &__mood {
     color: #000038;
     font-weight: 600;
-    font-size: 1.3rem;
+    font-size: 1.05rem;
   }
 
   &__no-mood {
@@ -58,7 +93,11 @@
   }
 
   &__text {
-    margin: 1.5rem 1.5rem 0rem 1.5rem;
+    margin: 1.5rem 1.5rem 1rem 1.5rem;
+  }
+
+  &__mood-formatted-date {
+    font-weight: 600;
   }
 
   &__different-moods {
@@ -74,17 +113,17 @@
   }
 
   &__no-mood-wrapper {
-    display: flex;
-    align-items: center;
+    @include flexCenter(row);
+    justify-content: flex-start;
   }
 
   &__mood-icon {
     width: 1.8rem;
     opacity: 1;
+    margin-top: 0.6rem;
   }
 
-  &__mood-wrap {
-    display: flex;
-    gap: 1rem;
+  &__mood-details-wrapper {
+    @include flexCenter(column);
   }
 }
