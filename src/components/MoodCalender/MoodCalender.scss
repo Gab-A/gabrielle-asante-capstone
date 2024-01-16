@@ -3,12 +3,31 @@
 
 .css-jgls56-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected) {
   border: 1px solid $dark-purple !important;
+
+  @include tablet {
+    font-size: 1.2rem;
+  }
 }
 
 .css-1u23akw-MuiButtonBase-root-MuiPickersDay-root.Mui-selected,
 .css-jgls56-MuiButtonBase-root-MuiPickersDay-root.Mui-selected:hover,
 .css-innj4t-MuiPickersYear-yearButton.Mui-selected {
   background-color: $medium-purple !important;
+}
+
+.css-jgls56-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
+  background-color: $medium-purple !important;
+
+  @include tablet {
+    padding: 1.21rem !important;
+    font-size: 1.2rem !important;
+  }
+}
+
+.css-jgls56-MuiButtonBase-root-MuiPickersDay-root.Mui-selected:hover {
+  @include tablet {
+    padding: 1.21rem !important;
+  }
 }
 
 .css-14iq4xa-MuiDayCalendar-root {
@@ -25,6 +44,7 @@
 .css-1u23akw-MuiButtonBase-root-MuiPickersDay-root {
   @include tablet {
     font-size: 1.5rem !important;
+    padding: 1.21rem !important;
   }
 }
 
@@ -44,9 +64,11 @@
       min-height: 400px !important;
     }
   }
+
   &__mood-wrapper {
     margin: 0rem 1rem;
   }
+
   &__different-moods,
   &__no-mood,
   &__text {
@@ -59,6 +81,11 @@
     align-items: stretch;
     flex-wrap: wrap;
     gap: 0.65rem;
+
+    @include tablet {
+      gap: 2rem;
+      margin-left: 1rem;
+    }
   }
 
   &__card {
@@ -73,7 +100,8 @@
     width: 30%;
 
     @include tablet {
-      width: 15%;
+      width: 18%;
+      padding: 1.5rem;
     }
   }
 
@@ -86,6 +114,15 @@
     color: #000038;
     font-weight: 600;
     font-size: 1.05rem;
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__mood-time {
+    margin-top: 1rem;
+    font-size: 1.3rem;
   }
 
   &__no-mood {
@@ -94,18 +131,39 @@
 
   &__text {
     margin: 1.5rem 1.5rem 1rem 1.5rem;
+
+    @include tablet {
+      font-size: 1.3rem;
+      margin: 3.5rem 0rem 0rem 2.5rem;
+    }
   }
 
   &__mood-formatted-date {
     font-weight: 600;
+    padding-left: 0.2rem;
   }
 
   &__different-moods {
     margin-left: 0.5rem;
+
+    @include tablet {
+      font-size: 1.3rem;
+    }
+  }
+
+  &__different-moods,
+  &__no-mood-wrapper {
+    @include tablet {
+      margin: 2rem 0rem 1.6rem 1.2rem;
+    }
   }
 
   &__no-mood {
     font-size: 0.93rem;
+
+    @include tablet {
+      font-size: 1.3rem;
+    }
   }
 
   &__no-animation {
@@ -121,6 +179,10 @@
     width: 1.8rem;
     opacity: 1;
     margin-top: 0.6rem;
+
+    @include tablet {
+      width: 2.9rem;
+    }
   }
 
   &__mood-details-wrapper {

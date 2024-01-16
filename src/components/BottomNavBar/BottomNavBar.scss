@@ -14,28 +14,45 @@
   }
 
   &__link {
+    font-size: 1rem;
+  }
+
+  // &__link {
+  //   &--active {
+  //     background-color: $columbia-blue;
+  //     border-radius: 50%;
+  //     padding: 0.55rem;
+  //   }
+  // }
+
+  // &__home,
+  // &__journal-entries,
+  // &__tracker,
+  // &__meditation {
+  //   width: 30px;
+  // }
+
+  &__icon {
+    // font-size: 1.2rem;
+    width: 2rem;
     &--active {
+      // font-size: 1.2rem;
       background-color: $columbia-blue;
       border-radius: 50%;
       padding: 0.55rem;
     }
   }
 
-  &__icon {
-    width: 1.8rem;
-  }
-
   &__list {
-    display: flex;
+    @include flexCenter(row);
     justify-content: space-between;
     padding: 0rem 1rem 0rem 2rem;
     opacity: 70%;
     border-radius: 0.2rem;
-    align-items: center;
     padding-left: 2rem;
 
     @include tablet {
-      justify-content: space-between;
+      // justify-content: space-between;
       padding: 0rem 6rem;
     }
   }
