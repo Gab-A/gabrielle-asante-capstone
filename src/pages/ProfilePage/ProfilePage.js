@@ -1,21 +1,22 @@
 import CardList from "../../components/CardList/CardList";
 import "./ProfilePage.scss";
 import { useState, useEffect } from "react";
-import getAllQuotes from "../../scripts/utils/get-all-quotes";
 import QuotesCarousel from "../../components/QuotesCarousel/QuotesCarousel";
 import calenderIcon from "../../assets/icons/calender.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import NavigationCard from "../../components/NavigationCard/NavigationCard";
 import journalIcon from "../../assets/icons/journal.png";
+import logoutArrow from "../../assets/icons/arrow-out.svg";
 
 export default function ProfilePage({ mood, setMood, cardsArray }) {
   const [greeting, setGreeting] = useState("");
   const [failedAuth, setFailedAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState(null);
-  const navigate = useNavigate();
   const [selectedCardIndex, setSelectedCardIndex] = useState(null);
+  const [data, setData] = useState(null);
+  const [logoutVisibility, setLogoutVisibility] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const time = new Date().getHours();
@@ -68,6 +69,10 @@ export default function ProfilePage({ mood, setMood, cardsArray }) {
     setSelectedCardIndex(cardIndex);
   };
 
+  const handleLogoutClick = () => {
+    setLogoutVisibility((currentVisibility) => !currentVisibility);
+  };
+
   return (
     <main className="profile">
       <div className="profile__wrapper">
@@ -75,9 +80,29 @@ export default function ProfilePage({ mood, setMood, cardsArray }) {
           <h4 className="profile__greeting">
             {greeting}, {data.first_name}
           </h4>
-          <div className="profile__initial">
-            {data.first_name[0]}
-            {data.last_name[0]}
+          <div className="profile__container">
+            <div onClick={handleLogoutClick} className="profile__initial">
+              {data.first_name[0]}
+              {data.last_name[0]}
+            </div>
+            {logoutVisibility ? (
+              <div className="profile__logout-wrapper">
+                <div className="profile__btn-container">
+                  <button className="profile__cancel-btn">Cancel</button>
+                  <div className="profile__logout-btn-container">
+                    <button onClick={logout} className="profile__logout-btn">
+                      <img
+                        src={logoutArrow}
+                        alt="logout arrow"
+                        className="profile__logout-arrow"
+                      />
+                      {""}
+                      Sign Out
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ) : null}
           </div>
         </div>
         <CardList

@@ -29,7 +29,7 @@
   &__greeting {
     font-weight: 400;
     color: $grey;
-    // color: $black;
+
     margin-bottom: 0;
 
     @include tablet {
@@ -55,10 +55,12 @@
   }
 
   &__initial {
+    position: relative;
     border-radius: 50%;
     background-color: #d7dbe0;
     width: 1.9rem;
     height: 1.9rem;
+    cursor: pointer;
     @include flexCenter(row);
     font-size: 0.7rem;
     font-weight: 700;
@@ -76,10 +78,73 @@
       width: 3.5rem;
       height: 3.5rem;
       margin-right: -4rem;
+      bottom: 100px;
+      left: 5px;
     }
   }
 
-  // .container {
-  //   @include flexCenter(column);
-  // }
+  &__container {
+    @include flexCenter(column);
+  }
+
+  &__logout-wrapper {
+    background-color: $primary-white;
+    height: 5.2rem;
+    width: 5.2rem;
+    @include flexCenter(column);
+    box-shadow: rgba(0, 0, 0, 0.14) 1.93px 1.93px 2px;
+    border: 1px solid $dark-grey;
+    border-radius: 0.3rem;
+    position: absolute;
+    top: 62.4px;
+    right: 5.5px;
+
+    @include tablet {
+      width: 8rem;
+      height: 8rem;
+      top: 76.5px;
+    }
+
+    @include desktop {
+      width: 16rem;
+      height: 12.5rem;
+      top: 75px;
+      right: 10px;
+    }
+  }
+
+  &__logout-container {
+    @include flexCenter(column);
+    gap: 0.3rem;
+  }
+
+  &__logout-btn-container {
+    @include flexCenter(row);
+    margin-top: 0.95rem;
+  }
+
+  &__logout-btn,
+  &__cancel-btn {
+    border: none;
+    color: $payne-grey;
+    background: none;
+    font-weight: 600;
+    padding: 0;
+    @include buttonFont;
+    cursor: pointer;
+
+    @include tablet {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__cancel-btn {
+    padding-left: 0.3rem;
+  }
+
+  &__logout-arrow {
+    width: 1.2rem;
+    margin-bottom: -0.2rem;
+    margin-right: 0.125rem;
+  }
 }

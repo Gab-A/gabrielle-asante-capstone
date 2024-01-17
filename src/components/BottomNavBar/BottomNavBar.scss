@@ -40,6 +40,10 @@
 
   &__icon {
     width: 1.5rem;
+
+    @include tablet {
+      width: 1.7rem;
+    }
   }
 
   &__list {
