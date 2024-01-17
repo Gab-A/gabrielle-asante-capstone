@@ -5,46 +5,43 @@
   border: 1px solid $dark-purple !important;
 
   @include tablet {
-    font-size: 1.2rem;
+    font-size: 1.25rem !important;
+  }
+}
+
+.css-jgls56-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected),
+.css-jgls56-MuiButtonBase-root-MuiPickersDay-root.Mui-selected,
+.css-jgls56-MuiButtonBase-root-MuiPickersDay-root.Mui-selected:hover,
+.css-1u23akw-MuiButtonBase-root-MuiPickersDay-root {
+  @include tablet {
+    padding: 1.21rem !important;
   }
 }
 
 .css-1u23akw-MuiButtonBase-root-MuiPickersDay-root.Mui-selected,
 .css-jgls56-MuiButtonBase-root-MuiPickersDay-root.Mui-selected:hover,
-.css-innj4t-MuiPickersYear-yearButton.Mui-selected {
-  background-color: $medium-purple !important;
-}
-
+.css-innj4t-MuiPickersYear-yearButton.Mui-selected,
 .css-jgls56-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
   background-color: $medium-purple !important;
-
-  @include tablet {
-    padding: 1.21rem !important;
-    font-size: 1.2rem !important;
-  }
 }
 
-.css-jgls56-MuiButtonBase-root-MuiPickersDay-root.Mui-selected:hover {
-  @include tablet {
-    padding: 1.21rem !important;
-  }
-}
-
-.css-14iq4xa-MuiDayCalendar-root {
-  @include tablet {
-    font-size: 10rem !important;
-  }
-}
-
+.css-dplwbx-MuiPickersCalendarHeader-label,
+.css-jgls56-MuiButtonBase-root-MuiPickersDay-root.Mui-selected,
 .css-rhmlg1-MuiTypography-root-MuiDayCalendar-weekDayLabel {
   @include tablet {
-    font-size: 1.2rem !important;
+    font-size: 1.21rem !important;
   }
 }
+
+// .css-14iq4xa-MuiDayCalendar-root {
+//   @include tablet {
+//     font-size: 10rem !important;
+//   }
+// }
+
 .css-1u23akw-MuiButtonBase-root-MuiPickersDay-root {
   @include tablet {
     font-size: 1.5rem !important;
-    padding: 1.21rem !important;
   }
 }
 
@@ -60,8 +57,11 @@
     border-radius: 0.5rem;
 
     @include tablet {
-      width: 600px !important;
-      min-height: 400px !important;
+      width: 37.5rem !important;
+      min-height: 25rem !important;
+    }
+    @include desktop {
+      min-height: 32.5rem !important;
     }
   }
 
@@ -85,6 +85,10 @@
     @include tablet {
       gap: 2rem;
       margin-left: 1rem;
+    }
+
+    @include desktop {
+      margin-left: -1rem;
     }
   }
 
@@ -136,6 +140,24 @@
       font-size: 1.3rem;
       margin: 3.5rem 0rem 0rem 2.5rem;
     }
+
+    @include desktop {
+      margin: 0rem;
+    }
+  }
+
+  &__mood-details-wrapper {
+    @include desktop {
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__mood-calender-wrapper {
+    @include desktop {
+      display: flex;
+      gap: 4rem;
+      margin-top: 3.5rem;
+    }
   }
 
   &__mood-formatted-date {
@@ -149,12 +171,19 @@
     @include tablet {
       font-size: 1.3rem;
     }
+
+    @include desktop {
+      margin-left: -0.9375rem;
+    }
   }
 
   &__different-moods,
   &__no-mood-wrapper {
     @include tablet {
       margin: 2rem 0rem 1.6rem 1.2rem;
+    }
+    @include desktop {
+      margin: 1rem 0rem 1rem -1rem;
     }
   }
 
@@ -173,9 +202,13 @@
   &__no-mood-wrapper {
     @include flexCenter(row);
     justify-content: flex-start;
+
+    @include desktop {
+      margin-left: -1.6rem;
+    }
   }
 
-  &__mood-icon {
+  &__mood-emoji {
     width: 1.8rem;
     opacity: 1;
     margin-top: 0.6rem;
@@ -185,7 +218,7 @@
     }
   }
 
-  &__mood-details-wrapper {
+  &__mood-display-wrapper {
     @include flexCenter(column);
   }
 }

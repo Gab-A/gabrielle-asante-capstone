@@ -51,18 +51,18 @@ export default function Calender({ cardsArray }) {
   };
 
   return (
-    <div className="tracker__mood-flex">
+    <div className="tracker__mood-calender-wrapper">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateCalendar
           value={selectedDate || null}
           onChange={handleDateChange}
           className="tracker__calender"
         />
-        <h4 className="tracker__text">
-          Get on track to see your different moods. It is exciting to so see how
-          much you have evolved.
-        </h4>
-        <div className="tracker__mood-flex1">
+        <div className="tracker__mood-details-wrapper">
+          <h4 className="tracker__text">
+            Get on track to see your different moods. It is exciting to so see
+            how much you have evolved.
+          </h4>
           {filterSelectedDateMoods.length > 0 && (
             <div className="tracker__mood-wrapper">
               <h4 className="tracker__different-moods">
@@ -74,12 +74,12 @@ export default function Calender({ cardsArray }) {
               <div className="tracker__mood-container">
                 {filterSelectedDateMoods.map((mood) => (
                   <article key={mood.id} className="tracker__card">
-                    <div className="tracker__mood-details-wrapper">
+                    <div className="tracker__mood-display-wrapper">
                       <p className="tracker__mood">{mood.mood}</p>
                       <img
                         src={`${getMoodEmoji(mood.mood)}`}
                         alt={mood.mood}
-                        className="tracker__mood-icon"
+                        className="tracker__mood-emoji"
                       />
                       <p className="tracker__mood-time">
                         {mood.created_at.slice(11, 16)}

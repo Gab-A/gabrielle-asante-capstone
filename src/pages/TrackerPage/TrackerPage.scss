@@ -9,6 +9,9 @@
     @include tablet {
       margin: 0rem 2rem 2rem 2rem;
     }
+    @include desktop {
+      margin: 0rem 4.5rem 4rem 4.5rem;
+    }
   }
 
   &__title {
@@ -20,6 +23,15 @@
     @include tablet {
       font-size: 1.9rem;
     }
+    @include desktop {
+      font-size: 2rem;
+    }
+  }
+
+  &__title-container {
+    @include desktop {
+      margin-top: 2.5rem;
+    }
   }
 
   &__calender-image {
@@ -28,6 +40,9 @@
 
     @include tablet {
       width: 2.5rem;
+    }
+    @include desktop {
+      width: 2.8rem;
     }
   }
 
@@ -40,9 +55,18 @@
       text-align: center;
       padding: 2.5rem 0rem 0.6rem 0rem;
     }
+    @include desktop {
+      text-align: left;
+      padding-top: 5rem;
+      font-size: 1.4rem;
+    }
   }
 
   &__wrapper {
     margin: 0rem 1.5rem 0rem 1.5rem;
+
+    @include desktop {
+      margin: 0rem;
+    }
   }
 }

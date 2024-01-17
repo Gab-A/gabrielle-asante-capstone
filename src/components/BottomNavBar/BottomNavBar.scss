@@ -13,17 +13,23 @@
     display: none;
   }
 
+  &__title {
+    &--active {
+      color: $columbia-blue;
+    }
+  }
+
   &__link {
     font-size: 1rem;
   }
 
-  // &__link {
-  //   &--active {
-  //     background-color: $columbia-blue;
-  //     border-radius: 50%;
-  //     padding: 0.55rem;
-  //   }
-  // }
+  &__link {
+    &--active {
+      background-color: $columbia-blue;
+      border-radius: 50%;
+      padding: 0.45rem;
+    }
+  }
 
   // &__home,
   // &__journal-entries,
@@ -33,14 +39,7 @@
   // }
 
   &__icon {
-    // font-size: 1.2rem;
-    width: 2rem;
-    &--active {
-      // font-size: 1.2rem;
-      background-color: $columbia-blue;
-      border-radius: 50%;
-      padding: 0.55rem;
-    }
+    width: 1.5rem;
   }
 
   &__list {
@@ -52,7 +51,6 @@
     padding-left: 2rem;
 
     @include tablet {
-      // justify-content: space-between;
       padding: 0rem 6rem;
     }
   }
