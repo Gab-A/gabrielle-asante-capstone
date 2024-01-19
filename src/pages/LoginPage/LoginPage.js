@@ -62,7 +62,7 @@ export default function LoginPage() {
         // email={email}
         // password={password}
         errors={errors}
-        email={email}
+        // email={email}
       />
     </>
   );

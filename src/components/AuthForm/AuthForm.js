@@ -10,8 +10,6 @@ export default function AuthForm({
   signupError,
   // loginError,
   errors,
-  // password,
-  email,
 }) {
   const location = useLocation();
   const isSignupPage = location.pathname === "/signup";
@@ -66,7 +64,6 @@ export default function AuthForm({
               name="email"
               label="Email"
               placeholder="Email"
-              value={email}
               // mailIcon={mailIcon}
             />
             {isLoginPage

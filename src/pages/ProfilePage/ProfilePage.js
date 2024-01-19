@@ -7,7 +7,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import NavigationCard from "../../components/NavigationCard/NavigationCard";
 import journalIcon from "../../assets/icons/journal.png";
-import logoutArrow from "../../assets/icons/arrow-out.svg";
+import LogoutDropdwon from "../../components/LogoutDropdown/LogoutDropdown";
 
 export default function ProfilePage({ mood, setMood, cardsArray }) {
   const [greeting, setGreeting] = useState("");
@@ -15,7 +15,7 @@ export default function ProfilePage({ mood, setMood, cardsArray }) {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCardIndex, setSelectedCardIndex] = useState(null);
   const [data, setData] = useState(null);
-  const [logoutVisibility, setLogoutVisibility] = useState(false);
+  const [isLogoutDropdown, setIsLogoutDropdown] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function ProfilePage({ mood, setMood, cardsArray }) {
   };
 
   const handleLogoutClick = () => {
-    setLogoutVisibility((currentVisibility) => !currentVisibility);
+    setIsLogoutDropdown((currentDropdown) => !currentDropdown);
   };
 
   return (
@@ -85,24 +85,7 @@ export default function ProfilePage({ mood, setMood, cardsArray }) {
               {data.first_name[0]}
               {data.last_name[0]}
             </div>
-            {logoutVisibility ? (
-              <div className="profile__logout-wrapper">
-                <div className="profile__btn-container">
-                  <button className="profile__cancel-btn">Cancel</button>
-                  <div className="profile__logout-btn-container">
-                    <button onClick={logout} className="profile__logout-btn">
-                      <img
-                        src={logoutArrow}
-                        alt="logout arrow"
-                        className="profile__logout-arrow"
-                      />
-                      {""}
-                      Sign Out
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ) : null}
+            {isLogoutDropdown ? <LogoutDropdwon logout={logout} /> : null}
           </div>
         </div>
         <CardList
