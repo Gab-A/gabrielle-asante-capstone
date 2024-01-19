@@ -21,6 +21,7 @@ import gratefulEmoji from "./assets/icons/grateful.svg";
 import unsureEmoji from "./assets/icons/unsure.svg";
 import calmEmoji from "./assets/icons/calm.svg";
 import angryEmoji from "./assets/icons/angry.svg";
+import { set } from "date-fns";
 
 function App() {
   const [mood, setMood] = useState("");
@@ -106,7 +107,14 @@ function App() {
           <Route path="/journal-entries" element={<JournalEntriesPage />} />
           <Route
             path="/journal/edit/:journalId"
-            element={<JournalPage type={"edit"} />}
+            element={
+              <JournalPage
+                type={"edit"}
+                mood={mood}
+                setMood={setMood}
+                cardsArray={cardsArray}
+              />
+            }
           />
           <Route
             path="/tracker"

@@ -8,13 +8,12 @@ import thoughtIcon from "../../assets/icons/thought.png";
 import ChipButton from "../../components/ChipButton/ChipButton";
 import arrowLeft from "../../assets/icons/arrow-left.svg";
 
-export default function JournalPage({ mood, type, cardsArray }) {
+export default function JournalPage({ mood, type, cardsArray, setMood }) {
   const [isError, setIsError] = useState(false);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [submit, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
-  const [pickedOption, setPickedOption] = useState(null);
 
   const navigate = useNavigate();
 
@@ -26,12 +25,12 @@ export default function JournalPage({ mood, type, cardsArray }) {
     const getAndSetJournal = async () => {
       try {
         const response = await getJournalById(journalId);
-        console.log(response);
-        console.log(response.title);
 
         if (journalId) {
           setTitle(response.title);
           setContent(response.content);
+          setMood(response.mood);
+          console.log(response.mood);
         }
       } catch (error) {
         console.error(`Error fetching journal`);
@@ -42,6 +41,18 @@ export default function JournalPage({ mood, type, cardsArray }) {
       getAndSetJournal();
     }
   }, [journalId]);
+
+  useEffect(() => {
+    const moodStored = localStorage.getItem("usersMood");
+    if (moodStored) {
+      setMood(moodStored);
+    }
+  }, []);
+
+  // Effect to save the mood to localStorage when it changes
+  useEffect(() => {
+    localStorage.setItem("usersMood", mood);
+  }, [mood]);
 
   const handleChangeTitle = (event) => {
     setTitle(event.target.value);
@@ -112,15 +123,19 @@ export default function JournalPage({ mood, type, cardsArray }) {
   };
 
   const getEmoji = () => {
-    const moodEmoji = cardsArray.find((card) => card.title === mood);
-    return moodEmoji.image;
+    console.log(cardsArray);
+    const moodEmoji = cardsArray?.find((card) => card.title === mood);
+    // console.log(moodEmoji?.image);
+    return moodEmoji?.image;
   };
 
-  // const selections = ["Work", "School", "Relationship", "Spirtuality", ""];
-
-  // const handleChipClick = (index) => {
-  //   setPickedOption(index);
-  // };
+  const handleBackButtonClick = () => {
+    if (type === "new") {
+      navigate("/profile");
+    } else {
+      navigate("/journal-entries");
+    }
+  };
 
   return (
     <section className="journal">
@@ -129,6 +144,7 @@ export default function JournalPage({ mood, type, cardsArray }) {
           <div className="journal__arrow-container">
             <img
               src={arrowLeft}
+              onClick={handleBackButtonClick}
               alt="arrow left"
               className="journal__arrow-left"
             />
@@ -144,21 +160,19 @@ export default function JournalPage({ mood, type, cardsArray }) {
                 className="journal__thought-bubble"
               />
             </p>
-            {!journalId && mood && (
-              <div className="journal__mood-tell-wrapper">
-                <div className="journal__emoji-container">
-                  <img
-                    src={getEmoji()}
-                    alt={`${mood} Emoji}`}
-                    className="journal__emoji"
-                  />
-                </div>
-                <p className="journal__mood-explanation">
-                  What has made you feel{" "}
-                  <span className="journal__mood-span">{mood}</span>
-                </p>
+            <div className="journal__mood-tell-wrapper">
+              <div className="journal__emoji-container">
+                <img
+                  src={getEmoji()}
+                  alt={`${mood} Emoji}`}
+                  className="journal__emoji"
+                />
               </div>
-            )}
+              <p className="journal__mood-explanation">
+                What has made you feel{" "}
+                <span className="journal__mood-span">{mood}</span>
+              </p>
+            </div>
           </div>
         </div>
         <form className="journal__form" onSubmit={handleSubmit}>
@@ -182,17 +196,6 @@ export default function JournalPage({ mood, type, cardsArray }) {
               <p className="journal__form-error">{errors.title}</p>
             )}
           </div>
-          {/* <div className="journal__tag-container">
-            <p> Add Tags</p> */}
-          {/* {selections.map((text, index) => (
-              <ChipButton
-                key={index}
-                text={text}
-                selected={pickedOption === index}
-                onClick={() => handleChipClick(index)}
-              />
-            ))} */}
-          {/* </div> */}
           <div className="journal__form-group journal__form-content">
             <label htmlFor="content" className="journal__form-label">
               Note
@@ -224,11 +227,6 @@ export default function JournalPage({ mood, type, cardsArray }) {
             <button className="journal__button">Save</button>
           </div>
         </form>
-        {/* {isError && (
-          <p className="journal__fail">Failed to upload your journal entry.</p>
-        )}
-        <p className="journal__redirect-message">{message}</p> */}
-        {/* </div> */}
       </div>
     </section>
   );
