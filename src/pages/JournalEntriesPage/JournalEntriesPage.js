@@ -3,14 +3,8 @@ import getAllJournals from "../../scripts/utils/get-all-journals";
 import "./JournalEntriesPage.scss";
 import { Link } from "react-router-dom";
 import deleteJournalById from "../../scripts/utils/delete-journal";
-import editImage from "../../assets/icons/edit.png";
-import deleteImage from "../../assets/icons/bin.png";
-import journalLogo from "../../assets/icons/old-live-journal-logo.png";
 import journalAnimation from "../../assets/animations/journal.json";
 import deleteIcon from "../../assets/icons/trash.svg";
-// import editIcon from "../../assets/icons/edit-2.svg";
-// import editAirBlue from "../../assets/icons/edit-2 (5).svg";
-// import editIconTwo from "../../assets/icons/edit-2 (2).svg";
 import editDarkPurple from "../../assets/icons/edit-2 (3).svg";
 import editMediumBlue from "../../assets/icons/edit-2 (4).svg";
 import Lottie from "lottie-react";
@@ -20,7 +14,6 @@ export default function JournalEntriesPage() {
   const [journals, setJournals] = useState(null);
   const [expand, setExpanded] = useState(false);
   const [selectedJournal, setSelectedJournal] = useState(null);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -39,33 +32,15 @@ export default function JournalEntriesPage() {
     return <p>Loading</p>;
   }
 
-  // const toggleModal = (journalId) => {
-  //   setModalStates((prevState) => ({
-  //     ...prevState,
-  //     [journalId]: !prevState[journalId],
-  //   }));
-  // };
-
   const openModal = (journalId) => {
     setSelectedJournal(journalId);
     setIsModalOpen(true);
-    console.log("Modal should be open now");
   };
 
   const closeModal = () => {
     setSelectedJournal(null);
     setIsModalOpen(false);
-    console.log("Modal should be closed now");
   };
-
-  // const clickDeleteIcon = (journalId) => {
-  //   setOpenModal(true);
-  //   setSelectedJournalId(journalId);
-  // };
-
-  // const handleModalCancel = () => {
-  //   setOpenModal(false);
-  // };
 
   const handleDelete = async (journalId) => {
     try {
@@ -96,7 +71,6 @@ export default function JournalEntriesPage() {
   return (
     <section className="journal-entries">
       <div className="journal-entries__container">
-        {/* <h4 className="journal-entries__heading">Journal Entries</h4> */}
         <div className="journal-entries__logo-container">
           <h3 className="journal-entries__heading">Your Journal Entries</h3>
           <Lottie
@@ -105,9 +79,6 @@ export default function JournalEntriesPage() {
             loop={false}
           />
         </div>
-        <p className="journal-entries__subheading">
-          See a list of all of your journal entries here:
-        </p>
         <div className="journal-entries__wrapper">
           {sortedJournals.map((journal, index) => (
             <article
@@ -147,25 +118,11 @@ export default function JournalEntriesPage() {
                     alt="delete icon"
                     className="journal-entries__delete"
                     onClick={() => openModal(journal)}
-
-                    // onClick={() => {
-                    //   toggleModal(journal.id);
-                    //   clickDeleteIcon(journal.id);
-                    // }}
                   />
                   <div
                     className="clickable-area"
                     onClick={() => openModal(journal)}
                   ></div>
-                  {/* {modalStates[journal.id] && (
-                    <Modal
-                      setOpenModal={(value) => toggleModal(journal.id, value)}
-                      handleModalCancel={handleModalCancel}
-                      selectedJournalId={selectedJournalId}
-                      handleDelete={handleDelete}
-                      openModal={openModal}
-                    />
-                  )} */}
                   <JournalEntriesModal
                     isOpen={isModalOpen}
                     onRequestClose={closeModal}

@@ -3,9 +3,7 @@ import "./JournalPage.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import getJournalById from "../../scripts/utils/get-single-journal";
-import updateJournal from "../../scripts/utils/update-journal";
 import thoughtIcon from "../../assets/icons/thought.png";
-import ChipButton from "../../components/ChipButton/ChipButton";
 import arrowLeft from "../../assets/icons/arrow-left.svg";
 
 export default function JournalPage({ mood, type, cardsArray, setMood }) {
@@ -49,7 +47,6 @@ export default function JournalPage({ mood, type, cardsArray, setMood }) {
     }
   }, []);
 
-  // Effect to save the mood to localStorage when it changes
   useEffect(() => {
     localStorage.setItem("usersMood", mood);
   }, [mood]);
@@ -125,7 +122,6 @@ export default function JournalPage({ mood, type, cardsArray, setMood }) {
   const getEmoji = () => {
     console.log(cardsArray);
     const moodEmoji = cardsArray?.find((card) => card.title === mood);
-    // console.log(moodEmoji?.image);
     return moodEmoji?.image;
   };
 
