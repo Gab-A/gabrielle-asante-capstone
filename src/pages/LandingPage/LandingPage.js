@@ -8,19 +8,21 @@ export default function LandingPage() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/login");
+      navigate("/breathing");
     }, 2000);
 
     return () => clearTimeout(timer);
   }, [navigate]);
 
   const isMobile = window.innerWidth <= 768;
+  console.log("hello");
 
   return (
     <>
       {isMobile ? (
         <section className="vibe-scribe">
           <div className="vibe-scribe__container">
+            <h1>Hello</h1>
             <img
               src={vibeScribeLogo}
               alt="vibe scribe logo"

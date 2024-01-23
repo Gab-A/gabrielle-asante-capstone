@@ -79,6 +79,9 @@ export default function JournalEntriesPage() {
             loop={false}
           />
         </div>
+        <p className="journal-entries__subheading">
+          See a list of all your entries here:
+        </p>
         <div className="journal-entries__wrapper">
           {sortedJournals.map((journal, index) => (
             <article

@@ -78,6 +78,7 @@ export default function AuthForm({
               name="password"
               label="Password"
               placeholder="Password"
+              autocomplete="current-password"
               // image={lockIcon}
             />
             {isLoginPage

@@ -1,0 +1,7 @@
+@use "../../styles/partials/mixins" as *;
+
+.breathing {
+  @include flexCenter(row);
+  margin: 0 auto;
+  height: 100vh;
+}

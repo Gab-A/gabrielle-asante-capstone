@@ -1,8 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import "./App.scss";
 import BottomNavBar from "./components/BottomNavBar/BottomNavBar";
-import MobileNavBar from "./components/BottomNavBar/BottomNavBar";
 import LandingPage from "../src/pages/LandingPage/LandingPage";
 import ProfilePage from "../src/pages/ProfilePage/ProfilePage";
 import JournalPage from "../src/pages/JournalPage/JournalPage";
@@ -11,7 +10,7 @@ import TrackerPage from "../src/pages/TrackerPage/TrackerPage";
 import MeditationPage from "./pages/MeditationPage/MeditationPage";
 import SignupPage from "../src/pages/SignupPage/SignupPage";
 import LoginPage from "../src/pages/LoginPage/LoginPage";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import happyEmoji from "./assets/icons/smile.svg";
 import sadEmoji from "./assets/icons/sad.svg";
 import anxiousEmoji from "./assets/icons/anxious.svg";
@@ -21,10 +20,24 @@ import gratefulEmoji from "./assets/icons/grateful.svg";
 import unsureEmoji from "./assets/icons/unsure.svg";
 import calmEmoji from "./assets/icons/calm.svg";
 import angryEmoji from "./assets/icons/angry.svg";
-import { set } from "date-fns";
+import BreathingPage from "./pages/BreathingPage/BreathingPage";
 
 function App() {
   const [mood, setMood] = useState("");
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const cardsArray = [
     {
@@ -79,7 +92,16 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          {isMobile ? (
+            <Route path="/" element={<LandingPage />} />
+          ) : (
+            <Route path="/" element={<Navigate replace to="/login" />} />
+          )}
+          {isMobile ? (
+            <Route path="/breathing" element={<BreathingPage />} />
+          ) : (
+            <Route path="/" element={<Navigate replace to="/login" />} />
+          )}
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route

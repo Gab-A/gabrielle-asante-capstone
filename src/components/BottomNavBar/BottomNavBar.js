@@ -13,10 +13,11 @@ export default function BottomNavBar() {
   };
 
   const isLandingPage = location.pathname === "/";
+  const isBreathingPage = location.pathname === "/breathing";
   const isLoginPage = location.pathname === "/login";
   const isSignupPage = location.pathname === "/signup";
 
-  if (isLandingPage || isLoginPage || isSignupPage) {
+  if (isLandingPage || isBreathingPage || isLoginPage || isSignupPage) {
     return null;
   }
   return (
