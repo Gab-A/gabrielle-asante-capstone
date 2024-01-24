@@ -1,0 +1,32 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.journal-entries {
+  //   &__search-wrapper {
+  //     position: relative
+  //   }
+  &__search {
+    &:focus {
+      outline: 1px solid $grey;
+    }
+
+    width: 80%;
+    border-radius: 0.5rem;
+    border: 1px solid $grey;
+    font-family: "Quicksand";
+    padding: 0.5rem;
+    background-image: url(../../assets/icons/search.svg);
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    background-position: 4px;
+    padding-left: 30px;
+    margin: 0rem 0rem 1.3rem 1.2rem;
+
+    @include tablet {
+      margin-left: 2.2rem;
+      width: 50%;
+      border-radius: 0.55rem;
+      font-size: 1.2rem;
+    }
+  }
+}

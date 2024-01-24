@@ -1,28 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import getAllJournals from "../../scripts/utils/get-all-journals";
 import "./JournalEntriesPage.scss";
-import { Link } from "react-router-dom";
-import deleteJournalById from "../../scripts/utils/delete-journal";
+import SearchBar from "../../components/SearchBar/SearchBar";
 import journalAnimation from "../../assets/animations/journal.json";
-import deleteIcon from "../../assets/icons/trash.svg";
-import editDarkPurple from "../../assets/icons/edit-2 (3).svg";
-import editMediumBlue from "../../assets/icons/edit-2 (4).svg";
 import Lottie from "lottie-react";
-import JournalEntriesModal from "../../components/JournalEntriesModal/JournalEntriesModal";
+import JournalEntries from "../../components/JournalEntries/JournalEntries";
 
 export default function JournalEntriesPage() {
-  const [journals, setJournals] = useState(null);
-  const [expand, setExpanded] = useState(false);
-  const [selectedJournal, setSelectedJournal] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [journals, setJournals] = useState([]);
+  const [searchData, setSearchData] = useState("");
+  const [filteredJournals, setFilteredJournals] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const handleSearchQuery = useCallback((filteredJournals) => {
+    setFilteredJournals(filteredJournals);
+  }, []);
 
   useEffect(() => {
     const fetchJournals = async () => {
       try {
         const response = await getAllJournals();
         setJournals(response);
+        setLoading(false);
       } catch (error) {
         console.error(error);
+        setLoading(false);
       }
     };
     fetchJournals();
@@ -32,41 +34,45 @@ export default function JournalEntriesPage() {
     return <p>Loading</p>;
   }
 
-  const openModal = (journalId) => {
-    setSelectedJournal(journalId);
-    setIsModalOpen(true);
-  };
+  const sortedJournals = [
+    ...(filteredJournals.length > 0 ? filteredJournals : journals),
+  ].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-  const closeModal = () => {
-    setSelectedJournal(null);
-    setIsModalOpen(false);
-  };
+  // const openModal = (journalId) => {
+  //   setSelectedJournal(journalId);
+  //   setIsModalOpen(true);
+  // };
 
-  const handleDelete = async (journalId) => {
-    try {
-      await deleteJournalById(journalId);
-      const updatedJournals = await getAllJournals();
-      setJournals(updatedJournals);
-      closeModal();
-      console.log(`Journal with ID ${journalId} deleted successfully`);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const closeModal = () => {
+  //   setSelectedJournal(null);
+  //   setIsModalOpen(false);
+  // };
 
-  const onDelete = () => {
-    handleDelete(selectedJournal?.id);
-  };
+  // const handleDelete = async (journalId) => {
+  //   try {
+  //     await deleteJournalById(journalId);
+  //     const updatedJournals = await getAllJournals();
+  //     setJournals(updatedJournals);
+  //     closeModal();
+  //     console.log(`Journal with ID ${journalId} deleted successfully`);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  const handleExpand = (journal) => {
-    setExpanded((selectedJournal) =>
-      selectedJournal === journal ? null : journal
-    );
-  };
+  // const onDelete = () => {
+  //   handleDelete(selectedJournal?.id);
+  // };
 
-  const sortedJournals = [...journals].sort(
-    (a, b) => new Date(b.created_at) - new Date(a.created_at)
-  );
+  // const handleExpand = (journal) => {
+  //   setExpanded((selectedJournal) =>
+  //     selectedJournal === journal ? null : journal
+  //   );
+  // };
+
+  // const sortedJournals = [...journals].sort(
+  //   (a, b) => new Date(b.created_at) - new Date(a.created_at)
+  // );
 
   return (
     <section className="journal-entries">
@@ -82,7 +88,29 @@ export default function JournalEntriesPage() {
         <p className="journal-entries__subheading">
           See a list of all your entries here:
         </p>
-        <div className="journal-entries__wrapper">
+        {!loading ? (
+          <>
+            <SearchBar
+              journals={journals}
+              searchData={searchData}
+              setSearchData={setSearchData}
+              handleSearch={handleSearchQuery}
+            />
+            {filteredJournals.length > 0 ? (
+              <JournalEntries
+                journals={journals}
+                sortedJournals={sortedJournals}
+                setJournals={setJournals}
+                filteredJournals={filteredJournals}
+              />
+            ) : (
+              <p className="journal-entries__no-posts">No matching posts</p>
+            )}
+          </>
+        ) : (
+          <p>Loading</p>
+        )}
+        {/* <div className="journal-entries__wrapper">
           {sortedJournals.map((journal, index) => (
             <article
               key={index}
@@ -163,7 +191,7 @@ export default function JournalEntriesPage() {
               )}
             </article>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
