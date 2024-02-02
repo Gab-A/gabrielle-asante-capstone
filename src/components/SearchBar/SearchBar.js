@@ -10,10 +10,8 @@ export default function SearchBar({
   useEffect(() => {
     if (Array.isArray(journals) && journals.length > 0) {
       const filteredJournals = journals
-        .filter(
-          (journal) =>
-            journal.title.toLowerCase().includes(searchData.toLowerCase()) ||
-            journal.content.toLowerCase().includes(searchData.toLowerCase())
+        .filter((journal) =>
+          journal.title.toLowerCase().includes(searchData.toLowerCase())
         )
         .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 

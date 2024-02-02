@@ -98,11 +98,11 @@ export default function MeditationPage() {
                 breathing ? "breathe__in" : "breathe__out"
               }`}
             >
-              <div className="breathe__circle-wrapper">
+              {/* <div className="breathe__circle-wrapper">
                 <p className="breathe__text">
                   {breathing ? "Breathe In" : " And Breathe Out"}
                 </p>
-              </div>
+              </div> */}
             </div>
             {/* <div className="breathe__button-container"> */}
             {/* <button
