@@ -7,9 +7,15 @@ import "./AuthForm.scss";
 
 export default function AuthForm({
   handleSubmit,
+  handleChange,
   signupError,
-  // loginError,
   errors,
+  email,
+  password,
+  firstName,
+  lastName,
+  submitted,
+  signErrors,
 }) {
   const location = useLocation();
   const isSignupPage = location.pathname === "/signup";
@@ -41,21 +47,34 @@ export default function AuthForm({
               </span>{" "}
               account
             </h4>
-            {/* <h1 className="login__title">Log in</h1> */}
             {isSignupPage && (
               <>
-                <Input type="text" name="first_name" placeholder="First Name" />
+                <Input
+                  type="text"
+                  name="first_name"
+                  placeholder="First Name"
+                  onChange={handleChange}
+                  value={firstName}
+                  submitted={submitted}
+                />
                 {signupError && (
-                  <div className="auth__error-message">{signupError}</div>
+                  <div className="auth__error-message">
+                    {signErrors.first_name}
+                  </div>
                 )}
                 <Input
                   type="text"
                   name="last_name"
                   label="Last name"
                   placeholder="Last Name"
+                  onChange={handleChange}
+                  value={lastName}
+                  submitted={submitted}
                 />
                 {signupError && (
-                  <div className="auth__error-message">{signupError}</div>
+                  <div className="auth__error-message">
+                    {signErrors.last_name}
+                  </div>
                 )}
               </>
             )}
@@ -64,6 +83,9 @@ export default function AuthForm({
               name="email"
               label="Email"
               placeholder="Email"
+              onChange={handleChange}
+              value={email}
+              submitted={submitted}
               // mailIcon={mailIcon}
             />
             {isLoginPage
@@ -71,7 +93,7 @@ export default function AuthForm({
                   <div className="auth__error-message">{errors.email}</div>
                 )
               : signupError && (
-                  <div className="auth__error-message">{signupError}</div>
+                  <div className="auth__error-message">{signErrors.email}</div>
                 )}
             <Input
               type="password"
@@ -79,6 +101,9 @@ export default function AuthForm({
               label="Password"
               placeholder="Password"
               autocomplete="current-password"
+              onChange={handleChange}
+              value={password}
+              submitted={submitted}
               // image={lockIcon}
             />
             {isLoginPage
@@ -86,7 +111,9 @@ export default function AuthForm({
                   <div className="auth__error-message">{errors.password}</div>
                 )
               : signupError && (
-                  <div className="auth__error-message">{signupError}</div>
+                  <div className="auth__error-message">
+                    {signErrors.password}
+                  </div>
                 )}
             <div className="auth__button-container">
               <button className="auth__button">
@@ -94,7 +121,6 @@ export default function AuthForm({
                 {isSignupPage ? "Sign Up" : "Login"}{" "}
               </button>
             </div>
-            {/* {error && <div className="login__message">{error}</div>} */}
           </form>
           <p className="auth__text">
             {isLoginPage ? "Need an account?" : "Have an account already?"} {""}

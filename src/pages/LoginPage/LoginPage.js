@@ -1,12 +1,9 @@
-// import "./LoginPage.scss";
 import axios from "axios";
 import { useState } from "react";
-// import Input from "../../components/Input/Input";
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect } from "react";
 // import lockIcon from "../../assets/icons/lock.svg";
 // import mailIcon from "../../assets/icons/mail.svg";
-// import brandLogo from "../../assets/logo/vibe-scribe-3.svg";
 import AuthForm from "../../components/AuthForm/AuthForm";
 
 export default function LoginPage() {
@@ -14,11 +11,23 @@ export default function LoginPage() {
   const [errors, setErrors] = useState({});
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const navigate = useNavigate();
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    if (name === "email") {
+      setEmail(value);
+    } else if (name === "password") {
+      setPassword(value);
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    setSubmitted(true);
 
     try {
       const response = await axios.post("http://localhost:8000/auth/login", {
@@ -33,7 +42,7 @@ export default function LoginPage() {
       setLoginError(error.response.data);
     }
 
-    setErrors({});
+    // setErrors({});
 
     let formIsValid = true;
 
@@ -41,7 +50,7 @@ export default function LoginPage() {
 
     if (!email) {
       formIsValid = false;
-      newErrors["email"] = "You must enter an email";
+      newErrors["email"] = "You must enter a email";
     }
 
     if (!password) {
@@ -58,11 +67,11 @@ export default function LoginPage() {
     <>
       <AuthForm
         handleSubmit={handleSubmit}
-        // loginError={loginError}
-        // email={email}
-        // password={password}
+        handleChange={handleChange}
         errors={errors}
-        // email={email}
+        submitted={submitted}
+        email={email}
+        password={password}
       />
     </>
   );

@@ -1,22 +1,35 @@
-// import Input from "../../components/Input/Input";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import brandLogo from "../../assets/logo/vibe-scribe-3.svg";
-// import "../LoginPage/LoginPage.scss";
 import AuthForm from "../../components/AuthForm/AuthForm";
 
 export default function SignupPage() {
   const [signupError, setSignupError] = useState(null);
   const [errors, setErrors] = useState({});
+  const [submitted, setSubmitted] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const navigate = useNavigate();
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    if (name === "first_name") {
+      setFirstName(value);
+    } else if (name === "last_name") {
+      setLastName(value);
+    } else if (name === "email") {
+      setEmail(value);
+    } else if (name === "password") {
+      setPassword(value);
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    setSubmitted(true);
 
     try {
       await axios.post("http://localhost:8000/auth/register", {
@@ -32,35 +45,35 @@ export default function SignupPage() {
       setSignupError(error.response.data);
     }
 
-    // setErrors({});
+    setErrors({});
 
-    // let formIsValid = true;
+    let formIsValid = true;
 
-    // const newErrors = {};
+    const newErrors = {};
 
-    // if (!email) {
-    //   formIsValid = false;
-    //   newErrors["email"] = "You must enter an email";
-    // }
+    if (!email) {
+      formIsValid = false;
+      newErrors["email"] = "You must enter an email";
+    }
 
-    // if (!password) {
-    //   formIsValid = false;
-    //   newErrors["password"] = "You must enter a password";
-    // }
+    if (!password) {
+      formIsValid = false;
+      newErrors["password"] = "You must enter a password";
+    }
 
-    // if (!firstName) {
-    //   formIsValid = false;
-    //   newErrors["first_name"] = "You must enter your first name";
-    // }
+    if (!firstName) {
+      formIsValid = false;
+      newErrors["first_name"] = "You must enter your first name";
+    }
 
-    // if (!firstName) {
-    //   formIsValid = false;
-    //   newErrors["last_name"] = "You must your last name";
-    // }
+    if (!lastName) {
+      formIsValid = false;
+      newErrors["last_name"] = "You must your last name";
+    }
 
-    // if (!formIsValid) {
-    //   setErrors(newErrors);
-    // }
+    if (!formIsValid) {
+      setErrors(newErrors);
+    }
   };
 
   return (
@@ -68,7 +81,13 @@ export default function SignupPage() {
       <AuthForm
         handleSubmit={handleSubmit}
         signupError={signupError}
-        // errors={errors}
+        handleChange={handleChange}
+        signErrors={errors}
+        submitted={submitted}
+        email={email}
+        password={password}
+        lastName={lastName}
+        firstName={firstName}
       />
     </>
   );

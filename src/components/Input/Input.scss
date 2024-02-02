@@ -25,5 +25,9 @@
     &:focus {
       border: 1px solid #1177a7;
     }
+
+    &--invalid {
+      border: 0.09375rem solid red;
+    }
   }
 }
