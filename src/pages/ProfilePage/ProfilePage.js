@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import NavigationCard from "../../components/NavigationCard/NavigationCard";
 import journalIcon from "../../assets/icons/journal.png";
 import LogoutDropdwon from "../../components/LogoutDropdown/LogoutDropdown";
+import apiRequests from "../../scripts/utils/api-requests";
 
 export default function ProfilePage({ mood, setMood, cardsArray }) {
   const [greeting, setGreeting] = useState("");
@@ -31,14 +32,15 @@ export default function ProfilePage({ mood, setMood, cardsArray }) {
   }, []);
 
   const login = async () => {
-    const token = sessionStorage.getItem("token");
+    // const token = sessionStorage.getItem("token");
 
     try {
-      const response = await axios.get("http://localhost:8000/my-profile", {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      });
+      // const response = await axios.get("http://localhost:8000/my-profile", {
+      //   headers: {
+      //     Authorization: "Bearer " + token,
+      //   },
+      // });
+      const response = await apiRequests("http://localhost:8000/my-profile");
 
       setData(response.data);
     } catch (error) {

@@ -16,7 +16,6 @@ export default function SearchBar({
         .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
       handleSearch(filteredJournals);
-      console.log("Filtered Journals", filteredJournals);
     } else {
       console.error("No journals available yet.");
     }

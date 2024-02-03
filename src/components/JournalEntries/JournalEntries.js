@@ -7,6 +7,7 @@ import deleteIcon from "../../assets/icons/trash.svg";
 import getAllJournals from "../../scripts/utils/get-all-journals";
 import editDarkPurple from "../../assets/icons/edit-2 (3).svg";
 import editMediumBlue from "../../assets/icons/edit-2 (4).svg";
+import apiRequests from "../../scripts/utils/api-requests";
 
 export default function JournalEntries({ setJournals, sortedJournals }) {
   const [expand, setExpanded] = useState(false);
@@ -25,7 +26,13 @@ export default function JournalEntries({ setJournals, sortedJournals }) {
 
   const handleDelete = async (journalId) => {
     try {
-      await deleteJournalById(journalId);
+      // await deleteJournalById(journalId);
+      await apiRequests(
+        `http://localhost:8000/journal/${journalId}`,
+        null,
+        null,
+        "delete"
+      );
       const updatedJournals = await getAllJournals();
       setJournals(updatedJournals);
       closeModal();

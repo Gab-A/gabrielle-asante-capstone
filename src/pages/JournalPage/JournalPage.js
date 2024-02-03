@@ -5,6 +5,7 @@ import axios from "axios";
 import getJournalById from "../../scripts/utils/get-single-journal";
 import thoughtIcon from "../../assets/icons/thought.png";
 import arrowLeft from "../../assets/icons/arrow-left.svg";
+import apiRequests from "../../scripts/utils/api-requests";
 
 export default function JournalPage({ mood, type, cardsArray, setMood }) {
   const [isError, setIsError] = useState(false);
@@ -28,7 +29,6 @@ export default function JournalPage({ mood, type, cardsArray, setMood }) {
           setTitle(response.title);
           setContent(response.content);
           setMood(response.mood);
-          console.log(response.mood);
         }
       } catch (error) {
         console.error(`Error fetching journal`);
@@ -71,14 +71,24 @@ export default function JournalPage({ mood, type, cardsArray, setMood }) {
 
     if (type === "new") {
       try {
-        await axios.post("http://localhost:8000/journal", newJournal);
+        await apiRequests(
+          "http://localhost:8000/journal",
+          null,
+          newJournal,
+          "post"
+        );
         setIsError(false);
       } catch (error) {
         setIsError(true);
       }
     } else {
       try {
-        axios.patch(`http://localhost:8000/journal/${journalId}`, newJournal);
+        await apiRequests(
+          `http://localhost:8000/journal/${journalId}`,
+          null,
+          newJournal,
+          "patch"
+        );
         setIsError(false);
       } catch (error) {
         setIsError(true);
@@ -120,7 +130,6 @@ export default function JournalPage({ mood, type, cardsArray, setMood }) {
   };
 
   const getEmoji = () => {
-    console.log(cardsArray);
     const moodEmoji = cardsArray?.find((card) => card.title === mood);
     return moodEmoji?.image;
   };
