@@ -51,6 +51,7 @@ export default function AuthForm({
               <>
                 <Input
                   type="text"
+                  label="First Name"
                   name="first_name"
                   placeholder="First Name"
                   onChange={handleChange}
@@ -65,7 +66,7 @@ export default function AuthForm({
                 <Input
                   type="text"
                   name="last_name"
-                  label="Last name"
+                  label="Last Name"
                   placeholder="Last Name"
                   onChange={handleChange}
                   value={lastName}
