@@ -1,12 +1,14 @@
 import "./LogoutDropdown.scss";
 import logoutArrow from "../../assets/icons/arrow-out.svg";
 
-export default function LogoutDropdwon({ logout }) {
+export default function LogoutDropdwon({ logout, cancelLogout }) {
   return (
     <div className="profile__menu-wrapper">
       <ul className="profile__menu-list">
         <li className="profile__menu-item">
-          <button className="profile__cancel-button">Cancel</button>
+          <button className="profile__cancel-button" onClick={cancelLogout}>
+            Cancel
+          </button>
         </li>
         <div className="profile__menu-logout-container">
           <li className="profile__menu-item">

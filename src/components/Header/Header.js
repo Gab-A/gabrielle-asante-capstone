@@ -52,16 +52,6 @@ export default function Header() {
               >
                 Tracker
               </Link>
-              <Link
-                to="/meditation"
-                className={`header-nav__link ${
-                  handleActiveClick("/meditation")
-                    ? "header-nav__link--active"
-                    : ""
-                }`}
-              >
-                Meditation
-              </Link>
             </ul>
           </div>
         </nav>

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import "./JournalPage.scss";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
 import getJournalById from "../../scripts/utils/get-single-journal";
 import thoughtIcon from "../../assets/icons/thought.png";
 import arrowLeft from "../../assets/icons/arrow-left.svg";
 import apiRequests from "../../scripts/utils/api-requests";
+import Lottie from "lottie-react";
+import loadingAnimation from "../../assets/animations/loading.json";
 
 export default function JournalPage({ mood, type, cardsArray, setMood }) {
   const [isError, setIsError] = useState(false);
@@ -13,6 +14,7 @@ export default function JournalPage({ mood, type, cardsArray, setMood }) {
   const [content, setContent] = useState("");
   const [submit, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -122,6 +124,7 @@ export default function JournalPage({ mood, type, cardsArray, setMood }) {
       setMessage(
         "Journal entry uploaded. Redirecting to your journal entries page "
       );
+      setLoading(true);
       setTimeout(() => {
         navigate("/journal-entries");
       }, 1500);
@@ -227,7 +230,15 @@ export default function JournalPage({ mood, type, cardsArray, setMood }) {
               Failed to upload your journal entry.
             </p>
           )}
-          <p className="journal__redirect-message">{message}</p>
+          <div className="journal__redirect-container">
+            <p className="journal__redirect-message">{message}</p>
+            {loading && (
+              <Lottie
+                animationData={loadingAnimation}
+                className="journal__loading"
+              />
+            )}
+          </div>
           <div className="journal__button-container">
             <button className="journal__button">Save</button>
           </div>

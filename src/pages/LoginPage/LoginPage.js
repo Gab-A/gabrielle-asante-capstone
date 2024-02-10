@@ -1,9 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { useEffect } from "react";
-// import lockIcon from "../../assets/icons/lock.svg";
-// import mailIcon from "../../assets/icons/mail.svg";
 import AuthForm from "../../components/AuthForm/AuthForm";
 
 export default function LoginPage() {
@@ -41,8 +38,6 @@ export default function LoginPage() {
       console.error(error);
       setLoginError(error.response.data);
     }
-
-    // setErrors({});
 
     let formIsValid = true;
 

@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
 import MoodCalender from "../../components/MoodCalender/MoodCalender";
 import "./TrackerPage.scss";
-import calenderImage from "../../assets/icons/calender2.png";
+import calenderImage from "../../assets/icons/calender.png";
 
 export default function TrackerPage({ cardsArray }) {
   return (

@@ -2,7 +2,6 @@ import "./BreathingPage.scss";
 import Lottie from "lottie-react";
 import breathingAnimation from "../../assets/animations/breathing.json";
 import { useNavigate } from "react-router-dom";
-import breathingAnimation2 from "../../assets/animations/breathing2.json";
 
 export default function BreathingPage() {
   const navigate = useNavigate();

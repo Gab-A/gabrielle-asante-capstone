@@ -7,7 +7,6 @@ import ProfilePage from "../src/pages/ProfilePage/ProfilePage";
 import JournalPage from "../src/pages/JournalPage/JournalPage";
 import JournalEntriesPage from "./pages/JournalEntriesPage/JournalEntriesPage";
 import TrackerPage from "../src/pages/TrackerPage/TrackerPage";
-import MeditationPage from "./pages/MeditationPage/MeditationPage";
 import SignupPage from "../src/pages/SignupPage/SignupPage";
 import LoginPage from "../src/pages/LoginPage/LoginPage";
 import { useState, useEffect } from "react";
@@ -142,7 +141,6 @@ function App() {
             path="/tracker"
             element={<TrackerPage cardsArray={cardsArray} />}
           />
-          <Route path="/meditation" element={<MeditationPage />} />
         </Routes>
         <BottomNavBar />
       </BrowserRouter>

@@ -2,7 +2,7 @@ import "./MoodCalender.scss";
 import * as React from "react";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DateCalendar, Day } from "@mui/x-date-pickers/DateCalendar";
+import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import getMoods from "../../scripts/utils/get-mood";
 import { useState, useEffect } from "react";
 import dayjs from "dayjs";
@@ -27,8 +27,6 @@ export default function Calender({ cardsArray }) {
     };
     getAndSetMoods();
   }, []);
-
-  // console.log(moods.created_at);
 
   const handleDateChange = (newDate) => {
     setSelectedDate(newDate);

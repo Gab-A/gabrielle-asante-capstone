@@ -3,7 +3,6 @@ import homeIcon from "../../assets/icons/home.svg";
 import "./BottomNavBar.scss";
 import journalEntriesImage from "../../assets/icons/journal-entries.png";
 import calenderIcon from "../../assets/icons/calender.png";
-import meditationLogo from "../../assets/icons/meditation.png";
 
 export default function BottomNavBar() {
   const location = useLocation();
@@ -58,18 +57,6 @@ export default function BottomNavBar() {
           >
             <img
               src={calenderIcon}
-              alt="tracker icon"
-              className="bottom-nav__icon"
-            />
-          </Link>
-          <Link
-            to="/meditation"
-            className={`bottom-nav__link  ${
-              handleActiveClick("/meditation") ? "bottom-nav__link--active" : ""
-            }`}
-          >
-            <img
-              src={meditationLogo}
               alt="tracker icon"
               className="bottom-nav__icon"
             />

@@ -4,10 +4,8 @@ export default function Card({
   image,
   title,
   isSelected,
-  onClick,
   handleCardClick,
   setMood,
-  mood,
 }) {
   const handleMoodSelection = () => {
     setMood(title);

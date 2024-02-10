@@ -1,7 +1,5 @@
 import Input from "../Input/Input";
-import brandLogo from "../../assets/logo/vibe-scribe-3.svg";
-import mailIcon from "../../assets/icons/mail.svg";
-import lockIcon from "../../assets/icons/lock.svg";
+import brandLogo from "../../assets/logo/vibe-scribe-logo.svg";
 import { Link, useLocation } from "react-router-dom";
 import "./AuthForm.scss";
 
@@ -87,7 +85,6 @@ export default function AuthForm({
               onChange={handleChange}
               value={email}
               submitted={submitted}
-              // mailIcon={mailIcon}
             />
             {isLoginPage
               ? errors && (
@@ -105,7 +102,6 @@ export default function AuthForm({
               onChange={handleChange}
               value={password}
               submitted={submitted}
-              // image={lockIcon}
             />
             {isLoginPage
               ? errors && (

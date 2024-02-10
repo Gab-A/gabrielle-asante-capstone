@@ -30,7 +30,6 @@
 
   &__logo {
     width: 15rem;
-    // height: 41rem;
     margin: 0 auto;
 
     @include tablet {
@@ -155,8 +154,6 @@
   &__button {
     @include buttonFont;
     margin-top: 1rem;
-    // background-color: #1358db;
-    // border: 1px solid #1358db;
     background-color: $blue;
     border: 1px solid $blue;
     border-radius: 2rem;

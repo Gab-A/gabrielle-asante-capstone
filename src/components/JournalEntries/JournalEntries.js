@@ -1,12 +1,11 @@
 import "./JournalEntries.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import deleteJournalById from "../../scripts/utils/delete-journal";
 import JournalEntriesModal from "../../components/JournalEntriesModal/JournalEntriesModal";
-import deleteIcon from "../../assets/icons/trash.svg";
+import trashIcon from "../../assets/icons/trash.svg";
 import getAllJournals from "../../scripts/utils/get-all-journals";
-import editDarkPurple from "../../assets/icons/edit-2 (3).svg";
-import editMediumBlue from "../../assets/icons/edit-2 (4).svg";
+import editDarkPurple from "../../assets/icons/edit-purple.svg";
+import editMediumBlue from "../../assets/icons/edit-blue.svg";
 import apiRequests from "../../scripts/utils/api-requests";
 
 export default function JournalEntries({ setJournals, sortedJournals }) {
@@ -26,7 +25,6 @@ export default function JournalEntries({ setJournals, sortedJournals }) {
 
   const handleDelete = async (journalId) => {
     try {
-      // await deleteJournalById(journalId);
       await apiRequests(
         `http://localhost:8000/journal/${journalId}`,
         null,
@@ -87,7 +85,7 @@ export default function JournalEntries({ setJournals, sortedJournals }) {
                   )}
                 </Link>
                 <img
-                  src={deleteIcon}
+                  src={trashIcon}
                   alt="delete icon"
                   className="journal-entries__delete"
                   onClick={() => openModal(journal)}

@@ -2,9 +2,6 @@
 @use "../../styles/partials/variables" as *;
 
 .journal-entries {
-  //   &__search-wrapper {
-  //     position: relative
-  //   }
   &__search {
     &:focus {
       outline: 1px solid $grey;

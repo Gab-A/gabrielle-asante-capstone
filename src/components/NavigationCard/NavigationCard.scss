@@ -7,12 +7,13 @@
       margin-top: 2rem;
       @include flexCenter(row);
       gap: 2rem;
+      margin-bottom: 1.45rem;
     }
 
     @include desktop {
       gap: 4rem;
       padding-left: 4rem;
-      margin: 5rem 0rem;
+      margin: 3rem 0rem;
     }
   }
 
@@ -21,7 +22,6 @@
       @include flexCenter(column);
       align-items: stretch;
       gap: 2rem;
-      // height: 25.2rem;
     }
 
     @include desktop {
@@ -114,11 +114,10 @@
 
     @include tablet {
       font-size: 1.25rem;
+      margin-top: -0.8rem;
     }
 
     &--active {
-      // box-shadow: none;
-      // transform: translateY(0.375rem);
       transform: translateY(0.25rem);
     }
 

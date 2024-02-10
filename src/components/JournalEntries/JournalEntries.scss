@@ -14,7 +14,7 @@
       column-gap: 2rem;
       row-gap: 1rem;
       margin: 0rem 1.5rem 1rem 1.5rem;
-      grid-template-rows: auto; /* Set explicit rows */
+      grid-template-rows: auto;
     }
 
     @include desktop {
@@ -119,7 +119,6 @@
 
     @include tablet {
       font-size: 1.15rem;
-      // height: auto;
     }
   }
 

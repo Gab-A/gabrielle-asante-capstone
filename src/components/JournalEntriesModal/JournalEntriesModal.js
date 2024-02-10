@@ -33,7 +33,6 @@ export default function JournalEntriesModal({
         <p className="modal__confirmation-subheading">
           You will not be able to undo this action.
         </p>
-        {/* <div className="modal__buttons"> */}
         <button onClick={handleJournalDelete} className="modal__delete-button">
           Delete this entry
         </button>
@@ -41,8 +40,6 @@ export default function JournalEntriesModal({
           No, I change my mind
         </button>
       </div>
-      {/* </div> */}
-      {/* <button onClick={onRequestClose}>Close</button> */}
     </ReactModal>
   );
 }

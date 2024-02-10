@@ -25,7 +25,6 @@
     font-weight: 500;
 
     &--focused {
-      // transform: translate3d(-39.8px, -20px, 0);
       transform: translate3d(-2px, -20px, 0);
       font-size: 12px;
 
@@ -35,7 +34,6 @@
     }
 
     &--focused-email {
-      // transform: translate3d(-25px, -20px, 0);
       transform: translate3d(-5px, -20px, 0);
 
       @include tablet {

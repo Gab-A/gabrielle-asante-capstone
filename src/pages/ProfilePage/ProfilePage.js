@@ -3,7 +3,6 @@ import "./ProfilePage.scss";
 import { useState, useEffect } from "react";
 import QuotesCarousel from "../../components/QuotesCarousel/QuotesCarousel";
 import calenderIcon from "../../assets/icons/calender.png";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import NavigationCard from "../../components/NavigationCard/NavigationCard";
 import journalIcon from "../../assets/icons/journal.png";
@@ -17,6 +16,7 @@ export default function ProfilePage({ mood, setMood, cardsArray }) {
   const [selectedCardIndex, setSelectedCardIndex] = useState(null);
   const [data, setData] = useState(null);
   const [isLogoutDropdown, setIsLogoutDropdown] = useState(false);
+  const [loggingOut, setLoggingOut] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,14 +32,7 @@ export default function ProfilePage({ mood, setMood, cardsArray }) {
   }, []);
 
   const login = async () => {
-    // const token = sessionStorage.getItem("token");
-
     try {
-      // const response = await axios.get("http://localhost:8000/my-profile", {
-      //   headers: {
-      //     Authorization: "Bearer " + token,
-      //   },
-      // });
       const response = await apiRequests("http://localhost:8000/my-profile");
 
       setData(response.data);
@@ -55,8 +48,14 @@ export default function ProfilePage({ mood, setMood, cardsArray }) {
   }, []);
 
   const logout = () => {
+    setLoggingOut(true);
     sessionStorage.removeItem("token");
     navigate("/login");
+  };
+
+  const cancelLogout = () => {
+    setLoggingOut(false);
+    setIsLogoutDropdown(false);
   };
 
   if (failedAuth) {
@@ -87,7 +86,9 @@ export default function ProfilePage({ mood, setMood, cardsArray }) {
               {data.first_name[0]}
               {data.last_name[0]}
             </div>
-            {isLogoutDropdown ? <LogoutDropdwon logout={logout} /> : null}
+            {isLogoutDropdown ? (
+              <LogoutDropdwon logout={logout} cancelLogout={cancelLogout} />
+            ) : null}
           </div>
         </div>
         <CardList

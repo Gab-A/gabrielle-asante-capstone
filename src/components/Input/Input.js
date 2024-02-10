@@ -1,6 +1,4 @@
 import "./Input.scss";
-import mailIcon from "../../assets/icons/mail.svg";
-import lockIcon from "../../assets/icons/lock.svg";
 import { useState } from "react";
 
 export default function Input({

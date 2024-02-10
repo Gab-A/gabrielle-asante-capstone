@@ -33,15 +33,6 @@ export default function CardList({
             />
           ))}
         </div>
-        {/* {showThoughtsDiv && (
-          <NavigationCard
-            title="Journaling"
-            image={journalIcon}
-            description="Giving you the space and time to write your vibe!"
-            showButton={true}
-            showImage={false}
-          />
-        )} */}
       </div>
     </section>
   );
