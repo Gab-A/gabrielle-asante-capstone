@@ -1,121 +1,148 @@
-# Project Title
-
-VibeScribe
-
-## How To Run This Project:
-
-- npm start
-- Go to env file on gabrielle-asante-capstone-api to get the base url.
+# <img src="./src/assets/logo/vibe-scribe-logo.svg" alt="vibeccribe" width="100" height="100" style="vertical-align:middle" /> VibeScribe
 
 ## Overview
 
-What is your app? Brief description in a couple of sentences.
+- An app that allows users to track their emotional well-being by selecting their mood, making journal entries, and reviewing their progress through a calendar.
 
-My app is a mental health app. This app will give users the space to navigate, monitor their feelings and support them with their mental wellbeing. Therefore, it will allow users to select their mood, give them the ability to journal and also track the evolution of their mental health.
+## Features
 
-### Problem
+- **Mood Selection**:
 
-Why is your app needed? Background information around any pain points or other reasons.
+  - Users can select from a variety of predefined moods.
 
-This app is needed because I believe that our mental health is an essential part of our lives. It impacts the way we think, feel and behave. Thus, having this mental health app emphasies the importance of this, as it gives users the space and ability to feel comfortable with expressing the way they feel with no judgment and brings awarenesss to the significance of mental wealth.
+- **Journal Creation and Management**:
 
-### User Profile
+  - Create, read, edit, and delete journal entries. Users can write about their daily experiences, thoughts, and feelings.
 
-Who will use your app? How will they use it? Any special considerations that your app must take into account.
+- **Search Functionality**:
 
-This app is available to anyone. It is for people who may be happy, sad, angry, unsure, stressed etc. It is an app where anybody can go to to navigate and express their feelings/emotions.
+  - Easily search for specific journal entries by keywords, making it simple to revisit past thoughts.
 
-### Features
+- **Mood Tracking Calendar**:
 
-List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
+  - Users can track their mood daily and see their mood patterns by using a calender.
 
-- Homepage - The homepage will have a selection of cards with different moods on it. Also, have to ensure that users can only choose one card selection and not multiple. Within the homepage, there will be a swiper of inspirational quotes.
-- Journaling/Diary Functionality - Allowing users to post their content/description, title and having the timestamp attached to it.
-- Implement a calender feature so users can track the evolution of their mental health, so like a timeline. Therefore, users' selections of moods needs to be stored in the database so it can be tracked and they can see their progress.
+- **Responsive Design**:
 
-## Implementation
+  - Fully responsive layout that works seamlessly on mobile, tablet, and desktop devices.
 
-### Tech Stack
+- **User Authentication**:
 
-List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
+  - Users can create accounts and log in securely to keep their journal entries private.
 
-- Create React App.
-- Express & Node.js.
-- Knex.js.
-- Swiper.js.
-- MUI React Date Calender.
+## Tech Stack
 
-### APIs
+- **Frontend:** HTML, CSS, SASS, BEM, JavaScript, React, MUI, Swiper.
+- **Backend:** Node.js, Express, MySQL, Knex.js.
 
-List any external sources of data that will be used in your app.
+## Screenshots
 
-Making my own API for inspirational/motivational quotes.
+| Landing Page                                     | Breathing Page                                   |
+| ------------------------------------------------ | ------------------------------------------------ |
+| ![Landing](./src/assets/images/landingpage.jpeg) | ![Breathing](./src/assets/images/breathing.jpeg) |
 
-### Sitemap
+| Signup Page                                | Login Page                               |
+| ------------------------------------------ | ---------------------------------------- |
+| ![Signup](./src/assets/images/signup.jpeg) | ![Login](./src/assets/images/login.jpeg) |
 
-List the pages of your app with brief descriptions. You can show this visually, or write it out.
+| Home Page 1                                       | Home Page 2                                            | Journal Page 1                                          |
+| ------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------- |
+| ![Home Page 1](./src/assets/images/homepage.jpeg) | ![Home Page 2](<./src/assets/images/homepage(2).jpeg>) | ![Journal Page 1](./src/assets/images/journalpage.jpeg) |
 
-Home Page:
+| Journal Page 2                                               | Journal Entry Page                                            | Tracker Page                                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------- | ------------------------------------------------ |
+| ![Journal Page 2](<./src/assets/images/journalpage(2).jpeg>) | ![JournalEntryPage](./src/assets/images/journal-entries.jpeg) | ![Tracker Page](./src/assets/images/tracker.jpg) |
 
-- The home page, will welcome the user.
-- Within the home page, there will be various card mood selections.
-- Also, there will be a journaling card section. So, that when the user clicks on the button, it navigates them to the journaling page.
-- Also have within the homepage, there will be a swiper of inspirational quotes.
+## Sitemap
 
-Journaling/Diary Page:
+### Landing Page (`/`) - Mobile Only
 
-- Have the journaling/diary page. This will compose of a timestamp and a field for the user's title, content. This gives users the opportunity to post whatever they want.
+- The landing page is displayed exclusively on mobile. Users on tablet and desktop devices are taken directly to the Login Page.
+- Features the VibeScribe logo, which is shown for 2 seconds.
 
-Calender Tracker:
+### Breathing Page (`/breathing`) - Mobile Only
 
-- Will have the calender tracker, where users can see the evolution of their mental health and see how their moods have been like previosly and how it has progressed.
+- After 2 seconds, users transition to the Breathing Page, where users can engage with a breathing circle to promote relaxation.
+- Following the Breathing Page, users are directed to the Login Page for authentication.
+- Users on tablet and desktop devices are taken directly to the Login Page.
 
-### Mockups
+### Login Page (`/login`)
 
-Provide visuals of your app's screens. You can use tools like Figma or pictures of hand-drawn sketches.
+- Allows users to login with username and password.
 
-![Alt text](src/assets/images/homepage.jpg)
-![Alt text](src/assets/images/journal.jpg)
-![Alt text](src/assets/images/mood-tracker.jpg)
+### Signup Page(`/singup`)
 
-### Data
+- Allows users to sign up by providing their first name, last name, email, and password.
 
-Describe your data and the relationships between them. You can show this visually using diagrams, or write it out.
+### Home/Profile Page (`/profile`)
 
-- Being able to store user's moods on a database so they can see the evolution/timeline.
-- Being able to store user's jounral content, title and the timestamp in a database.
-- API for inspirational quotes.
+- The **Profile Page** functions as the **Home Page** of the app.
+- Mood Selection: Users can select from various moods.
+- Journal Entry Call To Action Card: A call to action card which prompts users to make a journal entry and takes them to the journal page. The button to create a journal is initially disabled until a mood is selected, ensuring users engage with the mood selection process first.
+- Mood Calendar Call To Action Card: Another call to action card directs users to the mood calendar. Clicking this button takes users to the tracker page, allowing them to view and track their moods over time.
+- Motivational Quotes Slider: A slider that displays one motivational quote at a time and automatically transitions to the next quote.
 
-### Endpoints
+### Journal Page(`/journal/new`)
 
-List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
+- Where users can make a new journal entry by providing both a title and content.
 
-- GET : need to get the information for the moods in the database, and from the journal for calender.
-- POST : so that users can post into their journal.
-- PUT : so that users can edit their journal.
+### Journal Edit Page(`/journal/edit/${journalId}`)
 
-### Auth
+- Where users can edit their journal entry (specifically the title and the content).
 
-Does your project include any login or user profile functionality? If so, describe how authentication/authorization will be implemented.
+### Journal Entries Page(`/journal-entries`)
 
-Would like to use authentication. It is apart of my nice to haves.
+- This page displays all the user’s journal entries.
+- Users can view, search, edit, or delete existing notes from this page.
+- Each journal entry shows the title, content and date.
 
-## Roadmap
+### Tracker Page (`/tracker`):
 
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
+- The Tracker Page features a calendar that allows users to check their moods on different days.
+- Each day displays the corresponding mood along with the time of the entry, enabling users to track their emotional journey.
 
-- Look into the nice to have breathe in/out functionality - Monday 13th November.
-- Home Page - 14th November-16th November.
-- Journal/Diary - 17th November-20th November.
-- Calender/Tracking - 20th November -24th November.
-- Review - 25th-26th November.
+## API
 
-## Nice-to-haves
+- Built my own API for motivational quotes.
+- The API delivers a collection of motivational quotes, which serves as a source of inspiration and encouragement for users.
 
-Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing.
+## Endpoints
 
-- When the app opens up having a breathe in and out functionality, which will need to use a combination of setTimeout, state and animations.
-- Authentication - Login & Signup Functionality.
-- Dark Mode Theme.
-- Recommended Meditation exercises.
-- Music that links to the users mood.
+| Method | Endpoint       | Description                                                                        |
+| ------ | -------------- | ---------------------------------------------------------------------------------- |
+| GET    | `/journal`     | Retrieves the list of a user’s journals.                                           |
+| GET    | `/journal/:id` | Retrieves a specific journal by ID for the user.                                   |
+| POST   | `/journal`     | Create a new journal entry with a title, content and selected mood.                |
+| PATCH  | `/journal/:id` | Update a specific journal by ID for the user (includes updated title and content). |
+| DELETE | `/journal/:id` | Delete a specific journal by ID for the user.                                      |
+
+| Method | Endpoint  | Description           |
+| ------ | --------- | --------------------- |
+| GET    | `/quotes` | Retrieves all quotes. |
+
+## Data
+
+![data](./src/assets/images/data.jpg)
+
+## Authentication
+
+- This app uses basic authentication.
+- Users must provide a username and password to log in.
+- Users can sign up for a new account.
+
+## Developer Installation Guide
+
+- Log in to MySQL: `mysql -u root -p`, then type in your password when prompted.
+
+- Server side:
+
+  - Run `npm install` to install any dependencies
+  - Create a local `.env` file with the necessary environment variables. Refer to the `env.sample` file.
+  - Apply the latest migrations to your database: `npx knex migrate:latest`.
+  - Populate the database table with data: `npx knex seed:run`
+  - Launch the server using `npm start`.
+
+- Client side:
+  - Run `npm install` to install any dependencies
+  - Create a local `.env` file with the necessary environment variables see `env.sample` file.
+  - To view the React app in your browser, run `npm start`.
