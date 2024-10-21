@@ -1,4 +1,7 @@
-# <img src="./src/assets/logo/vibe-scribe-logo.svg" alt="vibeccribe" width="100" height="100" style="vertical-align:middle" /> VibeScribe
+<div style="display: flex; align-items: center;">
+    <img src="./src/assets/logo/vibe-scribe-logo.svg" alt="vibescribe" width="100" height="100" />
+    <h1 style="margin-left: 0.625rem;">VibeScribe</h1>
+</div>
 
 ## Overview
 
@@ -41,34 +44,34 @@
 | ------------------------------------------------ | ------------------------------------------------ |
 | ![Landing](./src/assets/images/landingpage.jpeg) | ![Breathing](./src/assets/images/breathing.jpeg) |
 
-| Signup Page                                | Login Page                               |
-| ------------------------------------------ | ---------------------------------------- |
-| ![Signup](./src/assets/images/signup.jpeg) | ![Login](./src/assets/images/login.jpeg) |
+| Login Page                                | Signup Page                               |
+| ----------------------------------------- | ----------------------------------------- |
+| ![Signup](./src/assets/images/login.jpeg) | ![Login](./src/assets/images/signup.jpeg) |
 
-| Home Page 1                                       | Home Page 2                                            | Journal Page 1                                          |
-| ------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------- |
-| ![Home Page 1](./src/assets/images/homepage.jpeg) | ![Home Page 2](<./src/assets/images/homepage(2).jpeg>) | ![Journal Page 1](./src/assets/images/journalpage.jpeg) |
+| Home Page                                       | Home Page (Cont)                                          | Journal Page                                          |
+| ----------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------- |
+| ![Home Page](./src/assets/images/homepage.jpeg) | ![Home Page Cont](<./src/assets/images/homepage(2).jpeg>) | ![Journal Page](./src/assets/images/journalpage.jpeg) |
 
-| Journal Page 2                                               | Journal Entry Page                                            | Tracker Page                                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------- | ------------------------------------------------ |
-| ![Journal Page 2](<./src/assets/images/journalpage(2).jpeg>) | ![JournalEntryPage](./src/assets/images/journal-entries.jpeg) | ![Tracker Page](./src/assets/images/tracker.jpg) |
+| Journal Page (Cont)                                             | Journal Entry Page                                            | Tracker Page                                     |
+| --------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------ |
+| ![Journal Page Cont](<./src/assets/images/journalpage(2).jpeg>) | ![JournalEntryPage](./src/assets/images/journal-entries.jpeg) | ![Tracker Page](./src/assets/images/tracker.jpg) |
 
 ## Sitemap
 
 ### Landing Page (`/`) - Mobile Only
 
 - The landing page is displayed exclusively on mobile. Users on tablet and desktop devices are taken directly to the Login Page.
-- Features the VibeScribe logo, which is shown for 2 seconds.
+- Features the VibeScribe logo, which is shown for two seconds.
 
 ### Breathing Page (`/breathing`) - Mobile Only
 
-- After 2 seconds, users transition to the Breathing Page, where users can engage with a breathing circle to promote relaxation.
+- After two seconds, users transition to the Breathing Page, where users can engage with a breathing circle to promote relaxation.
 - Following the Breathing Page, users are directed to the Login Page for authentication.
 - Users on tablet and desktop devices are taken directly to the Login Page.
 
 ### Login Page (`/login`)
 
-- Allows users to login with username and password.
+- Allows users to log in by providing their email and password.
 
 ### Signup Page(`/singup`)
 
@@ -76,25 +79,25 @@
 
 ### Home/Profile Page (`/profile`)
 
-- The **Profile Page** functions as the **Home Page** of the app.
+- **The Profile Page functions as the Home Page of the app**.
 - Mood Selection: Users can select from various moods.
-- Journal Entry Call To Action Card: A call to action card which prompts users to make a journal entry and takes them to the journal page. The button to create a journal is initially disabled until a mood is selected, ensuring users engage with the mood selection process first.
+- Journal Entry Call To Action Card: A call to action card which directs users to the journal page. The button to create a journal is initially disabled until a mood is selected, ensuring users engage with the mood selection process first.
 - Mood Calendar Call To Action Card: Another call to action card directs users to the mood calendar. Clicking this button takes users to the tracker page, allowing them to view and track their moods over time.
 - Motivational Quotes Slider: A slider that displays one motivational quote at a time and automatically transitions to the next quote.
 
-### Journal Page(`/journal/new`)
+### Journal Page (`/journal/new`)
 
 - Where users can make a new journal entry by providing both a title and content.
 
-### Journal Edit Page(`/journal/edit/${journalId}`)
-
-- Where users can edit their journal entry (specifically the title and the content).
-
-### Journal Entries Page(`/journal-entries`)
+### Journal Entries Page (`/journal-entries`)
 
 - This page displays all the user’s journal entries.
-- Users can view, search, edit, or delete existing notes from this page.
+- Users can view, search, edit, or delete existing journals from this page.
 - Each journal entry shows the title, content and date.
+
+### Journal Edit Page (`/journal/edit/${journalId}`)
+
+- Where users can edit their journal entry (specifically the title and the content).
 
 ### Tracker Page (`/tracker`):
 
@@ -127,7 +130,7 @@
 ## Authentication
 
 - This app uses basic authentication.
-- Users must provide a username and password to log in.
+- Users must provide their email and password to log in.
 - Users can sign up for a new account.
 
 ## Developer Installation Guide
@@ -139,7 +142,7 @@
   - Run `npm install` to install any dependencies
   - Create a local `.env` file with the necessary environment variables. Refer to the `env.sample` file.
   - Apply the latest migrations to your database: `npx knex migrate:latest`.
-  - Populate the database table with data: `npx knex seed:run`
+  - Populate the database table with sample data: `npx knex seed:run`
   - Launch the server using `npm start`.
 
 - Client side:
