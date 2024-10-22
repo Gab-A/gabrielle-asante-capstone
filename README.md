@@ -1,4 +1,7 @@
-# <img src="./src/assets/logo/vibe-scribe-logo.svg" alt="vibescribe" width="30px" style = "margin-left: 0; margin-right:12px"/> VibeScribe
+<div style="display: flex; align-items: center;">
+    <img src="./src/assets/logo/vibe-scribe-logo.svg" alt="vibescribe" width="150px" />
+    <h1 style="margin: 0;">VibeScribe</h1>
+</div>
 
 ## Overview
 
