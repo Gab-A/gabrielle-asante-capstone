@@ -1,4 +1,4 @@
-# <img src="./src/assets/logo/vibe-scribe-logo.svg" alt="vibescribe" width="150" height="150" style="display: flex; align-items:center;"/> VibeScribe
+# <img src="./src/assets/logo/vibe-scribe-logo.svg" alt="vibescribe" width="30px" style = "margin-left: 0; margin-right:12px"/> VibeScribe
 
 ## Overview
 
