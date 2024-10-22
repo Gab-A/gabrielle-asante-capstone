@@ -1,7 +1,4 @@
-<div style="display: flex; align-items: center;">
-    <img src="./src/assets/logo/vibe-scribe-logo.svg" alt="vibescribe" width="150px" />
-    <h1 style="margin: 0;">VibeScribe</h1>
-</div>
+# VibeScribe
 
 ## Overview
 
@@ -40,21 +37,21 @@
 
 ## Screenshots
 
-| Landing Page                                     | Breathing Page                                   |
-| ------------------------------------------------ | ------------------------------------------------ |
-| ![Landing](./src/assets/images/landingpage.jpeg) | ![Breathing](./src/assets/images/breathing.jpeg) |
+| Landing Page                                          | Breathing Page                                        |
+| ----------------------------------------------------- | ----------------------------------------------------- |
+| ![Landing Page](./src/assets/images/landingpage.jpeg) | ![Breathing Page](./src/assets/images/breathing.jpeg) |
 
-| Login Page                                | Signup Page                               |
-| ----------------------------------------- | ----------------------------------------- |
-| ![Signup](./src/assets/images/login.jpeg) | ![Login](./src/assets/images/signup.jpeg) |
+| Login Page                                    | Signup Page                                     |
+| --------------------------------------------- | ----------------------------------------------- |
+| ![Login Page](./src/assets/images/login.jpeg) | ![Signup Page](./src/assets/images/signup.jpeg) |
 
 | Home Page                                       | Home Page (Cont)                                          | Journal Page                                          |
 | ----------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------- |
 | ![Home Page](./src/assets/images/homepage.jpeg) | ![Home Page Cont](<./src/assets/images/homepage(2).jpeg>) | ![Journal Page](./src/assets/images/journalpage.jpeg) |
 
-| Journal Page (Cont)                                             | Journal Entry Page                                            | Tracker Page                                     |
-| --------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------ |
-| ![Journal Page Cont](<./src/assets/images/journalpage(2).jpeg>) | ![JournalEntryPage](./src/assets/images/journal-entries.jpeg) | ![Tracker Page](./src/assets/images/tracker.jpg) |
+| Journal Page (Cont)                                             | Journal Entry Page                                              | Tracker Page                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------ |
+| ![Journal Page Cont](<./src/assets/images/journalpage(2).jpeg>) | ![Journal Entry Page](./src/assets/images/journal-entries.jpeg) | ![Tracker Page](./src/assets/images/tracker.jpg) |
 
 ## Sitemap
 
@@ -73,7 +70,7 @@
 
 - Allows users to log in by providing their email and password.
 
-### Signup Page(`/singup`)
+### Signup Page (`/singup`)
 
 - Allows users to sign up by providing their first name, last name, email, and password.
 
@@ -146,6 +143,6 @@
   - Launch the server using `npm start`.
 
 - Client side:
-  - Run `npm install` to install any dependencies
+  - Run `npm install` to install any dependencies.
   - Create a local `.env` file with the necessary environment variables see `env.sample` file.
   - To view the React app in your browser, run `npm start`.
