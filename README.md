@@ -12,7 +12,7 @@
 
 - **Journal Creation and Management**:
 
-  - Create, read, edit, and delete journal entries. Users can write about their daily experiences, thoughts, and feelings.
+  - Create, view, edit, and delete journal entries. Users can write about their daily experiences, thoughts, and feelings.
 
 - **Search Functionality**:
 
@@ -92,7 +92,7 @@
 - Users can view, search, edit, or delete existing journals from this page.
 - Each journal entry shows the title, content and date.
 
-### Journal Edit Page (`/journal/edit/${journalId}`)
+### Journal Edit Page (`/journal/edit/:journalId`)
 
 - Where users can edit their journal entry (specifically the title and the content).
 
