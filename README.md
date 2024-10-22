@@ -32,7 +32,7 @@
 
 ## Tech Stack
 
-- **Frontend:** HTML, CSS, SASS, BEM, JavaScript, React, MUI, Swiper.
+- **Frontend:** HTML, CSS, Sass, BEM, JavaScript, React, MUI, Swiper.
 - **Backend:** Node.js, Express, MySQL, Knex.js.
 
 ## Screenshots
@@ -70,7 +70,7 @@
 
 - Allows users to log in by providing their email and password.
 
-### Signup Page (`/singup`)
+### Signup Page (`/signup`)
 
 - Allows users to sign up by providing their first name, last name, email, and password.
 
@@ -137,12 +137,12 @@
 - Server side:
 
   - Run `npm install` to install any dependencies
-  - Create a local `.env` file with the necessary environment variables. Refer to the `env.sample` file.
+  - Create a local `.env` file with the necessary environment variables (.env example: `PORT=` `DB_HOST=` `DB_NAME=` `DB_USER=` `DB_PASSWORD=`)
   - Apply the latest migrations to your database: `npx knex migrate:latest`.
   - Populate the database table with sample data: `npx knex seed:run`
   - Launch the server using `npm start`.
 
 - Client side:
   - Run `npm install` to install any dependencies.
-  - Create a local `.env` file with the necessary environment variables see `env.sample` file.
+  - Create a local `.env` file with the necessary environment variables (.env example: `REACT_APP_PORT=8000`)
   - To view the React app in your browser, run `npm start`.
